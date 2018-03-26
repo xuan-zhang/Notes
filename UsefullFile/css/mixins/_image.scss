@@ -1,0 +1,16 @@
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin bg($color) {
+  background: $color;
+}
+
+@mixin bg-center($url, $parent: transparent) {
+  background: url($url) center center no-repeat $parent;
+}
+
+@mixin bg-size($url,$widht:100%,$height:100%, $parent:transparent){
+  background: url($url) center center/$widht $height no-repeat $parent;
+}
