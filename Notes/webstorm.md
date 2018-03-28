@@ -29,9 +29,16 @@
     2. 安装 `postcss-cli` : `npm install postcss-cli -g`
     3. 软件配置 `Webstorm` 中的 `External Tools`:
         `Preferences -> Tools -> External Tools`
-    4.
-
-
+    4. webstorm External Tools 配置
+      打开webstorm->File->搜索External Tools->点击‘+’，设置Edit Tool
+      Program： 找到AppData下的文件postcss.cmd
+        C:\Users\Administrator\AppData\Roaming\npm\postcss.cmd
+      Parameters：-u autoprefixer -o outputFile inputFile
+         -u autoprefixer -o $FileDir$/$FileName$  $FileDir$/$FileName$
+      Working directory：文件项目目录即可
+         $FileDir$
+    5. 运行
+     在输出文件中点击右键->autoprefixer ,即可生成新增兼容前缀的文件
 
 # Webstrom 常用快捷键与功能
 
