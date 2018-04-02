@@ -139,8 +139,13 @@
 
 使用wtai协议进行拨打电话。
 <a href="wtai://wp//mc;13764567708">拨打10086 </a>  
-<a href="wtai://wp/ap;13764567708;">将10086存储至电话簿 </a> 
+<a href="wtai://wp/ap;13764567708;">将10086存储至电话簿 </a>
 
+手机端唤醒微信
+<a href="weixin://">打开微信</a>
+
+QQ:
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=892131064&site=qq&menu=yes"></a>
 
 移动web页面自动探测电话号码
 <meta name="format-detection" content="telephone=no">

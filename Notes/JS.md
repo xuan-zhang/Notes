@@ -36,7 +36,7 @@
 #### 参数    
 1. async: ajax请求是否是异步的,  `async: true` 默认值, 表示异步,   `async: false` 同步.  
 2. 多个ajax请求, 取消异步方法  
-  > 后执行的 ajax 放在前一个 ajax 完成后的回调函数中执行.  
+  > 后执行的 ajax 放在前一个 ajax 完成后的回调函数中执行.
   > 将前一个 ajax 参数 async 设置成 false ` async: false`.  
 3. beforeSend(XHR): 在发关之前执行, 可在此添加 loading 效果, 在success 或 error 后将 添加内容取消.如结合 layser.js    
 #### 访问  
@@ -49,7 +49,7 @@
       url: "./data.json?m=1&k=3",
       data: {foo1:"bar1",foo2:"bar2"},
       beforeSend: function(){
-         var lodingmask = layer.load(3, {
+          lodingmask = layer.load(3, {
             shade: [0.1, '#fff'] //0.1透明度的白色背景
           });
       },
@@ -81,7 +81,7 @@
      > `$(element).outWidth();` 返回或设置元素的宽度（包括内边距、边框和外边距）, 是标签 content + padding + border 的值;    ()
      > `$(element).outHeight();` 返回或设置元素的高度（包括内边距、边框和外边距）, 是标签 content + padding + border 的值;    
 #### 2  位置    
-  > `$(element).offset();` 返回或设置 element 元素相对于整个文档的偏移量. 坐标原点是整个body的左上角, 不是 client 浏览器窗口;  
+  > `$(element).offset();` 返回或设置 element 元素相对于整个文档的偏移量. 坐标原点是整个body的左上角, 不是 client 浏览器窗口;
   > `$(element).positon();` 返回或设置 element 元素相对于父盒子的偏移位置, 坐标原点是 设置了 相对/绝对定位的交盒子, 如果没有父盒子设置定位, 效果等同于 `$(element).offset()`;  
   
 #### 3  on 事件绑定  
@@ -97,9 +97,9 @@
           throw new error('please pass a string as a id!') 
       } 
     ```
-   - contents()  
+   - contents()
        查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容    
-   - contentWindow   
+   - contentWindow
       contentWindow属性是指指定的frame或者iframe所在的window对象，在IE中iframe或者frame的contentWindow属性可以省略，但在Firefox中如果要对iframe对象进行编辑则，必须指定contentWindow属性，contentWindow属性支持所有主流浏览器。    
       
    - 在父窗口中获取iframe中的元素  
@@ -141,7 +141,7 @@
         * 解决方法3: 将iframe中元素的事件写在iframe中.
         * 解决方法4: 将事件写在 `iframe.onload = function(){}` 中
       + 使用jquery 操作 iframe 时, 可以对 iframe 中的节点进行操作, 但在进行 iframe 页面 src 变更跳转时, 要在 *服务器*  环境下, 或在 *定时器* 中也可进行跳转. 但在本地环境下, 跳转无用.
-      + iframe 中有自己的window对象, 这个window对象的 `window.parent.window` 是父级的window对象
+      + iframe 中有自己的window对象, 这个window对象的 `window.parent.window` 或 `top` 是父级的window对象
 
 ```html
   <!DOCTYPE html>
@@ -242,71 +242,6 @@
     - 注意, 当向查找到的多个节点存入对象数据时, 要使用遍历方法, 进行深度复制, 因对象是一种引用类型,否则是创建一个.
     - 存入数据的读取, 用 `$(item).data(key).value;` 或 `$(item).data(key)[value];` 方法.
     - 这与js 对象不同, 在`console.dir(item)` 中找不到对象的key值, 数据并没存在 js对象上, 而是存在jq对象上.
-```js
-  $(function () {
-    // 初始华缓存数据
-    $('.baozjing_input').each(function (index, item) {
-        $(item).data('number', {'tuoc': 0, 'neiz': 0}); // 用遍历为每一个节点创建数据  
-    });
-
-    // 减
-    $('.bzsz_l').on('click', function () {
-        var kind = $('.tablist1_on').attr('data-class');
-        var num = $(this).siblings('.baozjing_input').val();
-        num <= 0 ? num = 0 : num--;
-        $(this).siblings('.baozjing_input').val(num);
-        $(this).siblings('.baozjing_input').data('number')[kind] = num;
-        var price = $(this).parents('.baozjin_c1').find('.baozjing_s').attr('data-' + kind);
-        calc($(this), num, price);
-    });
-
-    // 加
-    $('.bzsz_r').on('click', function () {
-        var kind = $('.tablist1_on').attr('data-class');
-        var num = $(this).siblings('.baozjing_input').val();
-        num++;
-        $(this).siblings('.baozjing_input').val(num);
-        $(this).siblings('.baozjing_input').data('number')[kind] = num;
-        var price = $(this).parents('.baozjin_c1').find('.baozjing_s').attr('data-' + kind);
-        calc($(this), num, price);
-    });
-
-    // 类更换
-    $('.tablist1_p').on('click', function () {
-        var kind = $(this).attr('data-class');
-        $('.baozjing_input').each(function (index, item) {
-            var num = $('.baozjing_input').eq(index).data('number')[kind];
-            var price = $(item).parents('.baozjin_c1').find('.baozjing_s').attr('data-' + kind);
-            $(item).val(num);
-            calc($(item), num, price);
-        });
-        $('.baozjing_s').each(function (index, item) {
-            var price = $(item).attr('data-' + kind);
-            $(item).html('$' + price);
-        });
-    });
-
-    // 计算
-    function calc($item, num, price) {
-        var str = $item.parents('.baozjing_j').find('.baozjin_t1').html();
-        var $target = $('.z-' + str);
-        var usum = 0;
-        var csum = 0;
-        $target.each(function (index, item) {
-            $(item).find('.z-price').html('$' + price);
-            $(item).find('.z-num').html(num);
-            $(item).find('.z-sum').html('$' + price * num);
-        });
-
-        $('.z-sum').each(function (index, item) {
-            usum += Number($(item).html().slice(1));
-        });
-        $('.z-usum').html(usum.toFixed(2));
-        $('.z-csum').html(usum * 0.76.toFixed(2));
-    }
-
-});
-```
 
 #### 7   jq 对象与 js 对象之间的转化  
 ```js
@@ -355,7 +290,12 @@
       // 结果
       result={name:"John",last:"Resig",location:{state:"MA",county:"China"}}  
 ```
-#### 9 $.fn 
+#### 9 js动画重复问题
+
+```js
+$(this).filter(':not(:animated)').slideDown(200);
+```
+
 
 ## 命名空间 
 ```js
