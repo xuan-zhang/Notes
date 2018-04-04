@@ -166,6 +166,3 @@
   // 在文件末尾添加
   source ~/.bash_profile
   ```
-   
-## go2shell 安装
-  
