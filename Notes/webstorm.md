@@ -1,5 +1,4 @@
-# git 命令
-
+# webStorm 使用笔记
 ## 目录
   + [在webstrom中连接github](#在webstrom中连接github)
   + [在webstrom中安装配置autoprefixer](#在webstrom中安装配置autoprefixer)
