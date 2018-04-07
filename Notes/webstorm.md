@@ -67,3 +67,9 @@
 ## 配置
 
 + `Settings > Editor > File Types` : 配置文件语法高亮，设置不校验目录如 `node_modules `
++ 配置局域网服务器环境：
+  - 设置调试模式 `Debugger`，配置端口号 `8080` , 允许外部访问；
+   ![Debugger配置](./images/debugger-setting.png)
+  - 设置部署模式 `Deployment`，添加服务器， 输入 Name, `Type` 选择 `Local or mounted folder`;设置`connention` , `upload/download project files` 服务器跟目录，`web server root URL` 服务器路径
+   ![Deployment](./images/deployment-setting.png)
++ 增加 webstrom 内存，`D:\Program Files\JetBrains\WebStorm 2017.3.3\bin` 修改里面的文件 `webstorm64.exe.vmoptions` `-Xms512m -Xmx2048m`
