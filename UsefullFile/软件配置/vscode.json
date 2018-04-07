@@ -35,6 +35,12 @@
     }
   ],
   "liveServer.settings.host": "192.168.1.102",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false
+  },
   "team.showWelcomeMessage": false,
   "material-icon-theme.showUpdateMessage": false,
   "explorer.confirmDelete": false,
