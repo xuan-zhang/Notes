@@ -27,6 +27,7 @@
     "ios >= 6",
     "android >= 4.4"
   ],
+  "scss.lint.zeroUnits": "warning",
   "liveSassCompile.settings.formats": [
     {
       "format": "compressed",
