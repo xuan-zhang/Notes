@@ -30,6 +30,7 @@
 + Vim
 + GitLen — Git supercharged
 + Git History
++ Bracket Pair Colorizer
 
 # Visual Studio
 
