@@ -6,6 +6,7 @@
 + Bootstrap 3 Snippets
 + Debugger for Chrome
 + ESLint
++ TSLint
 + fileSize
 + HTML CSS Support
 + HTML Snippets
@@ -25,6 +26,7 @@
 + Sass
 + SVG
 + View In Browser
++ browsersync
 + Vim
 + Git
 
