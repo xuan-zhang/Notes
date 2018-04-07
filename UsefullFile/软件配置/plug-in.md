@@ -28,7 +28,7 @@
 + View In Browser
 + browsersync
 + Vim
-+ Git
++ GitLen — Git supercharged
 
 # Visual Studio
 
