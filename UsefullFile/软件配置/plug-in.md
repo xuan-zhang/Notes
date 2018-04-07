@@ -29,6 +29,7 @@
 + browsersync
 + Vim
 + GitLen — Git supercharged
++ Git History
 
 # Visual Studio
 
