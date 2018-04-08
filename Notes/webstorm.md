@@ -68,6 +68,7 @@
 
 + `Settings > Editor > File Types` : 配置文件语法高亮，设置不校验目录如 `node_modules `
 + 配置局域网服务器环境：
+  - 如果这样做，会很卡，一般不用；
   - 设置调试模式 `Debugger`，配置端口号 `8080` , 允许外部访问；
    ![Debugger配置](./images/debugger-setting.png)
   - 设置部署模式 `Deployment`，添加服务器， 输入 Name, `Type` 选择 `Local or mounted folder`;设置`connention` , `upload/download project files` 服务器跟目录，`web server root URL` 服务器路径
