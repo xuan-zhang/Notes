@@ -5,7 +5,7 @@
   "autoprefixer.browsers": [
     "last 3 versions", // 支持过去3个版本
     "> 10%", // 全球使用率大于 10%
-    "ie >= 9", // 大于IE9
+    "ie >= 9", // 大于IE11
     "ie_mob >= 10", // 大于 IE_mob 10
     "ff >= 30", // 火狐大于 30
     "chrome >= 34", // 谷歌大于 34
@@ -27,6 +27,7 @@
     "ios >= 6",
     "android >= 4.4"
   ],
+  "scss.lint.zeroUnits": "warning",
   "liveSassCompile.settings.formats": [
     {
       "format": "compressed",
@@ -34,5 +35,27 @@
       "savePath": null
     }
   ],
+  "liveServer.settings.host": "192.168.1.102",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false
+  },
   "team.showWelcomeMessage": false,
+  "material-icon-theme.showUpdateMessage": false,
+  "explorer.confirmDelete": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "git.autofetch": true,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "git.enableSmartCommit": true,
 }
