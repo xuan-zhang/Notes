@@ -19,6 +19,7 @@
 + Material Icon Theme
 + Material Palenight Theme
 + Material Theme
++ Atom One Dark Theme
 + npm
 + npm Interllisense
 + Path Interllisense
