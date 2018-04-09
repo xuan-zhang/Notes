@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="type === '1'">
+        <label for="">手机号登录：</label>
+        <input type="text" placeholder="请输入手机号码。。。。" key="aaa">
+    </div>
+    <div v-else-if="type === '2'">
+        <label for="">邮箱登录：</label>
+        <input type="text" placeholder="请输入登录邮箱。。。。" key="bbb">
+    </div>
+    <div v-else-if="type === '3'">
+        <label for="">用户名登录：</label>
+        <input type="text" placeholder="请输入用户名。。。。" key="bbb">
+    </div>
+    <hr>
+    <my-com v-show="type === '2'"></my-com>
+    <hr>
+    <input type="number" v-model="type">
+    <button @click="change">改变</button>
+</div>
+<script>
+    let red = 'red';
+    Vue.component('my-com',{
+       template: `<p>这是一个模板的P标签</p>`
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            type: '1',
+            fontSize: {fontSize: '100px'},
+            base: {textAlign: 'center'},
+            ok : 'if'
+        },
+        methods: {
+            change() {
+               this.ok = 'else'
+            }
+        },
+
+    });
+
+</script>
+</body>
+</html>
