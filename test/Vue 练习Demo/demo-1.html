@@ -22,6 +22,10 @@
     <hr>
     <my-com v-show="type === '2'"></my-com>
     <hr>
+    <ul>
+        <li v-for="item of items" v-if="item%2 === 0">{{item}}</li>
+    </ul>
+    <hr>
     <input type="number" v-model="type">
     <button @click="change">改变</button>
 </div>
@@ -36,7 +40,8 @@
             type: '1',
             fontSize: {fontSize: '100px'},
             base: {textAlign: 'center'},
-            ok : 'if'
+            ok : 'if',
+            items: [1,2,3,4,5,6,7,8,9,10]
         },
         methods: {
             change() {
