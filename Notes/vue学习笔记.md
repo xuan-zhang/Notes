@@ -12,7 +12,7 @@
     - `v-for="(value,key,index) in Object`
     - 比 `v-if` 的优先级高
 4. v-bind:key : `v-for` 循环时一般都要搭配一个 `key` , 循环时是按 `key` 识别`节点VNodes`的，如果 `key` 一样，会认为这个节点已经存在了，会用原来的节点，不会再创建一个新的
-    - 在 `v-for` 循环时，绑定的 `key` 要是 `v-for` 中 `(value key index)` 中的一个，不能是其它未定义的。
+    - 在 `v-for` 循环时，绑定的 `:key` 要是 `v-for` 中 `(value key index)` 中的一个，不能是其它未定义的变量。
     - 可以是 `:key = "value.id"`, 这里绑定的 `key` 值是不能重复的，`id`是唯一的，所以常用 `id`（也可以是自定义的其它不存在的 如`:key="value.aaa"`）, 如果用 `:key="item.name"` 当循环的`item` 中有`name` 是相同的(都叫张三)，那这个 `v-for` 循环就会报错（vue会报错，数据渲染可能还会执行）
     - 也可以是`:key="index"`, 这里的 `index` 是 `0 1 2 ...` 等循环中每一项的序号，如果遍历的是数组 `:key = "index"`,向数组中增加 `push` 数据时，这里的 `index` 会递增。 
 5. v-model: 用 `v-model` 绑定一个数据之前，要先在 data中声明出来 //TODO: 后期添加方法
