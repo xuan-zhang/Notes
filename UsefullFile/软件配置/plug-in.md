@@ -41,3 +41,11 @@
 + Markdown Editor
 
 # Webstorm
+
+# Atom
++ autocomplete-paths
++ emmet
++ atom-ide-ui
++ ide-typescript
++ vim-mode
++ platformio-ide-terminal
