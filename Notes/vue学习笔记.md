@@ -3,7 +3,7 @@
 ## 基本指令
 0. v-: 值是 `单个 JavaScript 表达式`
 1. v-if: 要不要创建 DOM， 可用在 `<template>` 节点中使用，浏览器不会渲染 `<template>` 标签，将里面的内容添加到页面中，做到一次控制多个*同级*标签
-1. v-else-if: 否则, `if` `else` 之间的节点能复用的会复用，如果不想复用, 添加不同的 `key`(不是绑定`:key`，相同的`key`,也会复用)，`key` 值随意，`key` 不会在节点中显示
+1. v-else-if: 否则, `if` `else` 之间的节点能复用的会复用，如果不想复用, 添加不同的 `key`(不是绑定`:key`，相同的`key`,也会复用)
 1. v-else: 三个要 *同一级别* 连续, 如果 `v-if` 与 `v-else` 之间有其它标签，这之间的标签 *始终不显示*
 2. v-show: 要不要添加 `display: none` 属性, 不能用于 `<template>` 元素，因为 `<templete>` 是 `HTML` 的标签,浏览器是不渲染它的，要求 *标签是要渲染在页面中的，之后添加隐藏属性*
 3. v-for: 可以渲染 `Array | Object | number | string` 
@@ -12,10 +12,7 @@
     - `v-for="(value,key,index) in Object`
     - 比 `v-if` 的优先级高
 4. v-bind:key : `v-for` 循环时一般都要搭配一个 `key` , 循环时是按 `key` 识别`节点VNodes`的，如果 `key` 一样，会认为这个节点已经存在了，会用原来的节点，不会再创建一个新的
-    - 在 `v-for` 循环时，绑定的 `:key` 要是 `v-for` 中 `(value key index)` 中的一个，不能是其它未定义的变量。
-    - 可以是 `:key = "value.id"`, 这里绑定的 `key` 值是不能重复的，`id`是唯一的，所以常用 `id`（也可以是自定义的其它不存在的 如`:key="value.aaa"`，不会报错，但无用）, 如果用 `:key="item.name"` 当循环的`item` 中有`name` 是相同的(都叫张三)，那这个 `v-for` 循环就会报错（vue会报错，数据渲染可能还会执行）
-    - 也可以是`:key="index"`, 这里的 `index` 是 `0 1 2 ...` 等循环中每一项的序号，如果遍历的是数组 `:key = "index"`,向数组中增加 `push` 数据时，这里的 `index` 会递增。 
-5. v-model: 用 `v-model` 绑定一个数据之前，要先在 data中声明出来 //TODO: 后期添加方法
+5. v-model: 用 `v-model` 绑定一个数据之前，要先在 data中声明出来 
 6. v-once: 只绑定一次，后期数据再更改不再改变
 7. v-text: `text` 方式解析数据 如直接`v-text="直接写文本"` 会提示你 `直接写文本` 这个变量未定义，报错
 8. v-html： `html` 方式解析数据
@@ -24,7 +21,14 @@
     - 如`v-bind:id="variable"`  当`variable = 0` ---- `id = "0"` ； 当`variable = ""` --- `id` ; 当`variable = true` --- `id="true"` 
     - 如果绑定 `key`, key 不会在节点中显示, `key` 是 `Vue` 事先定义的
 10. v-on: `@` 绑定事件
-
+    - $event
+    - 事件修饰符: 
+    - `.stop`: `event.stopPropagation()`
+    - `.event`: `event.preventDefault()`
+    - `.capture`: 将事件定义为捕获流(默认是冒泡流)
+    - `.self`: 只点到了自己
+    - `.once`: 只触发一次
+    - `.passive`: ?
 ## Vue 的参数
 + el: 挂载对象
 + data: Object | Function Vue实例数据对象
@@ -53,3 +57,8 @@
 + `template`: 是 `HTML` 的一个标签，虽然 `IE` 未实现它，但不能用做组件名
 + 组件的声明要在调用之前，如在 `new Vue()` 代码之后 写全局注册的组件 `Vue.component()` 代码, 这里会报错说组件未注册（代码执行有个先后顺序）；
 + props: `支柱、支撑` 的意思, 组件上传递进来的数据放的位置,接口
++ is
++ 父子组件传参： `prop` 向下传递，事件向上传递 
+    - camelCase: 因为 `-` 是运算符，不能用于 JS 命名，除非 `-` 是出现在字符串中的，不能出现在变量名中（`_` 不受限制，但`_` 有特殊用处，私有变量）;
+    - 静态不用`:` , 传递的是字符串; 动态的用 `:`, 传递的是 `变量`；
+    

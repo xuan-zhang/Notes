@@ -4,53 +4,73 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/vue.js"></script>
+    <style>
+
+
+    </style>
 </head>
 <body>
 <div id="app">
-    <div v-if="type === '1'">
-        <label for="">手机号登录：</label>
-        <input type="text" placeholder="请输入手机号码。。。。" key="aaa">
-    </div>
-    <div v-else-if="type === '2'">
-        <label for="">邮箱登录：</label>
-        <input type="text" placeholder="请输入登录邮箱。。。。" key="bbb">
-    </div>
-    <div v-else-if="type === '3'">
-        <label for="">用户名登录：</label>
-        <input type="text" placeholder="请输入用户名。。。。" key="bbb">
-    </div>
-    <hr>
-    <my-com v-show="type === '2'"></my-com>
-    <hr>
     <ul>
-        <li v-for="item of items" v-if="item%2 === 0">{{item}}</li>
+        <simple-counter v-bind:todos="todos"></simple-counter>
+        <li is="simple-counter" v-bind:todos="todos"></li>
     </ul>
     <hr>
-    <input type="number" v-model="type">
-    <button @click="change">改变</button>
+    <button @click="change">改变数据</button>
 </div>
 <script>
-    let red = 'red';
-    Vue.component('my-com',{
-       template: `<p>这是一个模板的P标签</p>`
+
+    Vue.component('simple-counter', {
+        props: ['todos'],
+        template: `<ol>
+                        <li v-for="todo of todos" :key="todo.index">
+                            <p>大家好，我叫 {{todo.name}}</p>
+                            <p>我今年 {{todo.age}} 岁了</p>
+                            <p>{{todo.index}}</p>
+                        </li>
+                    </ol>`,
+        data() {
+            return {
+                counter: 0,
+            };
+        }
     });
-    var app = new Vue({
+
+    new Vue({
         el: '#app',
+        components:{
+            'three '
+        },
         data: {
-            type: '1',
-            fontSize: {fontSize: '100px'},
-            base: {textAlign: 'center'},
-            ok : 'if',
-            items: [1,2,3,4,5,6,7,8,9,10]
+            my_sex: '小明',
+            todos: [
+                {
+                    name: '小明',
+                    age: 12
+                },
+                {
+                    name: '小红',
+                    age: 14
+                },
+                {
+                    name: '小王',
+                    age: 15
+                }
+            ],
+            obj: {
+                name: '罗辑',
+                age: '230',
+                job: ['执剑人','面壁者','破壁者', '恶魔', '领袖']
+            },
+            age: 100
+
         },
         methods: {
             change() {
-               this.ok = 'else'
+                this.todos.push({name: '艾aa', age: this.age++})
             }
-        },
-
-    });
-
+        }
+    })
 </script>
 </body>
 </html>
