@@ -2,6 +2,7 @@
 
 ## 目录
   - [mongoDB的安装与启动](#mongodb的安装与启动)
+  - [mac下mongodb的安装与启动](#mac下mongodb的安装与启动)
   - [mongoDB语法](#mongodb语法)
   - [nodeJS安装与启动](#nodejs安装与启动)
 
@@ -43,6 +44,101 @@
 11. 停止 mongoDB : `> use admin  > db.shutdownServer()`
 
 --------------------
+
+### mac下mongodb的安装与启动
++ 下载 `mongodb` 安装包 [官网](https://www.mongodb.com/download-center?jmp=nav#community)  下载社区版即可
++ 将下载的压缩包进行解压，将文件移动到 `sudo mv ~/Desktop/mongodb-osx-x86_64-3.6.3  /usr/local/mongodb`;
++ 配置环境变量
+    ```
+    cd ~
+    vim .bash_profile
+    # 添加以下内容
+    
+        # mongodb path
+        export MONGO_PATH=/usr/local/mongodb
+        export PATH=$PATH:/usr/local/mongodb/bin
+        :wq
+        source .bash_profile
+    ```
++ 查看安装情况 `$ mongod --version`
++ 创建数据库目录 直接运行 `mongod` 会提示找不到数据库目录
+    ```
+    # 创建数据库安装目录
+    $ cd ~
+    $ mkdir -p /data/db
+    $ mongod --dbpath=~/data/db
+    
+    # 新建命令窗口，进行命令
+    $ mongo
+    $ db
+    $ show dbs
+    
+    # 关闭后再次进入
+    $ mongod --dbpath=./zxx/data/db
+    ```   
++ 配置--日志与配置文件 `mongod --help` 或 [配置文件参数](http://www.mongodb.org.cn/manual/188.html)
+    ```
+    $ cd ~/zxx/data
+    # 创建日志文件   如果数据库不在当前目录，在系统目录 `/usr/local/` 目录下，要为数据库日志文件添加操作权限
+    $ mkdir log
+    $ touch mongod.log
+    
+    # 创建配置文件
+    $ mkdir etc
+    $ touch mongod.conf
+    
+    # 配置文件如下文
+    
+    # 启动 -f 参数后是 配置文件 的路径
+    $ mongod -f /etc/mongod.conf
+    
+    ```
++  mongodb 关闭
+    ```
+    # 方式一 db.shutdownServer()   在 mongo shell 下 进行
+    > usr admin
+    > db.shutdownServer()
+    
+    # 方式二  命令行模式下 -- 无用
+    $ mongod -f /etc/mongod.conf --shutdown
+    
+    # 方式三 kill
+    $ ps aux | grep mongod
+    $ kill -2 
+    ```
++ `mongod.conf` 配置文件内容
+    ```
+    #数据库数据存放目录
+    dbpath=/Users/jame/zxx/data/db
+    
+    #数据库日志存放目录
+    logpath=/Users/jame/zxx/data/log/mongod.log
+    
+    #以追加的方式记录日志
+    logappend = true
+    
+    #端口号 默认为27017
+    #port=27017
+    
+    #以后台方式运行进程
+    fork=true
+    
+    #开启用户认证
+    #auth=true
+    
+    #关闭http接口，默认关闭http端口访问
+    #nohttpinterface=true
+    
+    #mongodb所绑定的ip地址
+    #bind_ip = 127.0.0.1
+    
+    #启用日志文件，默认启用
+    journal=true
+    
+    #这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false
+    #quiet=true
+    ```
+
 
 ### mongoDB语法
 
