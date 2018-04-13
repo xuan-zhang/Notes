@@ -1,5 +1,21 @@
 # mac 系统环境配置
 
+## 环境变量配置 // TODO
++ 打开 `home` 下的 `.bash_profile` 文件
++ 添加变量路径
+    ```
+    # 语法说明  # 号是注释内容
+    # export 导出路径
+    # 变量(通常大写，中间有空格要用 " ") = 路径(路径内容不加 "")
+    # $变量 表示变量的值
+    # export PATH = $PATH ：路径1 ：路径2 ： 路径3  路径之间是并列关系，PATH 中包含这些东西
+    # export PATH = $PATH: 固定写法
+    
+    # mongodb path
+    export MONGO_PATH=/usr/local/mongodb 
+    export PATH=$PATH:/usr/local/mongodb/bin
+    ```
+
 ## 安装 Xcode
 
 ## Homebrew 安装
