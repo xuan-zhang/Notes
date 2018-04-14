@@ -46,7 +46,7 @@
 --------------------
 
 ### mac下mongodb的安装与启动
-+ 下载 `mongodb` 安装包 [官网](https://www.mongodb.com/download-center?jmp=nav#community)  下载社区版即可
++ 下载 `mongodb` 安装包 [官网](https://www.mongodb.com/download-center?jmp=nav#community)  下载`社区版`即可
 + 将下载的压缩包进行解压，将文件移动到 `sudo mv ~/Desktop/mongodb-osx-x86_64-3.6.3  /usr/local/mongodb`;
 + 配置环境变量
     ```
@@ -252,8 +252,8 @@
     ```
 
 6. npm 升级： `$ npm -g install npm@next`
-7. `express`的使用
-    + 进入目标目录运行：`$ npm init`，设置入口文件这 `app.js`
-    + 安装 express ： `npm install express --save`
-    + 安装 express 应用造成器：`$ npm install express-generator -g`
-    + 应用express ： `$ express myapp --view="ejs"`
+
+### Express 使用
++ [官网](http://www.expressjs.com.cn/)
++ 使用 `express-generator` 应用造成器 [教程](http://www.expressjs.com.cn/starter/generator.html)
++ 使用 `express --help` 查看说明文档
