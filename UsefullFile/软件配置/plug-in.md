@@ -32,6 +32,7 @@
 + GitLen — Git supercharged
 + Git History
 + Bracket Pair Colorizer
++ TODO Highlight
 
 # Visual Studio
 
