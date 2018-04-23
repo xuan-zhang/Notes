@@ -644,7 +644,7 @@ screenX, screenY是相对于用户显示器的位置
   + `setTimeout` 生成时会产生 `Number` 类型的 ID, 用于 `clearTimeout` 时清除;
   + `setTimeout` 的执行时间是从当前函数的调用栈清空之后再执行, 即使设置 0s 后执行;
   + `setTimeout` 计时是函数执行到代码所在位置时开始;
-  + ```js
+   ```js
     for (var i=1; i<=5; i++) {
 
         (function(i) {
@@ -689,35 +689,7 @@ screenX, screenY是相对于用户显示器的位置
             layer.msg('您输入的拼音有误, 请重新输入!', {time: 1000})
         }
     }
-    //报考级别正则
-    function levelSpell(obj) {
-        var res = obj.value.trim();
-        var reg = /^([a-zA-Z\s\·]{2,100})$/;
-		  if(obj.value = ""){
-		  	   layer.msg('报考级别不能为空, 请重新输入!', {time: 1000})
-		  }
-
-    }
-
-    // 老师姓名
-    function teacherName(obj) {
-        var res = obj.value.trim();
-        var reg = /^([a-zA-Z\u4e00-\u9fa5\·\s]{2,40})$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('请输入真实姓名!', {time: 1000});
-//            obj.focus();
-        }
-    }
-    // 报考级别
-    $('#level-chose').change(function () {
-        var level = $(this).val();
-        $('#' + level).show().siblings().hide();
-    });
-
+   
     // 证件号
     function cardNumber(obj) {
         var res = obj.value.trim();
@@ -753,19 +725,6 @@ screenX, screenY是相对于用户显示器的位置
         }
     }
 
-//紧急联系人
- function contactNumber(obj) {
-        var res = obj.value.trim();
-        var reg = /^([a-zA-Z\u4e00-\u9fa5\·\s]{2,40})$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('请输入真实姓名!', {time: 1000})
-        }
-    }
-
     // QQ
     function qqNumber(obj) {
         var res = obj.value.trim();
@@ -791,70 +750,4 @@ screenX, screenY是相对于用户显示器的位置
             layer.msg('您输入的微信号码有误, 请重新输入!', {time: 1000})
         }
     }
-    // 目前所在学校
-    function schollName(obj) {
-        var res = obj.value.trim();
-        var reg = /^([a-zA-Z\u4e00-\u9fa5\·]{2,20})$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('请输入真实的学校!', {time: 1000});
-//            obj.focus();
-        }
-    }
-
-    // 提交
-    $('.submit').on('click', function (e) {
-        var e = e || window.event;
-        e.preventDefault();
-
-
-
-
-        var form = $('form').serializeArray();
-        for(var i = 0; i<form.length;i++){
-            if(form[0].value === ""){
-                layer.msg('您未填写姓名!',{time: 1000});
-                return;
-            }
-            if(form[2].value === ""){
-                layer.msg('您未填写拼音!',{time: 1000});
-                return;
-            }
-            if(form[3].value === ""){
-                layer.msg('您未填写指导教师!',{time: 1000});
-                return;
-            }
-            if(form[6].value === ""){
-                layer.msg('您未填写出生日期!',{time: 1000});
-                return;
-            }
-            if(form[7].value === ""){
-                layer.msg('您未填写证件号码!',{time: 1000});
-                return;
-            }
-            if(form[8].value === ""){
-                layer.msg('您未填写住址!',{time: 1000});
-                return;
-            }
-            if(form[9].value === ""){
-                layer.msg('您未填写电话号码!',{time: 1000});
-                return;
-            }
-            if(form[10].value === "" && form[11].value === ""){
-                layer.msg('您必须填写至少一个学校!',{time: 1000});
-                return;
-            }
-
-            if(!$('#check_box').prop("checked")){
-                layer.msg('请先阅读并同意我们的注意事项!',{time: 1000});
-                return;
-            }
-
-            layer.msg('成功!!')
-        }
-
-    });
 ```
