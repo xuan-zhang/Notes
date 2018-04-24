@@ -1,4 +1,4 @@
-# JS笔记
+# jQuery 笔记
 # 目录
 - [element](#element)
 - [this](#this)
@@ -41,7 +41,7 @@
 3. beforeSend(XHR): 在发关之前执行, 可在此添加 loading 效果, 在success 或 error 后将 添加内容取消.如结合 layser.js    
 #### 访问  
 1. ajax 访问 json 格式数据, 设置 `dataType: 'json'` , 在 url 中添加地址即可得到 json 文件中的数据.
-``` js
+```js
   $.ajax(function(){
     ...
       type: "POST",
