@@ -133,7 +133,7 @@ sub {
   text-decoration: none;
   color: inherit;
 }
-
+select::-ms-expand { display: none; }
 button,
 input,
 select,
