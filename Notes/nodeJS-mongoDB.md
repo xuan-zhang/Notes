@@ -65,7 +65,7 @@
     ```
     # 创建数据库安装目录
     $ cd ~
-    $ mkdir -p /data/db
+    $ mkdir -p ./data/db
     $ mongod --dbpath=~/data/db
     
     # 新建命令窗口，进行命令
