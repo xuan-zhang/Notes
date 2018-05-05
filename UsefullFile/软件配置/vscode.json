@@ -15,7 +15,7 @@
   ],
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.colorTheme": "Atom One Dark",
   "liveSassCompile.settings.autoprefix": [
     "last 3 versions",
     "> 10%",
@@ -42,7 +42,6 @@
     "<C-v>": false,
     "<C-x>": false
   },
-  "team.showWelcomeMessage": false,
   "material-icon-theme.showUpdateMessage": false,
   "explorer.confirmDelete": false,
   "liveServer.settings.donotShowInfoMsg": true,

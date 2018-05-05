@@ -140,6 +140,15 @@
     ```
 + 可视化工具 `Robo 3T` (studio 3T 收费)
 
+### linux下mongodb 的安启动
++ 安装: `sudo apt install mongodb`;
++ 启动: `service mongodb start`;
++ 查看是否启动成功：｀pgrep mongo -l｀;
++ 关闭: `service mongodb stop`;
++ 卸载：｀sudo apt-get --purge remove mongodb mongodb-clients mongodb-server｀
++ 安装位置配置文件查看： `/etc/mongodb.conf`
+
+-------------
 ### mongoDB语法
 
 [目录](#目录)
