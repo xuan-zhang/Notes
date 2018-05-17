@@ -11,4 +11,4 @@
 + `'a` : 移动到标记 `a` 行首
 + `` `a`` : 移动到标记 `a` 的行尾
 + `:delmarks a` : 删除标记 `a`
-+ `:delmarks!` ：删除所有标记 *删除标记在webstrom中无用*
++ `:delmarks!` ：删除所有标记 *删除标记在webstorm中无用*

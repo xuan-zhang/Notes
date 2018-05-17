@@ -41,4 +41,6 @@
     
 5. ES6 Modules
 
-    
+## Web API 
+
++ 创建一个新的空白的文档片段  [`DocumentFragment`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment)
