@@ -10,6 +10,8 @@
  - [去除移动端选种背景](#去除移动端选种背景)
  - [去除select默认样式](#去除select默认样式)
  - [placeholder样式重置](#placeholder样式重置)
+ - [伪类的使用](#伪类的使用)
+ - [flex中的多行文本上下居中](#flex中的多行文本上下居中)
  - [规范](#规范)
 
 ## 滚动条样式更改
@@ -277,6 +279,50 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 color: #fff;
 }
 ```
+
+## 伪类的使用
+```scss
+ul{
+  counter-reset: cont; // 定义一个计数器 cont 计数器从 0 开始
+   li{
+    counter-increment: cont; // cont 递增 1
+    &::before{  
+        content: "0"counter(item);  // 显示 01
+    }
+   }
+}
+
+```
+
+```html
+<p class="att" data-name="aaa">aaa</p>
+<style>
+    .att::before{
+        content: attr(data-name); /* 显示 aaa*/
+    }
+</style>
+
+```
+
+## flex中的多行文本上下居中
++ 多行文本居中的方式
++ table-cell
++ line-height + padding
++ transform + position
++ button
+
+
+```html
+    <h2>多行文本</h2>
+    <style>
+      h2{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    </style>
+```
+
 
 ## 规范
 [目录](#目录)
