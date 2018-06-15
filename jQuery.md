@@ -664,90 +664,20 @@ screenX, screenY是相对于用户显示器的位置
     };
 
     // 姓名正则
-    function regName(obj) {
-        var res = obj.value.trim();
         var reg = /^([a-zA-Z\u4e00-\u9fa5\·]{2,10})$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('请输入真实姓名!', {time: 1000});
-//            obj.focus();
-        }
-    }
 
     // 拼音正则
-    function regSpell(obj) {
-        var res = obj.value.trim();
         var reg = /^([a-zA-Z\s\·]{2,100})$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('您输入的拼音有误, 请重新输入!', {time: 1000})
-        }
-    }
    
     // 证件号
-    function cardNumber(obj) {
-        var res = obj.value.trim();
         var regID = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
         var regPort = /^1[45][0-9]{7}|G[0-9]{8}|P[0-9]{7}|S[0-9]{7,8}|D[0-9]+$/;
-        var bool = true;
-        switch ($('#idType').val()){
-            case "identity":
-                bool =regID.test(res);
-                break;
-            case "passport":
-                bool=regPort.test(res);
-                break;
-        }
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('您输入的证件号有误, 请重新输入!', {time: 1000})
-        }
-    }
 
     // 电话号码
-    function cellNumber(obj) {
-        var res = obj.value.trim();
-        var reg = /^1[34578]\d{9}$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('您输入的电话号码有误, 请重新输入!', {time: 1000})
-        }
-    }
+        var reg = /^1\d{10}$/;
 
     // QQ
-    function qqNumber(obj) {
-        var res = obj.value.trim();
         var reg = /^[1-9][0-9]{4,14}$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('您输入的QQ号码有误, 请重新输入!', {time: 1000})
-        }
-    }
-
 //    微信号
-    function wechatNumber(obj) {
-        var res = obj.value.trim();
         var reg = /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/;
-        var bool = reg.test(res);
-        if (bool) {
-            obj.value = res;
-        } else {
-            obj.value = "";
-            layer.msg('您输入的微信号码有误, 请重新输入!', {time: 1000})
-        }
-    }
 ```
