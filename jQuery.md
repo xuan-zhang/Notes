@@ -658,11 +658,10 @@ screenX, screenY是相对于用户显示器的位置
 
 ## 正则
 ```js
- // 去除两端空格
+    // 去除两端空格
     String.prototype.trim = function () {
         return this.replace(/(^\s*)|(\s*$)/gm, '');
     };
-
     // 姓名正则
         var reg = /^([a-zA-Z\u4e00-\u9fa5\·]{2,10})$/;
 
@@ -678,6 +677,8 @@ screenX, screenY是相对于用户显示器的位置
 
     // QQ
         var reg = /^[1-9][0-9]{4,14}$/;
-//    微信号
+    //    微信号
         var reg = /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/;
+    // 视频格式
+        var reg = /video\/[mp4]|[mov]|[avi]|[swf]|[rmvb]|[flv]|[wmv]|[quicktime]/i.test(file.type);
 ```
