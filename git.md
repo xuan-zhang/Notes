@@ -38,4 +38,16 @@
 
       // 查看工作区和版本库里面最新版本的区别
       git diff HEAD -- readme.txt
+
+      // 删除文件
+      git rm file.txt
+
+      // 远程分支
+      git push -u orgin master // 第一次
+      git push origin master
+      git clone
      ```
++ 分支
+    ```
+        // 分
+    ```
