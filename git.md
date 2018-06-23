@@ -28,7 +28,7 @@
 
       // 将暂存区修改更改撤消
       git reset HEAD readme.txt // 撤消 git add 操作
-      git checkout -- readme.txt //
+      git checkout -- readme.txt // 撤消工作区的更改
 
       // 命令历史
       git reflog
