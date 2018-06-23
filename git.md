@@ -63,4 +63,33 @@
         git merge --no-ff -m "merge with no-ff" dev
         // 删除分支
         git branch -d newbranch
+        git branch -D newbranch
+    ```
++ bug 处理
+    ```
+    git stash // 将工作区与暂存区保存起来
+    git stash pop // 返回最新工作进度
+    git stash list // 保存进度列表
+    git stash pop --index
+    git stash pop stash@{1}
+    git stash apply
+
+    git stash drop stash@{1}
+    git stash clear
+    ```
+    ```
+    git status
+    git stash
+    git status
+    git checkout master
+    git checkout -b issue-101
+    vim read.txt
+    git add read.txt
+    git commit -m 'bug fixed'
+    git checkout master
+    git merge --no-ff -m 'merge bug' issue-101
+    git branch -d issue-101
+    git checkout dev
+    git stash list
+    git stash pop
     ```
