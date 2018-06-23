@@ -49,5 +49,18 @@
      ```
 + 分支
     ```
-        // 分
+        // 创建并切换到新的分支
+        git checkout -b newbranch
+        git branch newbranch
+        git checkout newbranch
+
+        // 查看当前分支
+        git branch
+
+        // 合并分支
+        git checkout master
+        git merge newbranch
+        git merge --no-ff -m "merge with no-ff" dev
+        // 删除分支
+        git branch -d newbranch
     ```
