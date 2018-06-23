@@ -42,7 +42,7 @@
       // 删除文件
       git rm file.txt
 
-      // 远程分支
+      // 远程
       git push -u orgin master // 第一次
       git push origin master
       git clone
@@ -92,4 +92,39 @@
     git checkout dev
     git stash list
     git stash pop
+    ```
++ 远程库
+    ```
+    // 查看远程库信息
+    git remote
+    git remote -v
+
+    // 推送
+    git push origin master
+    git push origin dev
+
+    // 获取分支
+    git checkout -b dev origin/dev
+    git push origin dev
+    git pull
+    git branch --set-upstream-to=origin/dev dev
+    git pull
+    git push origin dev
+    ```
++ tag
+    ```
+    git tag
+    git tag v1.0
+    git tag v2.0 546af
+    git tag -a v2.0 -m 'vetsion 2.0 release' 546af
+
+    git show v1.0
+
+    git tag -d v1.0.3
+
+    git push origin v1.0
+    git push origin --tags
+
+    git tag -d v0.9
+    git push origin :refs/tags/v0.8
     ```
