@@ -13,8 +13,8 @@
    ```
       git init // 新建
       // 每次新建、修改后
-      git add a.txt
-      git commit -m "update"
+      git add a.txt // 存入暂存区
+      git commit -m "update" // 将暂存区提交到分区
 
       // 显示所有修改提交信息
       git log
@@ -25,6 +25,14 @@
       git reset --hard HEAD^^
       git reset --hard HEAD~100
       git reset --hard 053a
-      // 更改记录
+      git reset HEAD readme.txt // 将暂存区修改更改撤消
+
+   // 更改记录
       git reflog
+
+      // 状态查看
+      git status
+
+      // 查看工作区和版本库里面最新版本的区别
+      git diff HEAD -- readme.txt
      ```
