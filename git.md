@@ -8,15 +8,15 @@
 
     git config --global credential.helper store // 不用每次输入密码
     ```
-
-+  常用命令
++ `HEAD` : 当前版本； `HEAD^`: 上一个版本; `HEAD^^`： 上上个版本； `HEAD~100`：上100个版本
++  常用命令；
    ```
       git init // 新建
       // 每次新建、修改后
       git add a.txt // 存入暂存区
-      git commit -m "update" // 将暂存区提交到分区
+      git commit -m "update" // 将暂分区
 
-      // 显示所有修改提交信息
+      // 显示提交历史
       git log
       git log --pretty=oneline
 
@@ -25,9 +25,12 @@
       git reset --hard HEAD^^
       git reset --hard HEAD~100
       git reset --hard 053a
-      git reset HEAD readme.txt // 将暂存区修改更改撤消
 
-   // 更改记录
+      // 将暂存区修改更改撤消
+      git reset HEAD readme.txt // 撤消 git add 操作
+      git checkout -- readme.txt //
+
+      // 命令历史
       git reflog
 
       // 状态查看
