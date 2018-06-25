@@ -47,6 +47,13 @@
       git push origin master
       git clone
      ```
++ 删除
+    ```
+     // 不想文件被跟踪
+     git rm --cached readme1.txt    删除readme1.txt的跟踪，并保留在本地。
+     git rm --f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件。
+    ```     
+     
 + 分支
     ```
         // 创建并切换到新的分支
