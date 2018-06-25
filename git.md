@@ -81,6 +81,10 @@
      git reset --hard HEAD~100
      git reset --hard 053a
      git revert <commit> //撤消指定的提交
+     
+     git reset HEAD^ // 恢复到上一个版本， 只是恢复到了暂存区
+     git checkout -- test.txt // 将删除的test.txt 从暂存区恢复到工作区
+     
     ```
     
 + 删除
@@ -110,6 +114,17 @@
         // 删除分支
         git branch -d newbranch
         git branch -D newbranch
+    ```
++ 创建一个新的空白分支
+    ```
+        git checkout --orphan emptybranch // 新的空白分支
+        git rm -rf . // 原分支中的内容会自动添加, 移除原分支文件
+        // 新建一个文件
+        git add new.txt
+        git commit -a -m 'new text'
+        
+        git merge emptybranch --allow-unrelated-histories // 新空白分支无共同父祖先，要添加 allow* 参数
+        git pull origin master --allow-unrelated-histories
     ```
 + 合并与变基
     ``` 
