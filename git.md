@@ -10,10 +10,17 @@
     git config --global credential.helper store // 不用每次输入密码
     ```
 + `HEAD` : 当前版本； `HEAD^`: 上一个版本; `HEAD^^`： 上上个版本； `HEAD~100`：上100个版本
-+ 工作区 -- 暂存区 -- 
++ 工作区 -- 暂存区 -- 版本库
 + 已跟踪 -- 未跟踪
 + 未修改 -- 已修改 -- 已存入暂存区
+
+## 工作流
++ ![git工作流](./images/gitstream.jpg)
++ git 常用命令 ![git命令](./images/git.jpg)
++ ![远程操作](./images/pullfeatch.png)
+
 ##  常用命令与工作流；
+
 
 + 新建
    ```
@@ -22,15 +29,14 @@
       git add a.txt // 存入暂存区
       git commit -m "update" // 将暂分区
 
+       git commit -a -m "update" a.txt
+
       // 显示提交历史
       git log
       git log --pretty=oneline
 
       // 版本回退
-      git reset --hard HEAD^
-      git reset --hard HEAD^^
-      git reset --hard HEAD~100
-      git reset --hard 053a
+      
 
       // 将暂存区修改更改撤消
       git reset HEAD readme.txt // 撤消 git add 操作
@@ -45,14 +51,26 @@
       // 查看工作区和版本库里面最新版本的区别
       git diff HEAD -- readme.txt
 
-      // 删除文件
-      git rm file.txt
 
       // 远程
       git push -u orgin master // 第一次
       git push origin master
       git clone
      ```
++ 提交
+    ```
+      git add .
+      git add a.txt 
+    ```
++ 撤消
+    ```
+     git commit --amend
+     
+     git reset --hard HEAD^
+     git reset --hard HEAD^^
+     git reset --hard HEAD~100
+     git reset --hard 053a
+    ```
 + 删除
     ```
      // 不想文件被跟踪
