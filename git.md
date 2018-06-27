@@ -36,6 +36,7 @@
 + 获取
     ``` 
       // fetch
+      git fetch -p
       git fetch origin // 取回所有
       git fetch origin master // 取回 master 分支
       
