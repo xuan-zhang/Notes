@@ -211,3 +211,44 @@
     git stash list
     git stash pop
     ```
+    
+## Commit messages的基本语法
+
++ 格式
+    ``` 
+    <type>: <subject>
+    <BLANK LINE>
+    <body>
+    <BLANK LINE>
+    <footer>
+    ```
++ 说明： `Type` 表示提交类别，`Subject` 表示标题行， `Body` 表示主体描述内容。
+    ```text
+    标题行：50个字符以内，描述主要变更内容
+    主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
+      * 为什么这个变更是必须的? 它可能是用来修复一个bug，增加一个feature，提升性能、可靠性、稳定性等等
+      * 他如何解决这个问题? 具体描述解决问题的步骤
+      * 是否存在副作用、风险? 
+    如果需要的化可以添加一个链接到issue地址或者其它文档
+    ```
++ Type
+    - `feat`: 添加新特性
+    - `fix`: 修复bug
+    - `docs`: 仅仅修改了文档
+    - `style`: 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑
+    - `refactor`: 代码重构，没有加新功能或者修复bug
+    - `perf`: 增加代码进行性能测试
+    - `test`: 增加测试用例
+    - `chore`: 改变构建流程、或者增加依赖库、工具等
+
+
+## 分支构成
+
++ [参考连接](https://juejin.im/post/5b4328bbf265da0fa21a6820)
+   ```text
+    master：与线上版本保持绝对一致；
+    develop：开发分支，由下文提到的release、feature、hotfix分支合并过后的代码；
+    feature：实际功能点开发分支，建议每个功能新建一个feature， 具有关联关系的功能公用一个feature分支；
+    release：每一次开发完成之后，从develop创建出来的分支，以此分支为基准，进行测试；
+    hotfix：该分支主要用于修复线上bug；
+   ```
