@@ -13,6 +13,7 @@
 - [阻止事件冒泡与捕获](#阻止事件冒泡与捕获)
 - [setTimeout](#settimeout)
 - [正则](#正则)
+- [搜索框](#搜索框)
 
 ## element
 当一个元素删除的时候,清除绑定事件,再清空, $elements.unbind().empty();  
@@ -681,4 +682,35 @@ screenX, screenY是相对于用户显示器的位置
         var reg = /^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/;
     // 视频格式
         var reg = /video\/[mp4]|[mov]|[avi]|[swf]|[rmvb]|[flv]|[wmv]|[quicktime]/i.test(file.type);
+```
+
+## 搜索框
++ 换行
+```html
+<input type="text" />
+<form>
+            <input type="text" placeholder="输入"> 
+</form>
+```
++ 前往
+```html
+<form action="javascript:return true">
+        <input type="text" placeholder="请输入">
+</form>
+```
++ 搜索
+```html
+<form action="javascript:return true">
+            <input type="search" placeholder="请输入姓名">
+</form>
+```
++ 数字键盘
+```html
+<input type="text" pattern="[0-9]*" placeholder="请输入数字1">
+```
++ 26键带有标点符号的数字键盘
+```html
+<form action="javascript:return true">
+            <input type="number" placeholder="请输入数字2">   <!--显示26键数字键盘，带有标点符号-->
+</form>
 ```
