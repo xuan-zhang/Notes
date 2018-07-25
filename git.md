@@ -70,6 +70,9 @@
     
 + 撤消
     ```
+     reset: 取消暂存
+     checkout：取消工作区更改
+     
      // 显示提交历史
      git log
      git log --pretty=oneline
@@ -85,6 +88,17 @@
      
      git reset HEAD^ // 恢复到上一个版本， 只是恢复到了暂存区
      git checkout -- test.txt // 将删除的test.txt 从暂存区恢复到工作区
+     
+     # 回滚
+     git checkout <tag>
+     git checkout v2.0
+     
+     git checkout <branch_name>
+     git checkout dev
+     
+     # 回滚到指定commitID
+     git checkout <commitID> <filename>
+     
      
     ```
     
