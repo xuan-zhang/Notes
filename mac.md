@@ -193,3 +193,31 @@
 + `$ tree -p` : 显示权限信息
 + `$ tree -s` : 显示所有文件和目录的大小
 + `$ tree -t` : 显示文件和目录，并以时间排序
+
+## linux `.desktop` 文件配置
++ [网站](https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html)
++ 放置目录： `/usr/share/applications/` `/opt/gnome/share/applications/ `
++ 配置文件
+```
+    [Desktop Entry]
+    Encoding=UTF-8 #编码
+    Version=8.0 #版本
+    Name=图标显示名称
+    GenericName=描述
+    Comment=鼠标经过上面时的提示名称
+    Exec=执行文件路径 %f %F %u %U # Type 为 Application 时使用
+    Url=http://www.asdfjl****** # Type 为 Link 时使用
+    Icon=图标路径
+    Terminal=false #是否要使用终端
+    Type=Application #启动器类型 Link  或 Application
+    Categories=Application;Programme; #菜单所属类别，可以确定该菜单的位置
+```
+
++ `Exec` 参数
+```
+    %f：单个文件名，即使选择了多个文件。如果已选择的文件不在本地文件系统中（比如说在HTTP或者FTP上），这个文件将被作为一个临时文件复制到本地，％f将指向本地临时文件；
+    %F：文件列表。用于程序可以同时打开多个本地文件。每个文件以分割段的方式传递给执行程序。
+    %u：单个URL。本地文件以文件URL或文件路径的方式传递。
+    %U：URL列表。每个URL以分割段的方式传递给执行程序。本地文件以文件URL或文件路径的方式传递。
+```
++
