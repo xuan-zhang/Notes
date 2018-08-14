@@ -201,6 +201,7 @@
 + 默认使用 `zsh`
   - 显示所有shell: `cat /etc/shells`
   - 更改: `chsh -s /bin/zsh'
+  - 重启
 
 ## tree 命令行安装与使用
 + `$ brew install tree`
