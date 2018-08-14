@@ -200,7 +200,7 @@
   - `source ~/.zshrc` 打开新的终端界面即可生效
 + 默认使用 `zsh`
   - 显示所有shell: `cat /etc/shells`
-  - 更改: `chsh -s /bin/ssh'
+  - 更改: `chsh -s /bin/zsh'
 
 ## tree 命令行安装与使用
 + `$ brew install tree`
