@@ -198,7 +198,10 @@
 
     `plugins=(... zsh-syntax-highlighting)`
   - `source ~/.zshrc` 打开新的终端界面即可生效
-  
++ 默认使用 `zsh`
+  - 显示所有shell: `cat /etc/shells`
+  - 更改: `chsh -s /bin/ssh'
+
 ## tree 命令行安装与使用
 + `$ brew install tree`
 + `$ tree -a` : 显示所有文件和目录
