@@ -182,6 +182,22 @@
   // 在文件末尾添加
   source ~/.bash_profile
   ```
++ 添加插件
+  - 克隆代码至本地 `oh-my-zsh` 插件目录 
+
+     `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+  - 添加到配置文件 `vim ~/.zshrc`
+
+    `plugins=(zsh-autosuggestions)`
+  - `source ~/.zshrc` 打开新的终端界面即可生效
++ zsh-syntax-highlighting
+  - 克隆代码至本地
+
+    `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+  - 编辑配置
+
+    `plugins=(... zsh-syntax-highlighting)`
+  - `source ~/.zshrc` 打开新的终端界面即可生效
   
 ## tree 命令行安装与使用
 + `$ brew install tree`
@@ -220,4 +236,3 @@
     %u：单个URL。本地文件以文件URL或文件路径的方式传递。
     %U：URL列表。每个URL以分割段的方式传递给执行程序。本地文件以文件URL或文件路径的方式传递。
 ```
-+
