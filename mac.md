@@ -96,6 +96,7 @@
   ```
 ### 安装 node
 + `nvm ls-remote` 显示所有可安装版本号
++ `nvm ls avaliable` window系统下查看所有可安装版本命令
 + `nvm install stable` 安装最新稳定版本 node 
 + `nvm install v8.11.1` 安装 8.11.1 版本
 + `nvm use v9.10.1` 使用 9.10.1 版本
