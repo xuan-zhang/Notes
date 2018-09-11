@@ -59,6 +59,7 @@
       git commit -a -m "update" a.txt // 同上两步
        // 推送
           git push -u orgin master // 第一次
+          git push --set-upstream origin master // 将本地分支推送至远程 origin 
           git push origin master // 将本地仓库提交到远程 orgin 仓库 master 分支中
           git push gitee master
           git push origin dev
@@ -129,6 +130,14 @@
         // 删除分支
         git branch -d newbranch
         git branch -D newbranch
+
+        // 删除远程分支
+        git push --delete origin <branchname>
+        git push origin :<branchname> // 谁送空分支到远程分支，相当于删除远程分到
+
+        // 重命名分支
+        git branch -m oldname newname
+
     ```
 + 创建一个新的空白分支
     ```
@@ -173,6 +182,7 @@
    
     // 重命名
     git remote rename <原主机名> <新主机名>
+
     ```
 + tag
     ```
