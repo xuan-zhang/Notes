@@ -1,19 +1,18 @@
 # JS 笔记
 
 ## 目录
+
 + [模块化](#模块化)
 
 ## 模块化
+
 1. [模块化基本写法](http://www.ruanyifeng.com/blog/2012/10/javascript_module.html)
     + 宽放大模块
         ```js
-            var module1 = ( function (mod){
-            
-            　　　　//...
-            
-            　　　　return mod;
-            
-            　　})(window.module1 || {});
+            var module1 = ( function (mod){// ....
+            return mod;
+            })(window.module1 || {});  
+        
         ```
     + 输入全局变量
         ```js

@@ -39,7 +39,10 @@
       git fetch -p
       git fetch origin // 取回所有
       git fetch origin master // 取回 master 分支
-      
+
+      // 获取远程分支到本地，如果本地没有 就新建一个
+      git fetch origin branchname:branchname
+
       // pull = fetch + merge
       git pull <远程主机名> <远程分支名>:<本地分支名> 
       // 当前在 master 分支下
@@ -49,6 +52,7 @@
       // 如果有多个 remote 指定 remote
       git pull origin next:master // 取回origin主机的next分支，与本地的master分支合并
       git pull origin next //远程分支是与当前分支合并
+      git pull --all // 拉取所有分支
     ```
 
 + 提交
@@ -65,7 +69,7 @@
           git push origin dev
           git push origin test:master   // 提交本地test分支作为远程的master分支
           git push origin test:test     // 提交本地test分支作为远程的test分支
-          git push --all origin
+          git push --all origin  // 提交本地所有分支到远程
           git push --force origin 
     ```
     
@@ -122,6 +126,9 @@
 
         // 查看当前分支
         git branch
+
+        // 查看远程分支
+        git branch -r
 
         // 合并分支
         git checkout master
