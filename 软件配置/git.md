@@ -18,9 +18,9 @@
 + 未修改 -- 已修改 -- 已存入暂存区
 
 ## 工作流
-+ ![git工作流](./images/gitstream.jpg)
-+ git 常用命令 ![git命令](./images/git.jpg)
-+ ![远程操作](./images/pullfeatch.png)
++ ![git工作流](/assets/images/gitstream.jpg)
++ git 常用命令 ![git命令](/assets/images/git.jpg)
++ ![远程操作](/assets/images/pullfeatch.png)
 
 ##  常用命令与工作流；
 
