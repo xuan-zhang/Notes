@@ -57,6 +57,8 @@
       git pull origin next:master # 取回origin主机的next分支，与本地的master分支合并
       git pull origin next #远程分支是与当前分支合并
       git pull --all # 拉取所有分支
+
+      git pull --allow-unrelated-histories # 获取提交历史
     ```
 
 + 提交
@@ -106,6 +108,9 @@
 
     # 回滚到指定commitID
     git checkout <commitID> <filename>
+
+    # 清空一个分支
+    git rm -rf .
     ```
 + 删除
 
