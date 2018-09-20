@@ -1,91 +1,97 @@
 # css
 
 ## 目录
- - [滚动条样式更改](#滚动条样式更改) 
- - [多选文本溢出省略](#多选文本溢出省略) 
- - [双击取消选种](#双击取消选种) 
- - [拨打电话](#拨打电话) 
- - [SASS](#sass)
- - [textarea](#textarea)
- - [去除移动端选种背景](#去除移动端选种背景)
- - [去除select默认样式](#去除select默认样式)
- - [placeholder样式重置](#placeholder样式重置)
- - [伪类的使用](#伪类的使用)
- - [flex中的多行文本上下居中](#flex中的多行文本上下居中)
- - [规范](#规范)
 
-## 滚动条样式更改
+- [滚动条样式更改](#滚动条样式更改)
+- [多选文本溢出省略](#多选文本溢出省略)
+- [双击取消选种](#双击取消选种)
+- [拨打电话](#拨打电话)
+- [SASS](#sass)
+- [textarea](#textarea)
+- [去除移动端选种背景](#去除移动端选种背景)
+- [去除select默认样式](#去除select默认样式)
+- [placeholder样式重置](#placeholder样式重置)
+- [伪类的使用](#伪类的使用)
+- [flex中的多行文本上下居中](#flex中的多行文本上下居中)
+- [规范](#规范)
+
+### 滚动条样式更改
 
 #### IE下的滚动条样式
-  - scrollbar-arrow-color: color; /三角箭头的颜色/  
-  - scrollbar-face-color: color; /立体滚动条的颜色（包括箭头部分的背景色）/  
-  - scrollbar-3dlight-color: color; /立体滚动条亮边的颜色/  
-  - scrollbar-highlight-color: color; /滚动条的高亮颜色（左阴影？）/  
-  - scrollbar-shadow-color: color; /立体滚动条阴影的颜色/  
-  - scrollbar-darkshadow-color: color; /立体滚动条外阴影的颜色/  
-  - scrollbar-track-color: color; /立体滚动条背景颜色/ 
-  - scrollbar-base-color:color; /滚动条的基色/ 
 
-#### webkit的自定义滚动条样式  
-  - ::-webkit-scrollbar 滚动条整体部分  
-  - ::-webkit-scrollbar-button 滚动条两端的按钮 
-  - ::-webkit-scrollbar-track 外层轨道 
-  - ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去） 
-  - ::-webkit-scrollbar-thumb （拖动条？滑块？滚动条里面可以拖动的那个，肿么翻译好呢？） 
-  - ::-webkit-scrollbar-corner 边角 
-  - ::-webkit-resizer 定义右下角拖动块的样式 
-```css
-/* 滚动条部分 */
-::-webkit-scrollbar {
-    width:15px;
-}
+- scrollbar-arrow-color: color; /三角箭头的颜色/  
+- scrollbar-face-color: color; /立体滚动条的颜色（包括箭头部分的背景色）/  
+- scrollbar-3dlight-color: color; /立体滚动条亮边的颜色/  
+- scrollbar-highlight-color: color; /滚动条的高亮颜色（左阴影？）/  
+- scrollbar-shadow-color: color; /立体滚动条阴影的颜色/  
+- scrollbar-darkshadow-color: color; /立体滚动条外阴影的颜色/  
+- scrollbar-track-color: color; /立体滚动条背景颜色/
+- scrollbar-base-color:color; /滚动条的基色/
 
-/* 轨道 */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
-}
+#### webkit的自定义滚动条样式
 
-/* 手柄 */
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
-    background:rgba(200,200,200,0.7); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-/* 手柄激活态 */
-::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(200,200,200,0.4); 
-}
-```
+- ::-webkit-scrollbar 滚动条整体部分  
+- ::-webkit-scrollbar-button 滚动条两端的按钮
+- ::-webkit-scrollbar-track 外层轨道
+- ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）
+- ::-webkit-scrollbar-thumb （拖动条？滑块？滚动条里面可以拖动的那个，肿么翻译好呢？）
+- ::-webkit-scrollbar-corner 边角
+- ::-webkit-resizer 定义右下角拖动块的样式
+
+    ```css
+    /* 滚动条部分 */
+    ::-webkit-scrollbar {
+        width:15px;
+    }
+
+    /* 轨道 */
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-border-radius: 15px;
+        border-radius: 15px;
+    }
+
+    /* 手柄 */
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 15px;
+        border-radius: 15px;
+        background:rgba(200,200,200,0.7);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+    /* 手柄激活态 */
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(200,200,200,0.4);
+    }
+    ```
 
 ## 多选文本溢出省略
+
 [目录](#目录)
+
 ```css
  /* 一行文本溢出 */
  overflow: hidden;
  text-overflow: ellipsis;
  white-space: nowrap;
- 
+
  /* 多行文本溢出 - webkit */
  display: -webkit-box;
  -webkit-box-orient: vertical;
  -webkit-line-clamp: 3;
  overflow: hidden;
- 
+
  /* 多行文本溢出 line-heigt 多用 em */
  p{
-  position: relative; 
+  position: relative;
   line-height: 2em;  
   max-height: 40px;
   overflow: hidden;
  }
  p::after{
-  content: "..."; 
-  position: absolute; 
-  bottom: 0; 
-  right: 0; 
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
   padding-left: 40px;
   background: -webkit-linear-gradient(left, transparent, #fff 55%);
   background: -o-linear-gradient(right, transparent, #fff 55%);
@@ -103,12 +109,15 @@
  // 插件 [-jQuery.dotdotdot](https://github.com/BeSite/jQuery.dotdotdot)
   $(document).ready(function() {
     $("#wrapper").dotdotdot({
-    //	configuration goes here
+    //configuration goes here
   });
 });
 ```
+
 ## 双击取消选种
+
 [目录](#目录)
+
 ```css
  div{
     -moz-user-select:none;/*火狐*/
@@ -120,7 +129,9 @@
 ```
 
 ## 拨打电话
+
 [目录](#目录)
+
 ```html
 拨打电话/发送短息/邮箱
  <a href="tel:13764567708">移动WEB页面JS一键拨打号码咨询功能</a>
@@ -155,10 +166,12 @@ QQ:
 ````
 
 ## sass
+
 [目录](#目录)
+
 ```css
 
-compact 
+compact
  /*命令行内容*/
 sass style.scss:style.css --style compact
 
@@ -202,7 +215,9 @@ sass style.scss:style.css --style nested
 ```
 
 ## textarea
+
 [目录](#目录)
+
 ```css
 1：彻底禁用拖动（推荐）
 resize: none;
@@ -215,7 +230,9 @@ max-height: 100px;
 ```
 
 ## 去除移动端选种背景
+
 [目录](#目录)
+
 ```css
 body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
 
@@ -244,6 +261,7 @@ a,a:hover,a:active,a:visited,a:link,a:focus{
 ```
 
 ## 去除select默认样式
+
 [目录](#目录)
 
 ```css
@@ -281,6 +299,7 @@ color: #fff;
 ```
 
 ## 伪类的使用
+
 ```scss
 ul{
   counter-reset: cont; // 定义一个计数器 cont 计数器从 0 开始
@@ -305,12 +324,12 @@ ul{
 ```
 
 ## flex中的多行文本上下居中
-+ 多行文本居中的方式
-+ table-cell
-+ line-height + padding
-+ transform + position
-+ button
 
+- 多行文本居中的方式
+- table-cell
+- line-height + padding
+- transform + position
+- button
 
 ```html
     <h2>多行文本</h2>
@@ -323,28 +342,29 @@ ul{
     </style>
 ```
 
-
 ## 规范
+
 [目录](#目录)
 
-1. html
+- html  
   1. html 属性顺序
-     + `id`
-     + `class`
-     + `name`
-     + `data-xxx`
-     + `src for type href`
-     + `title alt`
-     + `aria-xxx role`
+     - `id`
+     - `class`
+     - `name`
+     - `data-xxx`
+     - `src for type href`
+     - `title alt`
+     - `aria-xxx role`
   2. html 嵌套规则
-     + `h1~h6` 中不能嵌套 `div p ul ol`
-     + `a` 中不能嵌套 `div`, 如果`a`的父级是`div`, 则可以嵌套 `div`
-     + `p` 中不能嵌套 `<div>、<h1>~<h6>、<p>、<ul>/<ol>/<li>、<dl>/<dt>/<dd>、<form>等`
-     + `a` 中不能嵌套交互元素, 如: `a， audio（如果设置了controls属性）， button， details， embed， iframe， img（如果设置了usemap属性）， input（如果type属性不为hidden状态）， keygen， label， menu（如果type属性为toolbar状态），object（如果设置了usemap属性）， select， textarea， video（如果设置了controls属性）`
-     + 列表元素中不能嵌套非列表元素
-     + `inline-Level` 元素，仅可以包含文本或其它 `inline-Level` 元素;
+     - `h1~h6` 中不能嵌套 `div p ul ol`
+     - `a` 中不能嵌套 `div`, 如果`a`的父级是`div`, 则可以嵌套 `div`
+     - `p` 中不能嵌套 `<div>、<h1>~<h6>、<p>、<ul>/<ol>/<li>、<dl>/<dt>/<dd>、<form>等`
+     - `a` 中不能嵌套交互元素, 如: `a， audio（如果设置了controls属性）， button， details， embed， iframe， img（如果设置了usemap属性）， input（如果type属性不为hidden状态）， keygen， label， menu（如果type属性为toolbar状态），object（如果设置了usemap属性）， select， textarea， video（如果设置了controls属性）`
+     - 列表元素中不能嵌套非列表元素
+     - `inline-Level` 元素，仅可以包含文本或其它 `inline-Level` 元素;
   3. head  
-```html
+
+      ```html
       <!-- 中文 -->
       <html lang="zh-Hans">
 
@@ -382,12 +402,12 @@ ul{
           <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
 
           <!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
-          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144-precomposed.png" sizes="144x144">
-```
-2. css
-  + 页面中尽量不要引入超过两个样式表
-  + 待办事项用 `todo` 注释, 尽量不用模块注释
-  + 声明顺序
+          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144-precomposed.png"   sizes="144x144">
+      ```
+- css
+  - 页面中尽量不要引入超过两个样式表
+  - 待办事项用 `todo` 注释, 尽量不用模块注释
+  - 声明顺序
     - Positioning 定位
     ```css
      /* Positioning */
@@ -433,10 +453,10 @@ ul{
       cursor: pointer;
     ```
 
-3. js
-  + 页面中保证只引入一个js文件
-  + 在`script` 标签中添加 `async` 异步加载, 这样可以将 `script` 放在 `head` 标签中 `<script src="index.js" async></script>`
-  + 注释
+- js
+  - 页面中保证只引入一个js文件
+  - 在`script` 标签中添加 `async` 异步加载, 这样可以将 `script` 放在 `head` 标签中 `<script src="index.js" async></script>`
+  - 注释
     - 函数注释
       ```js
       /**
@@ -450,7 +470,8 @@ ul{
        */
       ```
     - 文件注释
-     ```
+
+     ```js
      /**
       * @fileoverview Description of file, its uses and information
       * about its dependencies.
@@ -458,8 +479,8 @@ ul{
       * Copyright 2009 Meizu Inc. All Rights Reserved.
       */
      ```
-  + 命名
-    -  变量, 使用 Camel 命名法。`var loadingModules = {};`
+  - 命名
+    - 变量, 使用 Camel 命名法。`var loadingModules = {};`
     - 私有属性、变量和方法以下划线 _ 开头。`var _privateMethod = {};`
     - 常量, 使用全部字母大写，单词间下划线分隔的命名方式。`var HTML_ENTITY = {};`
     - 函数, 使用 Camel 命名法。函数的参数, 使用 Camel 命名法。`function stringFormat(theBells) {}`
@@ -475,7 +496,7 @@ ul{
       };
       ```
     - 枚举变量 使用 Pascal 命名法。枚举的属性， 使用全部字母大写，单词间下划线分隔的命名方式。
-      ```
+      ```js
       var TargetState = {
           READING: 1,
           READED: 2,
@@ -485,7 +506,7 @@ ul{
       ```
     - 由多个单词组成的 缩写词，在命名中，根据当前命名法和出现的位置，所有字母的大小写与首字母的大小写保持一致。
     - 语法
-      + 类名，使用名词。
-      + 函数名，使用动宾短语。
-      + boolean 类型的变量使用 is 或 has 开头。
-      + Promise 对象用动宾短语的进行时表达。
+      - 类名，使用名词。
+      - 函数名，使用动宾短语。
+      - boolean 类型的变量使用 is 或 has 开头。
+      - Promise 对象用动宾短语的进行时表达。
