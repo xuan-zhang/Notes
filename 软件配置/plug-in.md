@@ -1,38 +1,47 @@
-# VSCode
+# 常用软件插件
 
-+ Autoprefixer
+## VSCode
+
+### 常用
+
++ chinese
 + Beautify
-+ Bookmarks
-+ Bootstrap 3 Snippets
-+ Debugger for Chrome
 + ESLint
-+ TSLint
 + fileSize
 + HTML CSS Support
 + HTML Snippets
 + JaaScript(ES6) code snippets
-+ jQuery Code Snippets
-+ JSlint
-+ Live Sass Compiler
 + Live Server
 + MarkDownLint
 + Material Icon Theme
 + Material Palenight Theme
 + Material Theme
 + Atom One Dark Theme
-+ npm
-+ npm Interllisense
 + Path Interllisense
-+ PowerShell
 + Sass
 + SVG
 + View In Browser
-+ browsersync
 + Vim
 + GitLen — Git supercharged
 + Git History
 + Bracket Pair Colorizer
 + TODO Highlight
++ Vetur
+
+### 不常用
+
++ Autoprefixer
++ Bookmarks
++ Bootstrap 3 Snippets
++ Debugger for Chrome
++ TSLint
++ jQuery Code Snippets
++ JSlint
++ Live Sass Compiler
++ npm Interllisense
++ PowerShell
++ browsersync+ npm
++ stylelint
 
 ## Visual Studio
 
