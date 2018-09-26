@@ -1,18 +1,6 @@
 {
   "files.autoSave": "afterDelay",
   "editor.wordWrap": "on",
-  "editor.minimap.enabled": false,
-  "autoprefixer.browsers": [
-    "last 3 versions", // 支持过去3个版本
-    "> 10%", // 全球使用率大于 10%
-    "ie >= 9", // 大于IE11
-    "ie_mob >= 10", // 大于 IE_mob 10
-    "ff >= 30", // 火狐大于 30
-    "chrome >= 34", // 谷歌大于 34
-    "safari >= 6", // safari 大于6
-    "ios >= 6", // ios系统 大于 6
-    "android >= 4.4" // 安卓系统大于 4.4  // none无前缀
-  ],
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Atom One Dark",
@@ -35,26 +23,25 @@
       "savePath": null
     }
   ],
-  "liveServer.settings.host": "192.168.1.102",
+  "liveServer.settings.host": "127.0.0.1",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-c>": false,
     "<C-v>": false,
-    "<C-x>": false
+    "<C-x>": false,
+    "<C-f>": false
   },
   "material-icon-theme.showUpdateMessage": false,
-  "explorer.confirmDelete": false,
   "liveServer.settings.donotShowInfoMsg": true,
   "git.autofetch": true,
   "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressResultsExplorerNotice": false,
+    "suppressFileNotUnderSourceControlWarning": true,
     "suppressShowKeyBindingsNotice": true
   },
   "git.enableSmartCommit": true,
+  //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "files.exclude": {
+    "**/.idea": true
+  },
+  //"terminal.external.windowsExec": "C:\\Program Files\\cmder\\cmder.exe",
 }
