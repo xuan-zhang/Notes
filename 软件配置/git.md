@@ -48,9 +48,9 @@
       git fetch origin branchname:branchname
 
       # pull = fetch + merge
-      git pull <远程主机名> <远程分支名>:<本地分支名> 
+      git pull <远程主机名> <远程分支名>:<本地分支名>
       # 当前在 master 分支下
-      git pull == git fetch origin + git merge origin/master 
+      git pull == git fetch origin + git merge origin/master
       # 当前在 dev 分支下
       git pull == git fetch origin + git merge origin/dev  
       # 如果有多个 remote 指定 remote
@@ -70,7 +70,7 @@
       git commit -a -m "update" a.txt # 同上两步
        # 推送
           git push -u orgin master # 第一次
-          git push --set-upstream origin master # 将本地分支推送至远程 origin 
+          git push --set-upstream origin master # 将本地分支推送至远程 origin
           git push origin master # 将本地仓库提交到远程 orgin 仓库 master 分支中
           git push gitee master
           git push origin dev
@@ -166,7 +166,7 @@
 
     ```bash
         # merge
-        git checkout master # 当前分支变为 master 
+        git checkout master # 当前分支变为 master
         git merge dev # 把 dev 分支合并到 master 分支上
         git merge a b # 把 a b 分支合并到当前分支 master 上并提交
         git merge --no-commit dev
@@ -269,7 +269,7 @@
     主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
       * 为什么这个变更是必须的? 它可能是用来修复一个bug，增加一个feature，提升性能、可靠性、稳定性等等
       * 他如何解决这个问题? 具体描述解决问题的步骤
-      * 是否存在副作用、风险? 
+      * 是否存在副作用、风险?
     如果需要的化可以添加一个链接到issue地址或者其它文档
     ```
 + Type

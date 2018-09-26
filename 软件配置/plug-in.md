@@ -10,7 +10,7 @@
 + fileSize
 + HTML CSS Support
 + HTML Snippets
-+ JavaScript(ES6) code snippets
++ JaaScript(ES6) code snippets
 + jQuery Code Snippets
 + JSlint
 + Live Sass Compiler
@@ -34,16 +34,17 @@
 + Bracket Pair Colorizer
 + TODO Highlight
 
-# Visual Studio
+## Visual Studio
 
 + GitHub Extension for Visual Studio
 + PowerShell Tools for Visual Studio
 + VsVim
 + Markdown Editor
 
-# Webstorm
+## Webstorm
 
-# Atom
+## Atom
+
 + autocomplete-paths
 + emmet
 + atom-ide-ui
