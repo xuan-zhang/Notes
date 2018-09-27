@@ -215,7 +215,7 @@
     git push origin --delete tag v2.0
 
     git checkout tab_name
-    git checkout -b new_branch tag_name
+    git checkout -b new_branch tag_name # 此处是新建一个分支，内容与当前分支相同，不是tag对应分支
     ```
 
 + 比较
