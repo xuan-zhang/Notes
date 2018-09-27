@@ -207,13 +207,15 @@
 
     git show v1.0
 
-    git tag -d v1.0.3
-
     git push origin v1.0
-    git push origin --tags
+    git push origin --tags #摬所有tag
 
-    git tag -d v0.9
-    git push origin :refs/tags/v0.8
+    git tag -d v0.9 #删除tag
+    git push origin :refs/tags/v0.8 # 删除远程 tag
+    git push origin --delete tag v2.0
+
+    git checkout tab_name
+    git checkout -b new_branch tag_name
     ```
 
 + 比较
