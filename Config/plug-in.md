@@ -52,6 +52,13 @@
 
 ## Webstorm
 
++ IdeaVim
++ Markdown Navigator
++ Material Theme UI
++ ESLint
++ CodeGlance
++ .ignore
+
 ## Atom
 
 + autocomplete-paths
