@@ -282,3 +282,7 @@
   在 `setting > startup > Environment`中添加`set LANG=zh_CN.UTF-8` `set LC_ALL=zh_CN.utf8`
 + 添加右键菜单:  
   以管理员运行命令行，输入命令 `cmder.exe /REGISTER ALL`
+
+## Ubuntu 安装与配置
+
++ U盘制作工具 `Rufus`

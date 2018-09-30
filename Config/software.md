@@ -1,6 +1,8 @@
-# 软件
+# 常用软件
 
-## 前端
+## Window
+
+### 前端
 
 + WebStorm
 + VScode
@@ -19,7 +21,7 @@
 + PxCook
 + MongoDB
 
-## 日常
+### 日常
 
 + 好压
 + 迅雷
@@ -33,3 +35,24 @@
 + 百度网盘
 + 电脑管理
 + Xmind
+
+## Ubuntu
+
+### 命令
+
++ Oh-my-zsh
++ git
++ tree
++ nvm(node)
++ MongoDB
++ Vim
+
+### 软件
+
++ Webstorm
++ VScode
++ Opera
++ Chrome
++ Firefox
++ Postman
++ Lantern
