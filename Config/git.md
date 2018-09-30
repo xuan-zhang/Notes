@@ -2,6 +2,13 @@
 
 ## 配置
 
++ 对本机授权
+    ```bash
+    # 生成 ssh 为 ~/.ssh/id_rsa.pub
+    $ ssh-keygen -t rsa -C "your_email@youremail.com"
+
+    ## 将 里面内容复制到个人账号
+    ```
 + `git clone --depth=1 https:#github.com/*****` :  克隆时只克隆最近的文件，避免 `.git` 文件过大时克隆过慢；
 + 全局配置
 
