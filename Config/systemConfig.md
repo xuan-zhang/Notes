@@ -286,3 +286,4 @@
 ## Ubuntu 安装与配置
 
 + U盘制作工具 `Rufus`
++ [替换阿里镜像源](https://opsx.alibaba.com/mirror): 查看帮助文档
