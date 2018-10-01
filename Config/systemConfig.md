@@ -229,6 +229,12 @@
     #更改
     $ chsh -s /bin/zsh
     #重启
+
+    # 在 window 下 子系统中
+    vim ~/.bashrc
+
+    ## 在末尾添加
+    bash -c zsh
     ```
 
 ## tree 命令行安装与使用
