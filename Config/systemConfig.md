@@ -189,12 +189,15 @@
 + 一个 zsh 工具
 + [官网](http://ohmyz.sh/)
 + 安装 `$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-+ 配置环境变量
++ 配置环境变量(有问题)
     ```bash
     $ cd ~
     $ vi .zshrc
     # 在文件末尾添加
     source ~/.bash_profile
+    source ~/.bashrc
+
+    #　在ubuntu中，此处操作无效，将自行配置文件手动添加到 .zshrc　中
     ```
 + 添加插件
     ```bash
@@ -226,6 +229,12 @@
     #更改
     $ chsh -s /bin/zsh
     #重启
+
+    # 在 window 下 子系统中
+    vim ~/.bashrc
+
+    ## 在末尾添加
+    bash -c zsh
     ```
 
 ## tree 命令行安装与使用
@@ -286,3 +295,31 @@
 ## Ubuntu 安装与配置
 
 + U盘制作工具 `Rufus`
++ [替换阿里镜像源](https://opsx.alibaba.com/mirror): 查看帮助文档
++ 添加`ficx`输入法源，安装百度五笔输入法
++ 更改时间不一致问题：`sudo hwclock --localtime --systohc`
++ 安装微软字体
+    ```bash
+     #字体存放位置
+     cd /usr/share/fonts/truetype/
+
+     #修改字体文件的权限.
+     sudo chmod 644 *.ttf
+
+     #创建字体的fonts.scale文件，它用来控制字体旋转缩放
+     sudo mkfontscale
+
+     #创建字体的fonts.dir文件，它用来控制字体粗斜体产生
+     sudo mkfontdir
+
+     #建立字体缓存信息，也就是让系统认识该字体
+     sudo fc-cache -fv
+    ```
++ 从商店中安装软件错误处理：
+    ```bash
+    #列出操作记录
+    snap changes
+
+    # 中止错误ID
+    sudo snap abort ID
+    ```
