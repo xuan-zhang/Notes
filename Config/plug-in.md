@@ -67,3 +67,8 @@
 + ide-typescript
 + vim-mode
 + platformio-ide-terminal
+
+## 统一编辑器风格
+
++ `.editorconfig` 配置文件
++ EditorConfig插件

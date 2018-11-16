@@ -117,6 +117,9 @@
 + `npm install npm@latest -g` 安装最新版本
 + `npm view npm versions` 查看所有 npm 版本
 + `npm install -g cnpm --registry=https://registry.npm.taobao.org` 安装 `cnpm` 淘宝镜像
++ `npm install express --registry https://registry.npm.taobao.org` 临时使用淘宝源
++ `npm config set registry https://registry.npm.taobao.org` 持久使用
++ `npm config get registry` 查看配置是否成功 也可 `npm info express`
 
 ## rvm 安装
 
