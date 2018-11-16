@@ -7,6 +7,7 @@
 + chinese
 + Beautify
 + ESLint
++ EditorConfig for VS Code
 + fileSize
 + HTML CSS Support
 + HTML Snippets
