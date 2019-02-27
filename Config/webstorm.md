@@ -71,14 +71,23 @@
 - `Ctrl + Ctrl(按住不放) + 方向键`: 按两次 `Ctrl` 键不放，之后再按 `方向键` 同时选种并编辑多行， 同样的还有 `Alt + 鼠标左键点击` `Alt + 鼠标左键拖拽`
 - `F11`: 在光标行添加或删除 Bookmark
 - `Alt + Shift + F`: 将当前文件添加到收藏夹
+- `/** + TAB`: 添加函数说明
 
 ## 配置
 
 - `Settings > Editor > File Types` : 配置文件语法高亮，设置不校验目录如 `node_modules`
+
 - 配置局域网服务器环境：
   - 如果这样做，会很卡，一般不用；
   - 设置调试模式 `Debugger`，配置端口号 `8080` , 允许外部访问；
-    ![Debugger配置](./images/debugger-setting.png)
+    ![Debugger配置](../assets/images/debugger-setting.png)
   - 设置部署模式 `Deployment`，添加服务器， 输入 Name, `Type` 选择 `Local or mounted folder`;设置`connention` , `upload/download project files` 服务器跟目录，`web server root URL` 服务器路径
-    ![Deployment](./images/deployment-setting.png)
+    ![Deployment](../assets/images/deployment-setting.png)
+
 - 增加 webstrom 内存，`D:\Program Files\JetBrains\WebStorm 2017.3.3\bin` 修改里面的文件 `webstorm64.exe.vmoptions` `-Xms512m -Xmx2048m`
+
+- 设置新建文件模板：`File and Code Templates`
+
+- 设置代码补全模板：`Postfix Completion`
+
+- 设置注释模板： `Live Templates`
