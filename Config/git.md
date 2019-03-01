@@ -3,12 +3,14 @@
 ## 配置
 
 + 对本机授权
+
     ```bash
     # 生成 ssh 为 ~/.ssh/id_rsa.pub
     $ ssh-keygen -t rsa -C "your_email@youremail.com"
 
     ## 将 里面内容复制到个人账号
     ```
+
 + `git clone --depth=1 https:#github.com/*****` :  克隆时只克隆最近的文件，避免 `.git` 文件过大时克隆过慢；
 + 全局配置
 
@@ -21,6 +23,7 @@
     git config --global credential.helper cache # 十五分钟
     git config credential.helper 'cache --timeout=3600' # 自定义时间 单位 s
     ```
+
 + `HEAD` : 当前版本； `HEAD^`: 上一个版本; `HEAD^^`： 上上个版本； `HEAD~100`：上100个版本
 + 工作区 -- 暂存区 -- 版本库
 + 已跟踪 -- 未跟踪
@@ -86,6 +89,7 @@
           git push --all origin  # 提交本地所有分支到远程
           git push --force origin
     ```
+
 + 撤消
 
     ```bash
@@ -118,7 +122,17 @@
 
     # 清空一个分支
     git rm -rf .
+
+    # 清除未被跟踪的文件/目录
+    git clean -f
+    git clean -f -d
+
+    # 撤销本地更改，使用远程分支强制覆盖本地
+    git fetch --all
+    git reset --hard origin/<branch_name>
+    git pull
     ```
+
 + 删除
 
     ```bash
@@ -126,6 +140,7 @@
      git rm --cached readme1.txt    删除readme1.txt的跟踪，并保留在本地。
      git rm --f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件。
     ```
+
 + 分支
 
     ```bash
@@ -159,7 +174,9 @@
         git branch -m oldname newname
 
     ```
+
 + 创建一个新的空白分支
+
     ```bash
         git checkout --orphan emptybranch # 新的空白分支
         git rm -rf . # 原分支中的内容会自动添加, 移除原分支文件
@@ -169,6 +186,7 @@
         git merge emptybranch --allow-unrelated-histories # 新空白分支无共同父祖先，要添加 allow* 参数
         git pull origin master --allow-unrelated-histories
     ```
+
 + 合并与变基
 
     ```bash
@@ -189,6 +207,7 @@
     ```
 
 + 远程库
+
     ```bash
     # 查看远程库信息
     git remote
@@ -204,6 +223,7 @@
     git remote rename <原主机名> <新主机名>
 
     ```
+
 + tag
 
     ```bash
@@ -231,6 +251,7 @@
      # 查看工作区和版本库里面最新版本的区别
      git diff HEAD -- readme.txt
     ```
+
 + bug 处理
 
     ```bash
@@ -264,6 +285,7 @@
 ## Commit messages的基本语法
 
 + 格式
+
     ```xml
     <type>: <subject>
     <BLANK LINE>
@@ -271,6 +293,7 @@
     <BLANK LINE>
     <footer>
     ```
+
 + 说明： `Type` 表示提交类别，`Subject` 表示标题行， `Body` 表示主体描述内容。
 
     ```text
@@ -281,6 +304,7 @@
       * 是否存在副作用、风险?
     如果需要的化可以添加一个链接到issue地址或者其它文档
     ```
+
 + Type
   + `feat`: 添加新特性
   + `fix`: 修复bug
