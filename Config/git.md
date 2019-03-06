@@ -131,6 +131,11 @@
     git fetch --all
     git reset --hard origin/<branch_name>
     git pull
+
+    # 更新单个文件或目录
+    git fetch
+    git checkout origin/<branch_name> -- path/file
+
     ```
 
 + 删除
@@ -255,15 +260,20 @@
 + bug 处理
 
     ```bash
-    git stash # 将工作区与暂存区保存起来
-    git stash pop # 返回最新工作进度
+    git stash # 将工作区与暂存区保存起来， 本地保存, 缓存：staged changes and unstaged changes; 不会缓存：untracked files and ignored files
+    git stash -u # --include-untracked
+    git stash -a # include untracked and ignored
+    git stash pop # 返回最新工作进度，栈顶暂存出栈，记录删除
     git stash list # 保存进度列表
     git stash pop --index
     git stash pop stash@{1}
-    git stash apply
+    git stash apply # 栈顶暂存出栈，记录保持
 
     git stash drop stash@{1}
     git stash clear
+
+    git stash branch <branch_name> # 从stash 创建分支
+
     ```
 
     ```bash
@@ -280,6 +290,15 @@
     git checkout dev
     git stash list
     git stash pop
+
+    # 部分合并
+    git pull origin <branch_name> # 拉取远程库
+    git reset --hard # 发现有冲突，撤销本地暂存与工作区
+    git checkout -b <backup_branch_name> # 备份当前
+    git checkout <branch_name> # 回到备份前
+    git reset --hard origin/<branch_name> #用远程库覆盖本地
+    git checkout <backup_branch_name> my_work_path/path # 从备份库中取出自己工作目录到当前分支合并
+    git branch -d <backup_branch_name> # 如果备份无用，可删除
     ```
 
 ## Commit messages的基本语法
