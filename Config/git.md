@@ -201,6 +201,9 @@
         git merge a b # 把 a b 分支合并到当前分支 master 上并提交
         git merge --no-commit dev
 
+        # 合并单个文件
+        git checkout dev public/a.js # 把 dev 分支 public 文件夹下的 a.js 合并一当前分支
+
         # rebase
         git checkout dev # 进入分支
         git rebase master # 将当前分支 dev 上的更改 合并到 master 分支上
