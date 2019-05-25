@@ -13,6 +13,7 @@
 2. 下载 mongoDB 可视化管理工具：`RoboMongo`
 3. 配置环境变量
 4. 新建数据库目录文件
+
     ```text
         + C:\mongodata
             + db
@@ -20,8 +21,10 @@
                 mongod.log
             mongod.cfg
     ```
+
 5. 数据库初始化, 运行 MongoDB 服务器 `$ mongod --dbpath=C:\mongodata\db`
 6. 创建配置文件 `mongod.cfg`
+
     ```text
     systemLog:
         destination file
@@ -29,13 +32,16 @@
     storage:
         dbPath: c:\mongodata\db
     ```
+
 7. 安装 mongoDB 服务 **要以管理员命令运行** `$ mongod --config "c:\mongodata\mongod.cfg" --serviceName MongoDB --install`
 8. 配置成功后启动方式:
+
     ```bash
     net start MongoDB # 启动服务
     net stop MongoDB # 停止服务
     mongod --remove # 移除服务
     ```
+
 9. 使用 mongoDB:  在命令行状态下执行 `$ mogo`, 启动mongo，执行命令即可
 10. Webstrom 中配置 MongoDB
     - 安装 mongodb 插件 `mongo plugin`
@@ -51,6 +57,7 @@
 - 下载 `mongodb` 安装包 [官网](https://www.mongodb.com/download-center?jmp=nav#community)  下载`社区版`即可
 - 将下载的压缩包进行解压，将文件移动到 `sudo mv ~/Desktop/mongodb-osx-x86_64-3.6.3  /usr/local/mongodb`;
 - 配置环境变量
+
     ```bash
     cd ~
     vim .bash_profile
@@ -61,8 +68,10 @@
         :wq
         source .bash_profile
     ```
+
 - 查看安装情况 `$ mongod --version`
 - 创建数据库目录 直接运行 `mongod` 会提示找不到数据库目录
+
     ```bash
     # 创建数据库安装目录
     $ cd ~
@@ -77,7 +86,9 @@
     # 关闭后再次进入
     $ mongod --dbpath=./zxx/data/db
     ```
+
 - 配置--日志与配置文件 `mongod --help` 或 [配置文件参数](http://www.mongodb.org.cn/manual/188.html)
+
     ```bash
     $ cd ~/zxx/data
     # 创建日志文件   如果数据库不在当前目录，在系统目录 `/usr/local/` 目录下，要为数据库日志文件添加操作权限
@@ -94,7 +105,9 @@
     $ mongod -f /etc/mongod.conf
 
     ```
+
 - mongodb 关闭
+
     ```bash
     # 方式一 db.shutdownServer()   在 mongo shell 下 进行
     > usr admin
@@ -107,7 +120,9 @@
     $ ps aux | grep mongod
     $ kill -2
     ```
+
 - `mongod.conf` 配置文件内容
+
     ```bash
     #数据库数据存放目录
     dbpath=/Users/jame/zxx/data/db
@@ -139,6 +154,7 @@
     #这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false
     #quiet=true
     ```
+
 - 可视化工具 `Robo 3T` (studio 3T 收费)
 
 ### linux下mongodb 的安启动
@@ -206,6 +222,7 @@
 #### 配置访问控制
 
 1. 创建 **用户管理员** ：只有创建用户的权限，没有管理数据库或其他管理功能
+
     ```bash
     > use admin
     > db.createUser({
@@ -214,9 +231,11 @@
         roles: ["userAdminAnyDatabase"]
     })
     ```
+
 2. 打开身份验证, 重新启动 MongoDB:  `$ mongodb --dbpath=C:\mongodata\db --auth`
 
 3. 修改配置文件 mongod.cfg
+
     ```text
     systemLog:
         destination: file
@@ -229,7 +248,9 @@
         port: 27017
 
     ```
+
 4. 开启 mongodb 服务：
+
     ```bash
     # 进入方式一、 打开mongo shell
     $ mongo
@@ -240,7 +261,9 @@
     $ mongo admin --username "useradmin" --password "useradmin"
 
     ```
+
 5. 创建 **数据库管理** 账户: 访问所有数据库、创建新数据库、并管理MongoDB的集群和副本的能力
+
     ```bash
     > use admin
     > db.createUser({
@@ -249,6 +272,7 @@
         roles: ["readWriteAnyDatabase", "dbAdminAnyDatabase", "clusterAdmin"]
     })
     ```
+
 6. 启动方法同上
 
 ------
@@ -262,6 +286,7 @@
 3. npm 指定版本下载 `npm install jquery@1.11.3 --save`
 4. `npm init`: 初始化
 5. nodeJs 升级：
+
     ```bash
         $ npm install -g n
            n stable
