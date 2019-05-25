@@ -46,6 +46,7 @@ default-character-set=UTF8MB4
 ## 初始化数据库
 
 + `mysqld --defaults-file="D:\Program Files\MySQL\mysql-8.0.16-winx64\my.ini" --initialize --console`
++ 也可 `mysqld  --initialize --console`
 + 使用双引号 `"` 去除 `Program Files` 文件目录中的空格
 + 记住密码`A temporary password is generated for root@localhost: tIu5)8876`
 + 修改 `root` 密码: `123546`
