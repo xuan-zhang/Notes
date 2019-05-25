@@ -12,7 +12,7 @@
 + 在安装目录 `D:\Program Files\MySQL\mysql-8.0.16-winx64` 下新建配置文件 `my.ini`
 
 ```bash
-mysqld]
+[mysqld]
 
 # 设置3306端口
 port=3306
