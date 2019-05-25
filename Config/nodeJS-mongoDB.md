@@ -42,7 +42,7 @@
     mongod --remove # 移除服务
     ```
 
-9. 使用 mongoDB:  在命令行状态下执行 `$ mogo`, 启动mongo，执行命令即可
+9. 使用 mongoDB:  在命令行状态下执行 `$ mongo`, 启动mongo，执行命令即可
 10. Webstrom 中配置 MongoDB
     - 安装 mongodb 插件 `mongo plugin`
     - 添加 `mongo shell` : `C:\Program Files\MongoDB\Server\3.6\bin\mongo.exe`
