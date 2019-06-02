@@ -218,3 +218,16 @@
 
 
   ```
+
++ 压缩
+
+    ```js
+    const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+    module.exports = {
+        plugins: [
+            new UglifyJsPlugin()
+        ]
+    }
+
+    ```
