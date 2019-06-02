@@ -53,3 +53,32 @@
 + 可以使用 `mapMutations` 语法糖触发 `mutations` 中的方法， 将 `this.add()` 映射为 `this.$store.commit('increment')`
 + `action` 可以触发 `commit`，触发 `action` 用 `dispatch`
 + `state` 中的所有状态改变都是 `commit` 一个 `mutation`
+
+## VueRouter
+
++ `<router-link to="/foo">Go to Foo</router-link>`
++ `goback`
+
+    ```js
+    goBack () {
+        window.history.length > 1
+            ? this.$router.go(-1)
+            : this.$router.push('/')
+    }
+    ```
+
++ 当 `<router-link>` 对应的路由匹配成功，将自动设置 `class` 属性值 `.router-link-active`
++ 动态路由匹配
+  + 模式:  `/user/:username/post/:post_id`
+  + 匹配路径: `/user/evan/post/123`
+  + `$route.params`: `{ username: 'evan', post_id: 123 }`
+  + 当使用路由参数时，例如从 `/user/foo` 导航到 `/user/bar`，原来的组件实例会被复用。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。不过，这也意味着组件的生命周期钩子不会再被调用。
+  + 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 `watch` (监测变化) `$route` 对象
+  + 或者使用  `beforeRouteUpdate` 导航守卫：
++ 嵌套路由
++ 命名的路由: `router.push({ name: 'user', params: { userId: 123 }})`
++ 带查询参数，变成 `/register?plan=private`  `router.push({ path: 'register', query: { plan: 'private' }})`
++ 如果提供了 `path`，`params` 会被忽略
++ 需要提供路由的 `name` 或手写完整的带有参数的 `path`
++ `router.push`、 `router.replace` 和 `router.go` 效仿 `window.history.pushState`、 `window.history.replaceState` 和 `window.history.go`
++ `history` 模式: 服务器就不再返回 404 错误页面, 应该在 Vue 应用里面覆盖所有的路由情况，然后在给出一个 404 页面。
