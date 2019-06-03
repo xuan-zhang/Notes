@@ -82,3 +82,37 @@
 + 需要提供路由的 `name` 或手写完整的带有参数的 `path`
 + `router.push`、 `router.replace` 和 `router.go` 效仿 `window.history.pushState`、 `window.history.replaceState` 和 `window.history.go`
 + `history` 模式: 服务器就不再返回 404 错误页面, 应该在 Vue 应用里面覆盖所有的路由情况，然后在给出一个 404 页面。
+
+## Vue 权限管理方法
+
+### 方案一
+
++ 公共部分，即所有人都能看到的路由
++ 动态加载部分, 依据权限动态生成
+  + 本地保存完整路由信息，但并不立即初始化Vue应用，待用户登录拿到权限后，用菜单权限筛选出可用路由，再用可用路由初始化Vue应用。
+  + 要将登录页独立出去做成一个单独的页面，登录后将用户数据保存在本地，再通过url跳转到Vue应用所在页面，Vue应用启动前通过本地用户数据完成路由筛选，然后初始化Vue应用
+
+    ```js
+    let user = sessionStorage.getItem('user');
+    if (user) {
+        user = JSON.parse(user);
+        //筛选得到实际路由
+        let fullPath = require('fullPath.js');
+        let routes = filter(fullPath, user.menus);
+        //创建路由对象
+        let router = new Router({routes});
+        //生成Vue实例
+        new Vue({
+            el: '#app',
+            router,
+            render: h => h(App)
+        });
+    }else{
+        location.href = '/login/';
+    }
+
+    ```
+
++ `router.beforeEach`
+  + 判断 `to.Path`, 路径是否需要权限
+  + 获取用户 role 权限列表，对比路由
