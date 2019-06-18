@@ -283,16 +283,17 @@
 
 1. 下载 node 安装包，并安装, 安装成功与否 `node -v` `npm -v`;
 2. 安装 `cnpm` 淘宝镜像 `$ npm install -g cnpm --registry=https://registry.npm.taobao.org`
-3. npm 指定版本下载 `npm install jquery@1.11.3 --save`
-4. `npm init`: 初始化
-5. nodeJs 升级：
+3. 不使用 `cnpm` 改用镜像文件: `npm install --registry=https://registry.npm.taobao.org` `npm config set registry https://registry.npm.taobao.org`
+4. npm 指定版本下载 `npm install jquery@1.11.3 --save`
+5. `npm init`: 初始化
+6. nodeJs 升级：
 
     ```bash
         $ npm install -g n
            n stable
     ```
 
-6. npm 升级： `$ npm -g install npm@next`
+7. npm 升级： `$ npm -g install npm@next`
 
 ### Express 使用
 
