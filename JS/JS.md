@@ -50,7 +50,7 @@
 
 ## Array
 
-- `flatMap`: 执行 `map` 再执行 `flat`;
+- `flatMap`: 执行 `map` 再执行 `flat`(效果类似，not sure);
 
   ```js
   let arr = [1,2,[1,2, [1,2,3]]];
