@@ -75,3 +75,7 @@
   - [XMLSerializer](https://developer.mozilla.org/zh-CN/docs/XMLSerializer): 提供 `serializeToString()` 方法来构建一个代表 `DOM` 树的 `XML` 字符串
     - `outerHTML` 只能作用在 `Element` 元素上，但是不能是其他节点类型，例如文本节点，注释节点之类。但是`serializeToString()`方法适用于任意节点类型
     - `serializeToString()` 方法会给根元素自动增加xmlns命名空间
+
+## 编码
+
+- [escape()、encodeURI()、encodeURIComponent()](https://www.cnblogs.com/qiantuwuliang/archive/2009/07/19/1526687.html)
