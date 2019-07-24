@@ -1,5 +1,5 @@
 {
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "editor.wordWrap": "on",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "material-icon-theme",
@@ -39,9 +39,28 @@
     "suppressShowKeyBindingsNotice": true
   },
   "git.enableSmartCommit": true,
-  //"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+
   "files.exclude": {
     "**/.idea": true
   },
-  //"terminal.external.windowsExec": "C:\\Program Files\\cmder\\cmder.exe",
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "liveServer.settings.donotVerifyTags": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true
 }
