@@ -48,7 +48,7 @@ default-character-set=UTF8MB4
 + `mysqld --defaults-file="D:\Program Files\MySQL\mysql-8.0.16-winx64\my.ini" --initialize --console`
 + 也可 `mysqld  --initialize --console`
 + 使用双引号 `"` 去除 `Program Files` 文件目录中的空格
-+ 记住密码`A temporary password is generated for root@localhost: tIu5)8876`
++ 记住密码`A temporary password is generated for root@localhost: tIu5)8876` 1GMZ;mtD:Foh
 + 修改 `root` 密码: `123546`
 
 ## window 服务安装
@@ -62,3 +62,4 @@ default-character-set=UTF8MB4
 + 查看启动详情: `mysqld --console`
 + 新建命令行窗口登录操作: `mysql -u root -p`, 之后输入密码
 + 更改密码：`mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';`
++ `mysql` 命令行中执行命令后要加 `;` 后再按 `ENTER` 键才能执行代码
