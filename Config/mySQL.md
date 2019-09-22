@@ -42,6 +42,13 @@ default-character-set=UTF8MB4
 ## 配置环境变量
 
 + 此电脑->右键属性->高级系统设置->环境变量->Path->编辑->bin目录的路径(`D:\Program Files\MySQL\mysql-8.0.16-winx64\bin`)->确定。
++ mac 下在 `.bash_profile` 和 `.zshrc` 中 添加如下代码
+
+    ```bash
+      # 添加mysql 环境变量
+      export MYSQL_HOME=$HOME/Applications/mysql-8.0.17-macos10.14-x86_64
+      export PATH="$MYSQL_HOME/bin:$MYSQL_HOME/support-files:$PATH"  
+    ```
 
 ## 初始化数据库
 
@@ -63,3 +70,11 @@ default-character-set=UTF8MB4
 + 新建命令行窗口登录操作: `mysql -u root -p`, 之后输入密码
 + 更改密码：`mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';`
 + `mysql` 命令行中执行命令后要加 `;` 后再按 `ENTER` 键才能执行代码
++ mac 使用 dmg 安装包后，须重启系统
+
+## 重置 root 密码
+
++ 停止 `mysql` 服务
++ 命令 `sudo mysqld_safe --skip-grant-tables`
++ `FLUSH PRIVILEGES;`
++ `ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';`
