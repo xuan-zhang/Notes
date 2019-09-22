@@ -110,7 +110,7 @@
 
     ```bash
     # 方式一 db.shutdownServer()   在 mongo shell 下 进行
-    > usr admin
+    > use admin
     > db.shutdownServer()
 
     # 方式二  命令行模式下 -- 无用
