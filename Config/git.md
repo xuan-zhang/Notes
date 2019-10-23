@@ -158,15 +158,45 @@ git rm --f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件�
 > 要删除 commitB
 
 ```bash
-# 查看 commitID
+# 1. 查看 commitID
 git log
 
-# git rebase 之前不能有暂存内容
+# 2. git rebase 之前不能有暂存内容
 git add .
 git commit -am <commit message>
 
-# git rebase -i <commitA_ID>
+# 3. git rebase -i <commitA_ID>
 git rebase -i f46d75
+
+# 会得到如下 文件
+
+pick 7efc1e7 要删除的commit
+pick 9477817 commit end
+
+# 4. 将上处 pick 改为 drop
+# 变基 d8bff92..9477817 到 d8bff92（2 个提交）
+
+drop 7efc1e7 要删除的commit
+pick 9477817 commit end
+
+# 命令:
+# p, pick <提交> = 使用提交
+# r, reword <提交> = 使用提交，但修改提交说明
+# e, edit <提交> = 使用提交，进入 shell 以便进行提交修补
+# s, squash <提交> = 使用提交，但融合到前一个提交
+# f, fixup <提交> = 类似于 "squash"，但丢弃提交说明日志
+# x, exec <命令> = 使用 shell 运行命令（此行剩余部分）
+# b, break = 在此处停止（使用 'git rebase --continue' 继续变基）
+# d, drop <提交> = 删除提交
+
+# 5. 使用 ：wq 保存更改
+
+# 6. 如有冲突处理冲突
+# 7. 添加新的 commit
+git commit --amend <new commit message>
+
+# 8. 强制推送
+git push --force
 
 ```
 
