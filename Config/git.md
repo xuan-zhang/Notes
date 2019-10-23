@@ -110,8 +110,11 @@ git reset --hard 053a
 git revert <commit> #撤消指定的提交
 git reset HEAD^ # 恢复到上一个版本， 只是恢复到了暂存区
 git checkout -- test.txt # 将删除的test.txt 从暂存区恢复到工作区
+```
 
-# 回滚
+#### 回滚
+
+```bash
 git checkout <tag>
 git checkout v2.0
 git checkout <branch_name>
@@ -126,8 +129,11 @@ git rm -rf .
 # 清除未被跟踪的文件/目录
 git clean -f
 git clean -f -d
+```
 
-# 撤销本地更改，使用远程分支强制覆盖本地
+#### 撤销本地更改，使用远程分支强制覆盖本地
+
+```bash
 git fetch --all
 git reset --hard origin/<branch_name>
 git pull
