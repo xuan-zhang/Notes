@@ -152,6 +152,24 @@ git rm --cached readme1.txt    删除readme1.txt的跟踪，并保留在本地�
 git rm --f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件。
 ```
 
+#### 删除已提交的 `commit`
+
+> 如有 commit： commitA --> commitB --> commitC  
+> 要删除 commitB
+
+```bash
+# 查看 commitID
+git log
+
+# git rebase 之前不能有暂存内容
+git add .
+git commit -am <commit message>
+
+# git rebase -i <commitA_ID>
+git rebase -i f46d75
+
+```
+
 ### 分支
 
 ```bash
