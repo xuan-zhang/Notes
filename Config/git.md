@@ -6,7 +6,7 @@
 
     ```bash
     # 生成 ssh 为 ~/.ssh/id_rsa.pub
-    $ ssh-keygen -t rsa -C "your_email@youremail.com"
+    ssh-keygen -t rsa -C "your_email@youremail.com"
 
     ## 将 里面内容复制到个人账号
     ```
