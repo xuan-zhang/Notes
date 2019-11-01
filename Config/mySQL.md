@@ -39,6 +39,10 @@ port=3306
 default-character-set=UTF8MB4
 ```
 
+### mac 下安装
+
++ 下载 dmg 格式文件直接安装
+
 ## 配置环境变量
 
 + 此电脑->右键属性->高级系统设置->环境变量->Path->编辑->bin目录的路径(`D:\Program Files\MySQL\mysql-8.0.16-winx64\bin`)->确定。

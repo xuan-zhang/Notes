@@ -67,6 +67,8 @@
         export PATH=$PATH:/usr/local/mongodb/bin
         :wq
         source .bash_profile
+    # 添加 mongodb 启动别名 配置文件放在 /usr/local/etc 下
+        alias openmongodb="mongod -f /usr/local/etc/mongod.conf"
     ```
 
 - 查看安装情况 `$ mongod --version`
@@ -105,6 +107,10 @@
     $ mongod -f /etc/mongod.conf
 
     ```
+
+- 配置mac 打开任意源软件
+  - 打开：`sudo spctl --master-disable`
+  - 关闭：`sudo spctl --master-enable`
 
 - mongodb 关闭
 
