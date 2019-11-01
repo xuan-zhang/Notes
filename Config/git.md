@@ -176,7 +176,7 @@ pick 9477817 commit end
 # 4. 将上处 pick 改为 drop
 # 变基 d8bff92..9477817 到 d8bff92（2 个提交）
 
-drop 7efc1e7 要删除的commit
+drop 7efc1e7 要删除的commit # 注意： 如果采用 drop drop掉的commit 改动信息也会删除，破坏性操作
 pick 9477817 commit end
 
 # 命令:
