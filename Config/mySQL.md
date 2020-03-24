@@ -67,8 +67,10 @@ default-character-set=UTF8MB4
 
 ## window 服务安装
 
-+ 使用管理员权限打开命令行：`mysqld --install --defaults-file="D:\Program Files\MySQL\mysql-8.0.16-winx64\my.ini"`
-+ 下次启动运行：`net start MySql`
++ 使用管理员权限打开命令行：`mysqld --install MySQL --defaults-file="D:\Program Files\MySQL\mysql-8.0.16-winx64\my.ini"`
++ 下次启动运行：`net start MySql` 
++ 停止服务：`net stop mysql`
++ 删除服务: `sc delete mysql`
 
 ## 相关操作
 
