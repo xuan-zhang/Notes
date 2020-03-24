@@ -9,7 +9,7 @@
 
 + 将下载的安装包解压到安装目录下，如：`D:\Program Files\MySQL\mysql-8.0.16-winx64`
 + 新建 `D:\Program Files\MySQL\Data` 目录，数据的存放目录
-+ 在安装目录 `D:\Program Files\MySQL\mysql-8.0.16-winx64` 下新建配置文件 `my.ini`
++ 在安装目录 `D:\Program Files\MySQL\mysql-8.0.16-winx64` 下新建配置文件 `my.ini` 必须就 ANSI 编码 默认的 mysql 根目录下
 
 ```bash
 [mysqld]
@@ -30,6 +30,9 @@ character-set-server=UTF8MB4
 default-storage-engine=INNODB
 # 默认使用“mysql_native_password”插件认证
 default_authentication_plugin=mysql_native_password
+# 配置sql_mode 不能包含 NO_AUTO_CREATE_USER
+# sql_mode=NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+
 [mysql]
 # 设置mysql客户端默认字符集
 default-character-set=UTF8MB4
@@ -64,7 +67,7 @@ default-character-set=UTF8MB4
 
 ## window 服务安装
 
-+ 使用管理员权限打开命令行：`mysqld --install`
++ 使用管理员权限打开命令行：`mysqld --install --defaults-file="D:\Program Files\MySQL\mysql-8.0.16-winx64\my.ini"`
 + 下次启动运行：`net start MySql`
 
 ## 相关操作
