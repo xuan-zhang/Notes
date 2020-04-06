@@ -1,3 +1,4 @@
+
 module.exports = {
     title: '炫',
     description: '炫的个人的学习笔记',
@@ -21,7 +22,7 @@ module.exports = {
     themeConfig: {
         logo: '/logo.png',
         nav: [{
-                text: 'Git',
+                text: '软件安装及配置',
                 link: '/Config/git.md'
             },
             {

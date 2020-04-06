@@ -1,5 +1,11 @@
+# VS Code 配置
+
+## 软件配置项
+
+```json5
+
 {
-  "files.autoSave": "onFocusChange",
+  "files.autoSave": "afterDelay", // 自动保存
   "editor.wordWrap": "on",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "material-icon-theme",
@@ -64,3 +70,36 @@
   "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true
 }
+```
+
+## 常用插件
+
+### 主题
+
++ Atom One Dark Theme
++ Atom One Light Theme
++ Material Theme
+
++ Beautify
++ Bracket Pair Colorizer
++ EditorConfig for VS Code
++ markdownlint
++ chinese
++ Path Intellisense
++ Live Server
++ SVG Viewer
++ TODO Highlight
++ TODO Tree
++ VIM
+
++ GitLens
++ ~~Git History~~
+
++ HTML CSS Support
++ HTML Snippets
++ Vetur
++ Denugger for Chrome
++ ~~Autoprefixer~~
++ ~~JavaScript(ES6) code snippets~~
++ ~~ESLint~~
++ ~~TSLint~~
