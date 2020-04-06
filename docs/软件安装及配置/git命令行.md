@@ -31,9 +31,9 @@
 
 ## 工作流
 
-+ ![git工作流](/assets/images/gitstream.jpg)
-+ git 常用命令 ![git命令](/assets/images/git.jpg)
-+ ![远程操作](/assets/images/pullfeatch.png)
++ ![git工作流](../../public/images/gitstream.jpg)
++ git 常用命令 ![git命令](../../public/images/git.jpg)
++ ![远程操作](../../public/images/pullfeatch.png)
 
 ## 常用命令与工作流
 
