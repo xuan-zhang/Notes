@@ -1,3 +1,5 @@
+const nav = require('./config/nav');
+const sidebar = require('./config/sidebar');
 
 module.exports = {
     title: '炫',
@@ -19,32 +21,18 @@ module.exports = {
             lang: 'zh-CN',
         }
     },
+    plugins: [
+        '@vuepress/back-to-top'
+    ],
     themeConfig: {
         logo: '/logo.png',
-        nav: [{
-                text: '软件安装及配置',
-                link: '/Config/git.md'
-            },
-            {
-                text: 'mysql',
-                link: '/Config/mySQL.md'
-            },
-            {
-                text: 'External',
-                link: 'https://google.com'
-            },
-        ],
-        sidebar: [{
-                title: '工具', // 必要的
-                sidebarDepth: 1, // 可选的, 默认值是 1
-                children: [
-                    '/Config/mySQL.md',
-                ]
-            },
-            {
-                title: 'Group 2',
-                path: '/',
-            }
-        ]
+        lastUpdated: '最后更新时间',
+        nav,
+        sidebar,
+        repo: 'xuan-zhang/Notes',
+        repoLabel: 'GitHub',
+        docsBranch: 'master',
+        editLinks: true,
+        editLinkText: '在GitHub中编辑此页面！'
     }
-}
+};
