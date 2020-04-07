@@ -1,11 +1,40 @@
 module.exports = [
     {
         text: '文档',
-        ariaLabel: 'Language Menu',
         items: [
             {
                 text: 'HTML CSS',
-                link: '/docs/HTML_CSS/HTML.md'
+                items: [
+                    {
+                        text: 'HTML',
+                        link: '/docs/HTML_CSS/HTML'
+                    },
+                    {
+                        text: 'CSS',
+                        link: '/docs/HTML_CSS/css',
+                    }
+                ]
+            },
+            {
+                text: 'ES',
+                items: [
+                    {
+                        text: 'jQuery',
+                        link: '/docs/JS/jQuery',
+                    },
+                    {
+                        text: 'JS',
+                        link: '/docs/JS/JS',
+                    },
+                    {
+                        text: 'xss',
+                        link: '/docs/JS/xss'
+                    },
+                    {
+                        text: '原型与原型链',
+                        link: '/docs/JS/原型与原型链',
+                    }
+                ]
             }
         ]
     },

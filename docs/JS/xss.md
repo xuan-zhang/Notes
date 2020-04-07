@@ -1,3 +1,6 @@
+# XSS
+
+```js
 var HtmlUtil = {
     /*1.用浏览器内部转换器实现html转码*/
     htmlEncode:function (html){
@@ -46,3 +49,4 @@ var HtmlUtil = {
          return s;  
    }
 };
+```
