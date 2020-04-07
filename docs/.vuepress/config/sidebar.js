@@ -1,17 +1,19 @@
 module.exports = {
-    '/docs/HTML_CSS/': [
+    '/HTML-CSS/': [
         {
             title: 'HTML CSS',
             children: [
+                '',
                 'HTML',
                 'css'
             ]
         }
     ],
-    '/docs/JS/': [
+    '/JavaScript/': [
         {
-            title: 'ES',
+            title: 'JavaScript',
             children: [
+                '',
                 'jQuery',
                 'JS',
                 'xss',
@@ -20,12 +22,27 @@ module.exports = {
                 '正则',
                 '深拷贝',
                 '编写高质量JS的68个有效方案',
-                '获取selected选种项',
+                '获取selected选中项',
                 '跨域'
             ]
         },
     ],
-    '/': [
-        ''
-    ]
+    '/MiniProgram/': [
+        {
+            title: '小程序',
+            children: [
+                '',
+            ]
+        }
+    ],
+    '/MongoDB/': [
+        {
+            title: 'MongoDB',
+            children: [
+                '',
+                'nodeJS与mongoDB安装及配置'
+            ]
+        }
+    ],
+    '/': ['/']
 };

@@ -31,6 +31,7 @@ module.exports = {
         repo: 'xuan-zhang/Notes',
         repoLabel: 'GitHub',
         docsBranch: 'master',
+        docsDir: 'docs',
         editLinks: true,
         editLinkText: '在GitHub中编辑此页面！'
     }

@@ -1,56 +1,61 @@
 module.exports = [
     {
-        text: '文档',
+        text: '首页',
+        link: '/',
+    },
+    {
+        text: '前端',
         items: [
             {
                 text: 'HTML CSS',
-                link: '/docs/HTML_CSS/HTML',
+                link: '/HTML-CSS/index',
             },
             {
-                text: 'ES',
-                items: [
-                    {
-                        text: 'jQuery',
-                        link: '/docs/JS/jQuery',
-                    },
-                    {
-                        text: 'JS',
-                        link: '/docs/JS/JS',
-                    },
-                    {
-                        text: 'xss',
-                        link: '/docs/JS/xss'
-                    },
-                    {
-                        text: '原型与原型链',
-                        link: '/docs/JS/原型与原型链',
-                    }
-                ]
+                text: 'JavaScript',
+                link: '/JavaScript/index'
+            },
+            {
+                text: 'TypeScript',
+                link: '/TypeScript/index'
+            },
+            {
+                text: 'Vue',
+                link: '/Vue/index'
+            },
+            {
+                text: 'React',
+                link: '/React/index'
+            },
+            {
+                text: '小程序',
+                link: '/MiniProgram/index'
             }
         ]
     },
     {
-        text: 'Vue',
-        link: '/'
+        text: '后端',
+        items: [
+            {
+                text: 'Node',
+                link: '/Node/index'
+            }
+        ]
     },
     {
-        text: 'TypeScript',
-        link: '/'
+      text: '数据库',
+      items: [
+          {
+              text: 'MySQL',
+              link: '/MySQL/index'
+          },
+          {
+              text: 'MongoDB',
+              link: '/MongoDB/index'
+          }
+      ]
     },
     {
-      text: 'React',
-        link: '/'
-    },
-    {
-        text: '小程序',
-        link: '/'
-    },
-    {
-        text: 'Node',
-        link: '/'
-    },
-    {
-        text: '代码',
-        link: '/docs/Config/mySQL.md'
+        text: '文档',
+        link: '/other/index'
     },
 ];
