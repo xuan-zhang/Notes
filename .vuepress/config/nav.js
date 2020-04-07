@@ -4,16 +4,7 @@ module.exports = [
         items: [
             {
                 text: 'HTML CSS',
-                items: [
-                    {
-                        text: 'HTML',
-                        link: '/docs/HTML_CSS/HTML'
-                    },
-                    {
-                        text: 'CSS',
-                        link: '/docs/HTML_CSS/css',
-                    }
-                ]
+                link: '/docs/HTML_CSS/HTML',
             },
             {
                 text: 'ES',
@@ -37,6 +28,26 @@ module.exports = [
                 ]
             }
         ]
+    },
+    {
+        text: 'Vue',
+        link: '/'
+    },
+    {
+        text: 'TypeScript',
+        link: '/'
+    },
+    {
+      text: 'React',
+        link: '/'
+    },
+    {
+        text: '小程序',
+        link: '/'
+    },
+    {
+        text: 'Node',
+        link: '/'
     },
     {
         text: '代码',

@@ -2,7 +2,7 @@
 
 ## vuex
 
-+ ![vuex](../assets/images/vuex.png)
++ ![vuex](../../public/images/vuex.png)
 + vuex 是全局单例模式，组件共享状态抽离
 + Vuex 应用的核心就是 store（仓库), 你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) `mutation`
 + `state` 状态

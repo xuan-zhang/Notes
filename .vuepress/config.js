@@ -4,7 +4,6 @@ const sidebar = require('./config/sidebar');
 module.exports = {
     title: '炫',
     description: '炫的个人的学习笔记',
-    dest: '/dist',
     base: '/',
     head: [
         ['link', {
