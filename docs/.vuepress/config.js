@@ -3,7 +3,7 @@ const sidebar = require('./config/sidebar');
 
 module.exports = {
     title: '炫',
-    description: '炫的个人的学习笔记',
+    description: '学习笔记',
     base: '/',
     head: [
         ['link', {
