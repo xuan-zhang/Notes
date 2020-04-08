@@ -3,6 +3,9 @@
 # 确保脚本抛出遇到的错误
 set -e
 
+# 生成侧边栏
+yarn run genSidebar
+
 # 生成静态文件
 yarn run docs:build
 

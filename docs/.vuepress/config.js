@@ -1,5 +1,5 @@
 const nav = require('./config/nav');
-const sidebar = require('./config/sidebar');
+const sidebar = require('./config/sidebar-auto');
 
 module.exports = {
     title: '炫',
