@@ -1,10 +1,11 @@
 const nav = require('./config/nav');
 const sidebar = require('./config/sidebar-auto');
+const base = require('./config/base');
 
 module.exports = {
     title: '炫',
     description: '学习笔记',
-    base: '/',
+    base,
     head: [
         ['link', {
             rel: 'shortcut icon',
