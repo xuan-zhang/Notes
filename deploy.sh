@@ -7,7 +7,7 @@ set -e
 yarn run genSidebar
 
 # 设置 base
-echo "module.exports= '/Notes/';" > docs/.vuepress/config/base.js
+echo "module.exports = '/Notes/';" > docs/.vuepress/config/base.js
 
 # 生成静态文件
 yarn run docs:build
@@ -23,4 +23,4 @@ git push -f  https://github.com/xuan-zhang/Notes.git master:gh-pages
 cd -
 rm -rf docs/.vuepress/dist
 # 还原base
-echo "module.exports= '/';" > docs/.vuepress/config/base.js
+echo "module.exports = '/';" > docs/.vuepress/config/base.js

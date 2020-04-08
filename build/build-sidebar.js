@@ -15,6 +15,7 @@ try {
         };
         if (!excludeDir.includes(fileName)) {
             const file = path.resolve(docsPath, fileName);
+            if (!fs.statSync(file).isDirectory()) return;
             fs.readdirSync(file).forEach(fName => {
                 const {name, ext} = path.parse(fName);
                 if (name === 'index' && ext === '.md') {
