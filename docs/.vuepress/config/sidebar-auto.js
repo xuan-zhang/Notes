@@ -82,6 +82,7 @@ module.exports = {
       "title": "Vue",
       "children": [
         "",
+        "VueCLI",
         "Vuepress",
         "npm发布Vue组件"
       ]
