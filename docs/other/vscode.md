@@ -84,13 +84,14 @@
 + Bracket Pair Colorizer
 + EditorConfig for VS Code
 + markdownlint
-+ chinese
++ Chinese Language
 + Path Intellisense
 + Live Server
 + SVG Viewer
 + TODO Highlight
 + TODO Tree
 + VIM
++ Visual Studio IntelliCode
 
 + GitLens
 + ~~Git History~~
