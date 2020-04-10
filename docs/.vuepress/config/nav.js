@@ -38,6 +38,10 @@ module.exports = [
             {
                 text: 'Node',
                 link: '/Node/index'
+            },
+            {
+                text: 'Python',
+                link: '/Python/index'
             }
         ]
     },
