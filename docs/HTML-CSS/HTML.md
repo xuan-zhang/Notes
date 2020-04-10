@@ -139,4 +139,4 @@
 |  `&emsp;`  | 全角空格, Em Space, 1em 宽度       | `&#8195;` |
 | `&thinsp;` | 窄空格, Thin Space, 1em 宽度的 1/6 | `&#8201;` |
 
-+ ![图片](../assets/images/domClient.gif)
+![图片](../assets/images/domClient.gif)

@@ -61,6 +61,14 @@ module.exports = {
       ]
     }
   ],
+  "/Python/": [
+    {
+      "title": "Python",
+      "children": [
+        ""
+      ]
+    }
+  ],
   "/React/": [
     {
       "title": "React",

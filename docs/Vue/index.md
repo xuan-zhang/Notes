@@ -41,3 +41,68 @@
  }
 
 ```
+
+## 事件
+
++ `v-on` 绑定方法，无 `()`, 如：`<button @click="demo" />`, `demo` 会默认接收 `event` 对象做为第一个参数，也可用 `$event` 声明传入 `event` 对象, 可在 `event.target` 获取 DOM
+
+## img 图片加载失败处理
+
++ 方法一: 图片加载失败后，替换 `src` `.once` 控制 `error` 只执行一次，防止备用图片也不存在情况无限循环
+
+    ```vue
+    <template>
+        <img src="/a.png" :alt="item.name" @error.once="imgError">
+    </template>
+    <script>
+        export default {
+            methods: {
+                imgError(event) {
+                    console.log('imgError 执行');
+                    event.target.src = '/b.png';
+                },
+            },
+        };
+    </script>
+    ```
+
++ 方法二
+
+  ```js
+    import Vue from 'vue';
+
+    import backImg from '@/assets/error-img.svg';
+
+    /**
+    * img 图片加载失败，替换为备选图片
+    * v-img="imgPath" 备选图片地址，不传采用默认值
+    * v-img.first 先用备选图片，当指定图片加载完成后再替换回来
+    */
+
+    Vue.directive('img', {
+        bind(el, binding) {
+            const imgUrl = binding.value || backImg; // 备选图片
+            const useBackImg = url => {
+            el.setAttribute('src', url);
+            el.removeEventListener('error', useBackImg); // 只设置一次备选图片，阻止备选图片也加载失败死循环
+            };
+
+            if (binding.modifiers.first) { // 采用备选图片先显示方式
+            const primUrl = el.getAttribute('src');
+            el.setAttribute('src', imgUrl);
+            let img = new Image();
+            img.src = primUrl;
+            img.onload = function () {
+                el.setAttribute('src', primUrl); // 原图片加载完成，切的成原图片
+                el.addEventListener('error', useBackImg.bind(null, imgUrl));
+                img = null;
+            };
+            img.onerror = function () { // 原图片加载失败，直接使用备选图片
+                img = null;
+            };
+            } else { // 原图片不显示
+            el.addEventListener('error', useBackImg.bind(null, imgUrl));
+            }
+        },
+    });
+  ```
