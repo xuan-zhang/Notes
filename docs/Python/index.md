@@ -6,6 +6,8 @@
 
 ## 环境搭建
 
+## [anacida3](https://www.anaconda.com/distribution/)
+
 ### pip
 
 + [官网](https://pip.pypa.io/en/stable/)
@@ -15,6 +17,7 @@
 #### 使用
 
 + `python3 -m pip --version`
++ `pip3 --version`
 + 安装包：`pip install SomePackage`
 
   ```bash
