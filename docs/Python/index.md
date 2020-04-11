@@ -55,3 +55,22 @@
 #### 使用 Jupyter
 
 + 如出现 `Jupyter server not started` 问题，将 `jupyter` 安装在用户目录下 `pip3 install --user jupyter`
+
+## 交互模式
+
++ 交互模式下，上一次打印出来的表达式被赋值给变量 `_`
+
+## 编码格式
+
++ 默认编码 `utf-8`
++ 更改编码
+
+  ```python
+  #!/usr/bin/env python3
+  # -*- coding: utf-8 -*-
+  ```
+
+  ```python
+  #! python3
+  # encoding: utf-8
+  ```
