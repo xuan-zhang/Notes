@@ -37,8 +37,21 @@
 + 搜索包：`pip search "query"`
 + 升级包：`pip install --upgrade SomePackage`
 + 卸载包：`pip uninstall SomePackage`
++ 包安装位置
+  + `/usr/local/lib/python3.7/site-packages`: 无 `--user` 安装目录
+  + `/usr/lib/python*`
+  + `/Users/xuan/Library/Python/3.7/lib/python/site-packages`  `--user` 参数安装位置
 
 ### Pypi
 
 + [python官方的第三方库的仓库](https://pypi.org/help/)
 + [pypi 镜像](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
+
+### vscode 开发python
+
++ python extension pack
++ ~~magicPython~~
+
+## 使用 Jupyter
+
++ 如出现 `Jupyter server not started` 问题，将 `jupyter` 安装在用户目录下 `pip3 install --user jupyter`
