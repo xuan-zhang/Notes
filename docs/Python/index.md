@@ -6,7 +6,7 @@
 
 ## 环境搭建
 
-## [anacida3](https://www.anaconda.com/distribution/)
+### [anacida3](https://www.anaconda.com/distribution/)
 
 ### pip
 
@@ -52,6 +52,6 @@
 + python extension pack
 + ~~magicPython~~
 
-## 使用 Jupyter
+#### 使用 Jupyter
 
 + 如出现 `Jupyter server not started` 问题，将 `jupyter` 安装在用户目录下 `pip3 install --user jupyter`
