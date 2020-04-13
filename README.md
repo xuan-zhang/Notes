@@ -23,3 +23,4 @@
 + python
 + mongodb
 + java
++ deno
