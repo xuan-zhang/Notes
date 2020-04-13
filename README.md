@@ -7,14 +7,17 @@
 
 ## TODO
 
-1. react
-2. node
-3. webpack
-4. 单元测试
-5. 小程序
-6. vue3.x 原码
-7. typeScript
-8. mysql
-9. python
-10. mongodb
-11. java
++ react
++ node
++ webpack
++ 单元测试
++ 小程序
++ vue3.x 原码
++ typeScript
++ mysql
++ 数据结构
++ 算法
++ 设计模式
++ python
++ mongodb
++ java
