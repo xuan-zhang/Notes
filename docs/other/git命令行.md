@@ -222,8 +222,8 @@ git checkout master
 git merge newbranch
 git merge --no-ff -m "merge with no-ff" dev
 # 删除分支
-git branch -d newbranch
-git branch -D newbranch
+git branch -d newbranch # 删除本地分支
+git branch -D newbranch # 强制删除本地分支
 
 # 删除远程分支
 git push --delete origin <branchname>
@@ -304,7 +304,10 @@ git push origin :refs/tags/v0.8 # 删除远程 tag
 git push origin --delete tag v2.0
 
 git checkout tab_name
-git checkout -b new_branch tag_name # 此处是新建一个分支，内容与当前分支相同，不是tag对应分支
+
+ #从 tag 新建分支
+git branch <new_branch_name> <tag_name>
+git checkout -b <new_branch_name> <tag_name>
 ```
 
 ### 比较

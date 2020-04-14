@@ -65,7 +65,8 @@ module.exports = {
     {
       "title": "Python",
       "children": [
-        ""
+        "",
+        "类型"
       ]
     }
   ],
