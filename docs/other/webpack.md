@@ -231,3 +231,15 @@
     }
 
     ```
+
++ require.context
+
+  ```js
+    // require.context(检索目录,是否检索子目录,文件匹配正则)
+    const file = require.context('@/utils', false, /\.js$/)
+    file.keys(); // ["./auth.js", "./debounce.js", "./index.js"]
+
+    const req = require.context('./svg', false, /\.svg$/);
+    const requireAll = requireContext => requireContext.keys().map(requireContext);
+    requireAll(req);
+  ```
