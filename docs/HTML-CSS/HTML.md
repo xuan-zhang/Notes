@@ -139,4 +139,13 @@
 |  `&emsp;`  | 全角空格, Em Space, 1em 宽度       | `&#8195;` |
 | `&thinsp;` | 窄空格, Thin Space, 1em 宽度的 1/6 | `&#8201;` |
 
+## 不缓存页面内容
+
+```html
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+```
+
 ![图片](../assets/images/domClient.gif)
