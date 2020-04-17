@@ -148,4 +148,10 @@
     <meta http-equiv="Cache" content="no-cache">
 ```
 
+## canvas
+
+- canvas 生成图片时 `canvas.toDataURL`, canvas 中如果引用了跨域图片，无法生成
+  - 将引入的图片转换成 base64 位图片再引入
+  - 配置跨域
+
 ![图片](../assets/images/domClient.gif)
