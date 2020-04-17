@@ -7,22 +7,22 @@
     ```html
     <head>
         <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css" rel="stylesheet">
-    <title>Vue</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="format-detection" content="telephone=no,email=no" />
+        <meta http-equiv="Cache-Control" content="no-transform">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+        <link href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css" rel="stylesheet">
+        <title>Vue</title>
     </head>
     <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js"></script>
-    <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.min.js"></script>
-    <script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+        <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js"></script>
+        <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.min.js"></script>
+        <script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
     </body>
     </html>
     ```
