@@ -1,6 +1,8 @@
-# webpack 优化
+# webpack
 
-## CDN
+## webpack 优化
+
+### CDN
 
 1. 在模板 `index.html` 中引入 `vue`、`vuex`等常用插件
 
@@ -156,7 +158,7 @@
 
         ```
 
-## 提取公共模块
+### 提取公共模块
 
 + webpack 4 最大的改动就是废除了 `CommonsChunkPlugin` 引入了 `optimization.splitChunks`。
 + `splitChunks`
@@ -243,3 +245,110 @@
     const requireAll = requireContext => requireContext.keys().map(requireContext);
     requireAll(req);
   ```
+
++ html-webpack-plugin
+
+  ```js
+    const path = require('path');
+    const HtmlWebpackPlugin = require('html-webpack-plugin')
+    module.exports = {
+        mode:'development', // 开发模式
+        entry: path.resolve(__dirname,'../src/main.js'),    // 入口文件
+        output: {
+            filename: '[name].[hash:8].js',      // 打包后的文件名称
+            path: path.resolve(__dirname,'../dist')  // 打包后的目录
+        },
+        plugins:[
+            // 单入口配置
+            new HtmlWebpackPlugin({
+                template:path.resolve(__dirname,'../public/index.html')
+            }),
+            // 多入口配置
+            new HtmlWebpackPlugin({
+                template:path.resolve(__dirname,'../public/index.html'),
+                filename:'index.html',
+                chunks:['main'] // 与入口文件对应的模块名
+            }),
+            new HtmlWebpackPlugin({
+                template:path.resolve(__dirname,'../public/header.html'),
+                filename:'header.html',
+                chunks:['header'] // 与入口文件对应的模块名
+            }),
+        ]
+    }
+
+  ```
+
++ clean-webpack-plugin
+  + 清除 dist
+  + `plugins:[new CleanWebpackPlugin()]`
++ 引入 css
+  + `use:['style-loader','css-loader','postcss-loader','less-loader']`
++ mini-css-extract-plugin : 不将 css 打包到 js 中，并将 css 合并成一个单独的css 文件
+  + 3.x使用 `extract-text-webpack-plugin`: 将css 单独打包出来，并形成对应的 css 文件
+
+  ```js
+    const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+    module.exports = {
+        //...省略其他配置
+        module: {
+            rules: [
+            {
+                test: /\.less$/,
+                use: [
+                devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                'css-loader',
+                'less-loader'
+                ],
+            }
+            ]
+        },
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: "[name].[hash].css",
+                chunkFilename: "[id].css",
+            })
+        ]
+    }
+  ```
+
++ file-loader 解析文件并移动到输出目录中
+  + 默认情况下，生成的文件的文件名就是文件内容的 MD5 哈希值并会保留所引用资源的原始扩展名。
++ url-loader
+  + 在文件大小（单位 byte）低于指定的限制时，可以返回一个 DataURL
++ webpack.DllPlugin 抽离第三方模块
+
+  ```js
+    // webpack.dll.config.js
+    const path = require("path");
+    const webpack = require("webpack");
+    module.exports = {
+        // 你想要打包的模块的数组
+        entry: {
+            vendor: ['vue','element-ui'] 
+        },
+        output: {
+            path: path.resolve(__dirname, 'static/js'), // 打包后文件输出的位置
+            filename: '[name].dll.js',
+            library: '[name]_library' 
+            // 这里需要和webpack.DllPlugin中的`name: '[name]_library',`保持一致。
+        },
+        plugins: [
+            new webpack.DllPlugin({
+                path: path.resolve(__dirname, '[name]-manifest.json'),
+                name: '[name]_library',
+                context: __dirname
+            }),
+            new CopyWebpackPlugin([ // 拷贝生成的文件到dist目录 这样每次不必手动去cv
+                {from: 'static', to:'static'}
+            ]),
+        ]
+    };
+
+  ```
+
++ cache-loader 配置缓存
++ webpack-bundle-analyzer 分析包大小
++ externals
+  + `externals: { jquery: 'jQuery' }`
+  
