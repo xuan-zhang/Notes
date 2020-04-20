@@ -106,3 +106,15 @@
         },
     });
   ```
+
+## VueRouter
+
++ 在 `router` 中 配置 `props: true` 参数，可以在 props 中接收 `route.params` 参数
++ `props` 参数可以是 函数，自定义返回值
+
+## 函数式组件
+
++ `<template functional>*******</template>`
++ 组件上的 attribute 都会被自动隐式解析为 prop
++ 无状态，无实例(没有`this`)
++ 组件需要的一切都是通过 `context` 参数传递
