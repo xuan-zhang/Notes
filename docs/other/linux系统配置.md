@@ -259,7 +259,7 @@
 + 配置文件
     ```bash
     [Desktop Entry]
-    Encoding=UTF-8 #编码
+    Encoding=UTF-8 #编码 要将此注释去掉
     Version=8.0 #版本
     Name=图标显示名称
     GenericName=描述
@@ -279,6 +279,8 @@
     %u：单个URL。本地文件以文件URL或文件路径的方式传递。
     %U：URL列表。每个URL以分割段的方式传递给执行程序。本地文件以文件URL或文件路径的方式传递。
     ```
+＋ 创建桌面快捷方式
+  ＋将 `.desktop` 文件复制到桌面，并设置成可启动
 
 ## Window下 `cmder` 工具配置
 
