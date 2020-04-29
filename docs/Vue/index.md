@@ -118,3 +118,15 @@
 + 组件上的 attribute 都会被自动隐式解析为 prop
 + 无状态，无实例(没有`this`)
 + 组件需要的一切都是通过 `context` 参数传递
+
+## 组件传参
+
++ props
++ attrs(props 中未定义 class style 除外)
++ $listeners(除 .native 修饰 的事件)
++ $emit
++ v-model
++ slot
++ $refs $root $parent $children
++ project inject
++ Vuex
