@@ -15,3 +15,11 @@
     + 一个函数式组件不能在另一个函数式组件内声明
   + ~~es5原生方式React.createClass定义的组件~~
   + es6形式的extends React.Component定义的组件
+
+## 组件传参
+
++ props
++ 回调函数
++ 观察者模式
++ context
++ react-redux
