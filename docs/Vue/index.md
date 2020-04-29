@@ -111,6 +111,17 @@
 
 + 在 `router` 中 配置 `props: true` 参数，可以在 props 中接收 `route.params` 参数
 + `props` 参数可以是 函数，自定义返回值
++ 匹配路由
+
+  ```js
+      const breadcrumb = this.$route?.meta?.breadcrumb;
+      let matched
+      if (Array.isArray(breadcrumb)) {
+          matched = breadcrumb.map(item => this.$router.match(item)).filter(item => item.meta && item.meta.title)
+      } else {
+         matched = this.$route.matched.filter(item => item.meta && item.meta.title)
+      }
+  ```
 
 ## 函数式组件
 
