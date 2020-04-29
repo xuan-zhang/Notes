@@ -19,7 +19,8 @@
   ```js
     const elSelect = document.getElementById("select");
     const selectedOptions = elSelect.selectedOptions;
-    const selectedValues = Array.from(selectedOptions).map  (item=>item.value)); // ["1", "二", "3"]
+    const selectedValues = Array.from(selectedOptions).map(item=>item.value)); // ["1", "二", "3"]
+    const selectedValues = Array.prototype.map.call(selectedOptions, item =>item.value) // 同上
   ```
 
 ## `HTMLSelectElement.selectedIndex`
