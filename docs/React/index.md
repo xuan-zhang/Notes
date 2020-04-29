@@ -23,3 +23,7 @@
 + 观察者模式
 + context
 + react-redux
+
+## form
+
++ `<input type="text" value="haha">` 的 react 中 不能编辑 但在原生 html 中 可编辑， 如 `value={undefined}` 则可编辑
