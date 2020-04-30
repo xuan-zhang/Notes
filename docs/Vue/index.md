@@ -141,3 +141,44 @@
 + $refs $root $parent $children
 + project inject
 + Vuex
+
+## jsx
+
+> [veu jsx](https://github.com/vuejs/jsx)
+
++ `v-model` 使用 `value onIput` 事件代替 或使用 `vModel_trim`
+
+  ```jsx
+    <el-input value={this.searchData[item.key]} onInput={this.setData.bind(this, item.key)} clearable size="small" />
+
+    <el-input vModel_trim={this.text} />
+  ```
+
++ slot
+
+  ```jsx
+    // 定义-使用：直接在 div 中插入 默认插槽
+    <div>{this.$slots.default}</div>
+
+    // 在 el-form-item 中插入作用域 header 并传入 user 数据
+    <el-form-item>
+        //使用： 使用 el-form-item 的 label 插槽
+        <span class="aaa" slot="label">使用label</span>
+        // 定义-使用：此处放置组件的 header
+        {this.$scopedSlots.header({user: this.userInfo})}
+    </el-form-item>
+
+    // 使用 不是 jsx 中
+    <Search>
+        <template #header={user}>
+            <div>这里是user内容 {{JSON.stringfy(user)}}</div>
+        </template>
+    </Search>
+
+    // 使用作用域插槽 jsx 中
+    <el-table data={[{ name: '张三', age: 2 }]}>
+        <el-table-column label="姓名" prop="name" />
+        <el-table-column label="年龄" scopedSlots={{default: ({ row }) => <div>{JSON.stringify(row)}</div>}}>
+        </el-table-column>
+    </el-table>
+  ```
