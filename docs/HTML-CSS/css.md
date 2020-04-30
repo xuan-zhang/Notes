@@ -214,6 +214,30 @@ sass style.scss:style.css --style nested
     line-height: 30px; }
 ```
 
+### scss 样式
+
+```scss
+@each $size in 10, 15, 20, 25 {
+  @each $style in margin padding {
+    @each $position in left, top, bottom, right {
+      .#{$style}-#{$position}-#{$size} {
+        #{$style}-#{$position}: $size + px;
+      }
+    }
+    .#{$style}-#{$size} {
+      #{$style}: $size + px;
+    }
+  }
+}
+// 编译结果 marin padding left top bottom 循环
+.margin-left-10 {
+  margin-left: 10px;
+}
+.margin-10 {
+  margin: 10px;
+}
+```
+
 ## textarea
 
 [目录](#目录)
