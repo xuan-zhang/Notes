@@ -217,6 +217,8 @@ sass style.scss:style.css --style nested
 ### scss 样式
 
 ```scss
+// 使用 , 分格数组
+// 如果  10 15, 20 25 则会生成 margin-left-10 15 {margin-left: 10 15px}
 @each $size in 10, 15, 20, 25 {
   @each $style in margin padding {
     @each $position in left, top, bottom, right {
