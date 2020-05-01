@@ -27,3 +27,10 @@
 ## form
 
 + `<input type="text" value="haha">` 的 react 中 不能编辑 但在原生 html 中 可编辑， 如 `value={undefined}` 则可编辑
+
+
+## 生命周期
+
++ 旧版生命周期(v16.0前)
+  + ![react生命周期旧](../assets/images/reactLifecycleOld.jpg)
+  + ![react生命周期旧](../assets/images/reactLifecycleRunOld.png)
