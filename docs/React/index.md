@@ -28,9 +28,55 @@
 
 + `<input type="text" value="haha">` 的 react 中 不能编辑 但在原生 html 中 可编辑， 如 `value={undefined}` 则可编辑
 
+## API
+
+### props
+
++ `static defaultProps`: 设置默认 `props`
+  + 如同 vue 中的 props 里的 `default` 参数
 
 ## 生命周期
+
+> `UNSAFE_` 周期会在 v17 版本之后删除
 
 + 旧版生命周期(v16.0前)
   + ![react生命周期旧](../assets/images/reactLifecycleOld.jpg)
   + ![react生命周期旧](../assets/images/reactLifecycleRunOld.png)
++ 新版生命周期(v16.3后)
+  + ![生命周期](../assets/images/reactLifecycleNew.jpg)
+
+### 初始化阶段
+
++ `constructor(props: Readonly<P>, context?: any)`
+  + 只调用一次 `super` 必须在使用 `this` 语句之前调用
+  + 参数: `props`
+  + 作用
+    + 初始化 `state`
+    + ...
+
+### 挂载阶段
+
++ ~~`componentWillMount()/UNSAFE_componentWillMount()`~~
+  + 组件挂载之前调用，只调用一次 使用 `contructor` 代替
+  + 此时调用 `this.setState` 不一定会引起组件重新渲染
++ `render()`
+  + 用来渲染DOM
+  + 必须是纯函数
+  + 返回 `JSX.Element`
+  + 不要在 `render` 里面修改 `state`，会触发死循环导致栈溢出
++ `componentDidMount()`
+
+### 更新阶段
+
++ ~~`componentWillReceiveProps()/UNSAFE_componentWillReceiveProps()`~~
++ `shouldComponentUpdate()`
++ ~~`componentWillUpdate()/UNSAFE_componentWillUpdate()`~~
++ `render()`
++ `componentDidUpdate()`
+
+### 卸载阶段
+
++ `componentWillUnmount()`
+
++ `static getDerivedStateFromProps()`
++ `getSnapshotBeforeUpdate()`
