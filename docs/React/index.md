@@ -34,6 +34,17 @@
 
 + `static defaultProps`: 设置默认 `props`
   + 如同 vue 中的 props 里的 `default` 参数
++ `setState`
+  + 调用此方法就会触发更新阶段钩子函数
+  + 在周期函数中的使用
+    + 在 `constructor`使用无效
+    + 在 `getDerivedStateFromProps` 不能调用
+    + 在 ~~`componentWillMount`~~ 中使用有效，但不一定会引起组件重新渲染
+    + 在 ~~`componentWillReceiveProps`~~ 中可以使用
+    + 不能在 `shouldComponentUpdate` ~~`componentWillUpdate`~~ 中调用，会引起死循环
+    + 在 `render` 中使用会陷入死循环
+    + 在 `componentDidUpdate` 中使用要特别注意判断，否则会陷入死循环
+    + 在 `componentDidMount` 中可以使用，用于接口数据获取
 
 ## 生命周期
 
@@ -59,6 +70,7 @@
 + ~~`componentWillMount()/UNSAFE_componentWillMount()?:void`~~
   + 组件挂载之前调用，只调用一次 使用 `contructor` 代替
   + 此时调用 `this.setState` 不一定会引起组件重新渲染
++ `static getDerivedStateFromProps(nextProps, prevState):Partial<prevState> | null`
 + `render(): ReactNode`
   + 用来渲染DOM
   + 必须是纯函数
@@ -81,19 +93,41 @@
   + `nextProps` 变化之后的 `props` 参数
     + 在该函数内使用 `this.props` 返回的是未更新前的 `props`
     + 可以在此函数内使用 `setState`
++ `static getDerivedStateFromProps(nextProps, prevState):Partial<prevState> | null`
+  + 每次渲染之前都会调用, 不管造成重新渲染的原因是什么，不管初始挂载还是后面的更新都会调用
+  + 需要在该方法中返回一个对象或null：如果返回的是对象，则会更新 state，如果返回的是null，则表示不更新。
+  + 使用该方法的时候需要初始化 `state` ，否则在控制台中会出现警告信息，不能在该方法内部，调用 `this.state`
+  + 无法在此函数内使用 `this`, 这里的 `this` 指向 `undefined`
 + `shouldComponentUpdate(nextProps, nextState, nextConext):boolean`
   + 每次调用 `setState` 都会触发，用于判断是否要重新渲染组件
     + 能过比较 `nextProps` `nextState` 及当前组件的 `this.props` `this.state` 的状态来判断是否重新渲染
     + 如果返回 `false` 后续周期函数不再触发
+    + 不能使用 `setState`, 会死循环
     + 一般能过此函数进行性能优化
       + 父组件 `render` 会触发 子级组件 更新阶段
-+ ~~`componentWillUpdate()/UNSAFE_componentWillUpdate()`~~
+      + 可在些函数中中止不必要的更新，后台的 虚拟 DOM diff ...
++ ~~`componentWillUpdate()/UNSAFE_componentWillUpdate(nextProps, nextState, nextContext)`~~
+  + 组件即将被更新时触发
+  + `shouldComponentUpdate` 返回 `true` 或 调用 `forceUpdate` 之后调用
+  + 不能在该钩子中使用 `setState`
 + `render()`
-+ `componentDidUpdate()`
++ `getSnapshotBeforeUpdate(prevProps, prevState): any | null`
+  + 返回值称为一个快照（snapshot），如果不需要 snapshot，则必须显示的返回 `null`
+  + 返回值将作为 `componentDidUpdate()` 的第三个参数使用。所以这个函数必须要配合 `componentDidUpdate`() 一起使用
++ `componentDidUpdate(prevProps, prevState, snapShot)`
+  + 组件更新之后调用
+  + `props` `state` 中此钩子函数内已更改成最新, `this.props` 访问到的是新的 `props`
+  + 钩子内 `setState` 有可能会触发重复渲染，需要自行判断，否则会进入死循环
 
 ### 卸载阶段
 
 + `componentWillUnmount()`
+  + 组件卸载前调用
+  + 进行一些清理工作
+    + 去除定时器
+    + 取消 Redux 订阅事件
+    + 清除 componentDidMount 中手动创建的 DOM 元素
+    + 去除可能的内存泄露
+    + ...
 
-+ `static getDerivedStateFromProps()`
-+ `getSnapshotBeforeUpdate()`
+
