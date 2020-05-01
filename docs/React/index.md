@@ -56,20 +56,37 @@
 
 ### 挂载阶段
 
-+ ~~`componentWillMount()/UNSAFE_componentWillMount()`~~
++ ~~`componentWillMount()/UNSAFE_componentWillMount()?:void`~~
   + 组件挂载之前调用，只调用一次 使用 `contructor` 代替
   + 此时调用 `this.setState` 不一定会引起组件重新渲染
-+ `render()`
++ `render(): ReactNode`
   + 用来渲染DOM
   + 必须是纯函数
   + 返回 `JSX.Element`
   + 不要在 `render` 里面修改 `state`，会触发死循环导致栈溢出
-+ `componentDidMount()`
++ `componentDidMount?(): void`
+  + 组件挂载后调用， 只调用一次
+  + 可以在这里使用 refs 获取真实 DOM
+  + 可在此处发起 异步请求 并进行 `setSate`
 
 ### 更新阶段
 
-+ ~~`componentWillReceiveProps()/UNSAFE_componentWillReceiveProps()`~~
-+ `shouldComponentUpdate()`
+> `setState` 引起的 `state` 更新  
+> 父组件能过 `setState` 引起的 `props` 变化时，触发更新阶段  
+> 父组件 `render` 触发时， 触发更新子组件更新阶段
+> 更新后的 state 和 props 相对之前的无论是否变化，都会引起组件重新 render
+
++ ~~`componentWillReceiveProps()/UNSAFE_componentWillReceiveProps(nextProps, nextContext)`~~
+  + `props` 变化与 父组件重新渲染时，都会触发
+  + `nextProps` 变化之后的 `props` 参数
+    + 在该函数内使用 `this.props` 返回的是未更新前的 `props`
+    + 可以在此函数内使用 `setState`
++ `shouldComponentUpdate(nextProps, nextState, nextConext):boolean`
+  + 每次调用 `setState` 都会触发，用于判断是否要重新渲染组件
+    + 能过比较 `nextProps` `nextState` 及当前组件的 `this.props` `this.state` 的状态来判断是否重新渲染
+    + 如果返回 `false` 后续周期函数不再触发
+    + 一般能过此函数进行性能优化
+      + 父组件 `render` 会触发 子级组件 更新阶段
 + ~~`componentWillUpdate()/UNSAFE_componentWillUpdate()`~~
 + `render()`
 + `componentDidUpdate()`
