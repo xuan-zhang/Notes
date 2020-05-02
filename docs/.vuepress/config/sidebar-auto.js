@@ -5,7 +5,8 @@ module.exports = {
       "children": [
         "",
         "HTML",
-        "css"
+        "css",
+        "性能优化"
       ]
     }
   ],
@@ -15,7 +16,9 @@ module.exports = {
       "children": [
         "",
         "JS",
+        "Workers",
         "jQuery",
+        "websock",
         "xss",
         "原型与原型链",
         "数组扁平化方法",
@@ -82,7 +85,8 @@ module.exports = {
     {
       "title": "TypeScript",
       "children": [
-        ""
+        "",
+        "lib.es5.d.ts"
       ]
     }
   ],
@@ -108,7 +112,7 @@ module.exports = {
         "linux系统配置",
         "url",
         "vscode",
-        "webpack优化",
+        "webpack",
         "webstorm"
       ]
     }

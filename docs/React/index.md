@@ -36,6 +36,7 @@
   + 如同 vue 中的 props 里的 `default` 参数
 + `setState`
   + 调用此方法就会触发更新阶段钩子函数
+  + 可以设置未在 `state` 中初始化的字段，添加新的字段
   + 在周期函数中的使用
     + 在 `constructor`使用无效
     + 在 `getDerivedStateFromProps` 不能调用
@@ -48,7 +49,8 @@
 
 ## 生命周期
 
-> `UNSAFE_` 周期会在 v17 版本之后删除
+> `componentWillMount` `componentWillReceiveProps` `componentWillUpdate`周期会在 v17 版本之后保留删除，`UNSAFE_*` 函数会保留  
+> 因 `React Fiber`, 周期改变
 
 + 旧版生命周期(v16.0前)
   + ![react生命周期旧](../assets/images/reactLifecycleOld.jpg)
@@ -70,6 +72,7 @@
 + ~~`componentWillMount()/UNSAFE_componentWillMount()?:void`~~
   + 组件挂载之前调用，只调用一次 使用 `contructor` 代替
   + 此时调用 `this.setState` 不一定会引起组件重新渲染
+  + 在Fiber之后， 由于任务可中断，willMount可能会被执行多次
 + `static getDerivedStateFromProps(nextProps, prevState):Partial<prevState> | null`
 + `render(): ReactNode`
   + 用来渲染DOM
@@ -95,7 +98,9 @@
     + 可以在此函数内使用 `setState`
 + `static getDerivedStateFromProps(nextProps, prevState):Partial<prevState> | null`
   + 每次渲染之前都会调用, 不管造成重新渲染的原因是什么，不管初始挂载还是后面的更新都会调用
-  + 需要在该方法中返回一个对象或null：如果返回的是对象，则会更新 state，如果返回的是null，则表示不更新。
+  + 需要在该方法中返回一个对象或null
+    + 如果返回的是对象，则会更新 state，返回结果会被送给setState
+    + 如果返回的是null，则表示不更新。
   + 使用该方法的时候需要初始化 `state` ，否则在控制台中会出现警告信息，不能在该方法内部，调用 `this.state`
   + 无法在此函数内使用 `this`, 这里的 `this` 指向 `undefined`
 + `shouldComponentUpdate(nextProps, nextState, nextConext):boolean`
@@ -114,6 +119,7 @@
 + `getSnapshotBeforeUpdate(prevProps, prevState): any | null`
   + 返回值称为一个快照（snapshot），如果不需要 snapshot，则必须显示的返回 `null`
   + 返回值将作为 `componentDidUpdate()` 的第三个参数使用。所以这个函数必须要配合 `componentDidUpdate`() 一起使用
+  + 函数的作用是在真实 DOM 更新（componentDidUpdate）前，获取一些需要的信息（类似快照功能），然后作为参数传给 componentDidUpdate。例如：在getSnapShotBeforeUpdate中获取滚动位置，然后作为参数传给 componentDidUpdate，就可以直接在渲染真实的 DOM 时就滚动到需要的位置。
 + `componentDidUpdate(prevProps, prevState, snapShot)`
   + 组件更新之后调用
   + `props` `state` 中此钩子函数内已更改成最新, `this.props` 访问到的是新的 `props`
@@ -130,4 +136,12 @@
     + 去除可能的内存泄露
     + ...
 
+### 错误捕获
 
++ `componentDidCatch(error: Error, errorInfo: React.ErrorInfo)`
+  + 任何子组件在渲染期间，生命周期方法中或者构造函数 `constructor` 发生错误时调用
+  + 错误边界不会捕获下面的错误
+    + 事件处理 (Event handlers) （因为事件处理不发生在 React 渲染时，报错不影响渲染)
+    + 异步代码 (Asynchronous code) (例如：setTimeout or requestAnimationFrame callbacks)
+    + 服务端渲染 (Server side rendering)
+    + 错误边界本身(而不是子组件)抛出的错误
