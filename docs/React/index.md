@@ -57,6 +57,7 @@
   + ![react生命周期旧](../assets/images/reactLifecycleRunOld.png)
 + 新版生命周期(v16.3后)
   + ![生命周期](../assets/images/reactLifecycleNew.jpg)
+  + ![生命周期](../assets/images/reactLifecycleType.png)
 
 ### 初始化阶段
 
