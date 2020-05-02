@@ -22,7 +22,11 @@ module.exports = {
         }
     },
     plugins: [
-        '@vuepress/back-to-top'
+        '@vuepress/back-to-top', '@vuepress/medium-zoom',
+        ['@vuepress/search', {
+            searchMaxSuggestions: 10
+          }
+        ]
     ],
     themeConfig: {
         logo: '/logo.png',
