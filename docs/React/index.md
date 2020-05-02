@@ -26,9 +26,15 @@
 + context
 + react-redux
 
-## form
+## JSX
 
++ 用户定义的组件必须以大写字母开头
 + `<input type="text" value="haha">` 的 react 中 不能编辑 但在原生 html 中 可编辑， 如 `value={undefined}` 则可编辑
++ `class` 变成 `className`
++ `for` 变成 `htmlFor`
++ `tableindex` 变成 `tableIndex`
++ `style` 必须是 `Object` 对象形式 `style={{textAlign: 'left'}}`
++ 可以在 `for if` 等语句中使用 `jsx`; 但不可以在 `jsx` 中使用 `for if`, 可以用 `?:` `&&`
 
 ## API
 
@@ -67,6 +73,40 @@
 + 短语法： `<>...</>`
   + 不支持 key 与其它属性
 + 类似于 vue 中的 `template`
+
+### React.lazy
+
+> `React.lazy` 和 `Suspense` 技术还不支持服务端渲染
+
++ 像渲染常规组件一样处理动态引入（的组件)
++ `const OtherComponent = React.lazy(() => import('./OtherComponent'));`
+
+```jsx
+import React, { Suspense } from 'react';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </div>
+  );
+}
+
+```
+
+### Suspense
+
+> [全面了解 React 新功能: Suspense 和 Hooks](https://segmentfault.com/a/1190000017483690)
+
+### `static getDerivedStateFromError()`
 
 ## 生命周期
 
