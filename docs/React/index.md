@@ -36,6 +36,16 @@
 
 + `static defaultProps`: 设置默认 `props`
   + 如同 vue 中的 props 里的 `default` 参数
++ `props.children`: 组件的所有子节点
+  + 类似于 vue 中的 `default slot`
+  + react 中没有 插槽概念，但 可以将任何东西作为 props 进行传递。
+  + 当不插入内容或内容为换行符时，props.children为undefined
+  + 当插入多个内容时，props.children为Array（多个文本视为一个内容）
+  + 当插入一个内容时，props.children为插入值
+  + 父组件的属性传给所有子组件就要用到 `React.Children`
+
+### state
+
 + `setState`
   + 调用此方法就会触发更新阶段钩子函数
   + 可以设置未在 `state` 中初始化的字段，添加新的字段
@@ -48,6 +58,15 @@
     + 在 `render` 中使用会陷入死循环
     + 在 `componentDidUpdate` 中使用要特别注意判断，否则会陷入死循环
     + 在 `componentDidMount` 中可以使用，用于接口数据获取
+
+### React.Fragment
+
++ `<React.Fragment>...</React.Fragment>`
+  + 不会渲染成标签
+  + 可以有 key属性，也是目前唯一的属性
++ 短语法： `<>...</>`
+  + 不支持 key 与其它属性
++ 类似于 vue 中的 `template`
 
 ## 生命周期
 
