@@ -39,7 +39,7 @@
   + 可以设置未在 `state` 中初始化的字段，添加新的字段
   + 在周期函数中的使用
     + 在 `constructor`使用无效
-    + 在 `getDerivedStateFromProps` 不能调用
+    + 在 `static getDerivedStateFromProps` 不能调用
     + 在 ~~`componentWillMount`~~ 中使用有效，但不一定会引起组件重新渲染
     + 在 ~~`componentWillReceiveProps`~~ 中可以使用
     + 不能在 `shouldComponentUpdate` ~~`componentWillUpdate`~~ 中调用，会引起死循环
@@ -104,6 +104,8 @@
     + 如果返回的是null，则表示不更新。
   + 使用该方法的时候需要初始化 `state` ，否则在控制台中会出现警告信息，不能在该方法内部，调用 `this.state`
   + 无法在此函数内使用 `this`, 这里的 `this` 指向 `undefined`
+  + 将父组件传递过来的 props 映射 到子组件的 state 上面，这样组件内部就不用再通过 this.props.xxx 获取属性值了，统一通过 this.state.xxx 获取. 映射就相当于拷贝了一份父组件传过来的 props ，作为子组件自己的状态。注意：子组件通过 setState 更新自身状态时，不会改变父组件的 props
+  + 配合 componentDidUpdate，可以覆盖 componentWillReceiveProps 的所有用法
 + `shouldComponentUpdate(nextProps, nextState, nextConext):boolean`
   + 每次调用 `setState` 都会触发，用于判断是否要重新渲染组件
     + 能过比较 `nextProps` `nextState` 及当前组件的 `this.props` `this.state` 的状态来判断是否重新渲染
@@ -118,9 +120,10 @@
   + 不能在该钩子中使用 `setState`
 + `render()`
 + `getSnapshotBeforeUpdate(prevProps, prevState): any | null`
+  + 被调用于 render 之后、更新 DOM 和 refs 之前
   + 返回值称为一个快照（snapshot），如果不需要 snapshot，则必须显示的返回 `null`
-  + 返回值将作为 `componentDidUpdate()` 的第三个参数使用。所以这个函数必须要配合 `componentDidUpdate`() 一起使用
-  + 函数的作用是在真实 DOM 更新（componentDidUpdate）前，获取一些需要的信息（类似快照功能），然后作为参数传给 componentDidUpdate。例如：在getSnapShotBeforeUpdate中获取滚动位置，然后作为参数传给 componentDidUpdate，就可以直接在渲染真实的 DOM 时就滚动到需要的位置。
+  + 返回值将作为 `componentDidUpdate()` 的第三个参数使用。所以这个函数必须要配合 `componentDidUpdate`() 一起使用, 可以覆盖 `componentWillUpdate` 的所有用法
+    + 在 `getSnapShotBeforeUpdate` 中获取滚动位置，然后作为参数传给 `componentDidUpdate`，就可以直接在渲染真实的 DOM 时就滚动到需要的位置。
 + `componentDidUpdate(prevProps, prevState, snapShot)`
   + 组件更新之后调用
   + `props` `state` 中此钩子函数内已更改成最新, `this.props` 访问到的是新的 `props`
@@ -146,3 +149,79 @@
     + 异步代码 (Asynchronous code) (例如：setTimeout or requestAnimationFrame callbacks)
     + 服务端渲染 (Server side rendering)
     + 错误边界本身(而不是子组件)抛出的错误
+
+### 使用
+
+> [你真的了解 React 生命周期吗](https://juejin.im/post/5df648836fb9a016526eba01)
+
++ 发起 ajax 请求，获取数据 `componentDidMount`
++ 使用 refs 获取真实 DOM `componentDidMount`
++ 将 `props` 变成 内部 `state`: `static getDerivedStateFromProps`
++ 控制组件是否更新 `shouldComponentUpdate` `return true | false`
++ 当外部的 props 改变时，如何再次执行请求数据、更改状态等操作
+  + 使用 ~~`componentWillReceiveProps`~~
+  + 使用 `static getDerivedStateFromProps` + `componentDidUpdate` 加载数据
+
+    ```js
+      class ExampleComponent extends React.Component {
+        state = {
+          externalData: null,
+        };
+
+        static getDerivedStateFromProps(nextProps, prevState) {
+          if (nextProps.id !== prevState.prevId) {
+            return {
+              externalData: null,
+              prevId: nextProps.id,
+            };
+          }
+          return null;
+        }
+
+        componentDidMount() {
+          this._loadAsyncData(this.props.id);
+        }
+
+        // 借助 componentDidUpdate
+        componentDidUpdate(prevProps, prevState) {
+          if (this.state.externalData === null) {
+            this._loadAsyncData(this.props.id);
+          }
+        }
+
+        componentWillUnmount() {
+          if (this._asyncRequest) {
+            this._asyncRequest.cancel();
+          }
+        }
+
+        render() {
+          if (this.state.externalData === null) {
+            // Render loading state ...
+          } else {
+            // Render real UI ...
+          }
+        }
+
+        _loadAsyncData(id) {
+          this._asyncRequest = asyncLoadData(id).then(
+            externalData => {
+              this._asyncRequest = null;
+              this.setState({externalData});
+            }
+          );
+        }
+      }
+    ```
+
+  + 使用 `static getDerivedStateFromProps` 更改状态
+  + 只用 `componentDidUpdate` 的写法
+
+    ```js
+      componentDidUpdate() {
+        if (this.props.age !== this.state.age) {
+          console.log("componentDidUpdate", this.props.age);
+          this.setState({ age: this.props.age });
+        }
+      }
+    ```
