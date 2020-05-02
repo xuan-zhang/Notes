@@ -84,6 +84,7 @@
   + 组件挂载后调用， 只调用一次
   + 可以在这里使用 refs 获取真实 DOM
   + 可在此处发起 异步请求 并进行 `setSate`
+  + 依赖 DOM 初始化 添加事件监听
 
 ### 更新阶段
 
@@ -107,13 +108,15 @@
   + 将父组件传递过来的 props 映射 到子组件的 state 上面，这样组件内部就不用再通过 this.props.xxx 获取属性值了，统一通过 this.state.xxx 获取. 映射就相当于拷贝了一份父组件传过来的 props ，作为子组件自己的状态。注意：子组件通过 setState 更新自身状态时，不会改变父组件的 props
   + 配合 componentDidUpdate，可以覆盖 componentWillReceiveProps 的所有用法
 + `shouldComponentUpdate(nextProps, nextState, nextConext):boolean`
+  + 在首次渲染时或者 `forceUpdate()` 时不会触发
   + 每次调用 `setState` 都会触发，用于判断是否要重新渲染组件
-    + 能过比较 `nextProps` `nextState` 及当前组件的 `this.props` `this.state` 的状态来判断是否重新渲染
-    + 如果返回 `false` 后续周期函数不再触发
-    + 不能使用 `setState`, 会死循环
-    + 一般能过此函数进行性能优化
-      + 父组件 `render` 会触发 子级组件 更新阶段
-      + 可在些函数中中止不必要的更新，后台的 虚拟 DOM diff ...
+  + 能过比较 `nextProps` `nextState` 及当前组件的 `this.props` `this.state` 的状态来判断是否重新渲染
+  + 如果返回 `false` 后续周期函数不再触发
+    + React 可能将shouldComponentUpdate视做提示而不是严格的根据它的返回结果决定是否执行，也就是说可能出现shouldComponentUpdate返回false，但是还是发生重新渲染
+  + 不能使用 `setState`, 会死循环
+  + 一般能过此函数进行性能优化
+    + 父组件 `render` 会触发 子级组件 更新阶段
+    + 可在些函数中中止不必要的更新，后台的 虚拟 DOM diff ...
 + ~~`componentWillUpdate()/UNSAFE_componentWillUpdate(nextProps, nextState, nextContext)`~~
   + 组件即将被更新时触发
   + `shouldComponentUpdate` 返回 `true` 或 调用 `forceUpdate` 之后调用
@@ -125,6 +128,7 @@
   + 返回值将作为 `componentDidUpdate()` 的第三个参数使用。所以这个函数必须要配合 `componentDidUpdate`() 一起使用, 可以覆盖 `componentWillUpdate` 的所有用法
     + 在 `getSnapShotBeforeUpdate` 中获取滚动位置，然后作为参数传给 `componentDidUpdate`，就可以直接在渲染真实的 DOM 时就滚动到需要的位置。
 + `componentDidUpdate(prevProps, prevState, snapShot)`
+  + 该方法不会再组件初始化时触发
   + 组件更新之后调用
   + `props` `state` 中此钩子函数内已更改成最新, `this.props` 访问到的是新的 `props`
   + 钩子内 `setState` 有可能会触发重复渲染，需要自行判断，否则会进入死循环
@@ -152,7 +156,8 @@
 
 ### 使用
 
-> [你真的了解 React 生命周期吗](https://juejin.im/post/5df648836fb9a016526eba01)
+> [你真的了解 React 生命周期吗](https://juejin.im/post/5df648836fb9a016526eba01)  
+> [你可能不需要使用派生 state](https://zh-hans.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#preferred-solutions)
 
 + 发起 ajax 请求，获取数据 `componentDidMount`
 + 使用 refs 获取真实 DOM `componentDidMount`
