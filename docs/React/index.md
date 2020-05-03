@@ -33,7 +33,7 @@
 + `class` 变成 `className`
 + `for` 变成 `htmlFor`
 + `tableindex` 变成 `tableIndex`
-+ `style` 必须是 `Object` 对象形式 `style={{textAlign: 'left'}}`
++ `style` 必须是 `Object` 对象形式 `style={ {textAlign: 'left'} }`
 + 可以在 `for if` 等语句中使用 `jsx`; 但不可以在 `jsx` 中使用 `for if`, 可以用 `?:` `&&`
 
 ## API
