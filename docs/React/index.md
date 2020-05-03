@@ -16,7 +16,7 @@
   + ~~es5原生方式React.createClass定义的组件~~
   + es6形式的extends React.Component定义的组件
 + 代码中使用 emoji： 用 span 标签，并设置 role='img' `aria-abel` 或 `aria-labelledby`
-  + `<span role="img" aria-label="happy">😁</span>`s
+  + `<span role="img" aria-label="happy">😁</span>`
 
 ## 组件传参
 
