@@ -192,6 +192,11 @@
 + 一个 zsh 工具
 + [官网](http://ohmyz.sh/)
 + 安装 `$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+  + curl: (7) Failed to connect to raw.github.com port 443: 拒绝连接
+  + 直接翻墙下载：`https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh` 或 `https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh`
+  + `chmod +x ./install.sh`
+  + `sh -c ./install.sh`
+
 + 配置环境变量(有问题)
     ```bash
     $ cd ~
