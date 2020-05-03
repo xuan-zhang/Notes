@@ -81,32 +81,32 @@
 + 像渲染常规组件一样处理动态引入（的组件)
 + `const OtherComponent = React.lazy(() => import('./OtherComponent'));`
 
-```jsx
-import React, { Suspense } from 'react';
+  ```js
+  import React, { Suspense } from 'react';
 
-const OtherComponent = React.lazy(() => import('./OtherComponent'));
-const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+  const OtherComponent = React.lazy(() => import('./OtherComponent'));
+  const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
-function MyComponent() {
-  return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <section>
-          <OtherComponent />
-          <AnotherComponent />
-        </section>
-      </Suspense>
-    </div>
-  );
-}
+  function MyComponent() {
+    return (
+      <div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <section>
+            <OtherComponent />
+            <AnotherComponent />
+          </section>
+        </Suspense>
+      </div>
+    );
+  }
 
-```
+  ```
 
 ### Suspense
 
 > [全面了解 React 新功能: Suspense 和 Hooks](https://segmentfault.com/a/1190000017483690)
 
-### `static getDerivedStateFromError()`
+### static getDerivedStateFromError()
 
 ## 生命周期
 
