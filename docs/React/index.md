@@ -104,9 +104,20 @@
 
 ### Suspense
 
+### Context
+
++ `React.createContext(defaultValue)`
++ `Context.Provider`
++ `Class.contextType`
+  + `static contextType = MyContext`
++ `Context.Consumer`
++ `Context.displayName`
+
 > [全面了解 React 新功能: Suspense 和 Hooks](https://segmentfault.com/a/1190000017483690)
 
 ### static getDerivedStateFromError()
+
+### React.createRef
 
 ## 生命周期
 
