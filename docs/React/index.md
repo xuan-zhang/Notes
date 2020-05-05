@@ -123,6 +123,14 @@
 + React.useRef
 + React.forwardRef
 
+### React.PureComponent
+
+### ReactDOM.createPortal
+
+### React.Profiler
+
+### React.createElement
+
 ## 生命周期
 
 > `componentWillMount` `componentWillReceiveProps` `componentWillUpdate`周期会在 v17 版本之后保留删除，`UNSAFE_*` 函数会保留  
