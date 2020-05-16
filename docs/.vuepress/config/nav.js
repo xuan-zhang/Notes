@@ -40,6 +40,10 @@ module.exports = [
                 link: '/Node/index'
             },
             {
+                test: 'Deno',
+                link: '/Deno/index'
+            },
+            {
                 text: 'Python',
                 link: '/Python/index'
             }
