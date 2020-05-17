@@ -4,7 +4,10 @@
 /// <reference lib="esnext" />
 
 declare namespace Deno {
-  /** A set of error constructors that are raised by Deno APIs. */
+  /** A set of error constructors that are raised by Deno APIs. 
+   * 
+   * @i18n 一组由 Deno API 提出的错误构造函数
+  */
   export const errors: {
     NotFound: ErrorConstructor;
     PermissionDenied: ErrorConstructor;
@@ -26,11 +29,16 @@ declare namespace Deno {
     Busy: ErrorConstructor;
   };
 
-  /** The current process id of the runtime. */
+  /** The current process id of the runtime. 
+   * 
+   * @i18n 当前运行时的进程ID
+  */
+
   export let pid: number;
 
   /** Reflects the `NO_COLOR` environment variable.
    *
+   * @i18n 显示环境变量 `NO_COLOR` 的值。
    * See: https://no-color.org/ */
   export let noColor: boolean;
 
@@ -39,17 +47,26 @@ declare namespace Deno {
     name: string;
     ignore?: boolean;
     /** Check that the number of async completed ops after the test is the same
-     * as number of dispatched ops. Defaults to true.*/
+     * as number of dispatched ops. Defaults to true.
+     * 
+     * @i18n 检查测试后的异步完成操作数是否与分发的操作数相同。默认为 "true"。
+     * */
     sanitizeOps?: boolean;
     /** Ensure the test case does not "leak" resources - ie. the resource table
      * after the test has exactly the same contents as before the test. Defaults
-     * to true. */
+     * to true. 
+     * 
+     * @i18n 确保测试用例不会 "泄露 "资源--即测试后的资源表的内容与测试前完全相同。默认为true
+     * */
     sanitizeResources?: boolean;
   }
 
   /** Register a test which will be run when `deno test` is used on the command
    * line and the containing module looks like a test module.
    * `fn` can be async if required.
+   * 
+   * @i18n 注册一个测试, 它将在命令行执行 `deno test` 操作并且它包含的模块看起来像一个测试模块时运行
+   * 如果需要 `fn` 可以是一个异步函数.
    *
    *          import {assert, fail, assertEquals} from "https://deno.land/std/testing/asserts.ts";
    *
@@ -65,6 +82,7 @@ declare namespace Deno {
    *            ignore: Deno.build.os === "windows"
    *            fn(): void {
    *              // This test is ignored only on Windows machines
+   *              // 只有在 windows 机器上 忽略这个测试
    *            },
    *          });
    *
@@ -82,6 +100,9 @@ declare namespace Deno {
   /** Register a test which will be run when `deno test` is used on the command
    * line and the containing module looks like a test module.
    * `fn` can be async if required.
+   * 
+   * @i18n 注册一个测试, 它将在命令行执行 `deno test` 操作并且它包含的模块看起来像一个测试模块时运行
+   * 如果需要 `fn` 可以是一个异步函数.
    *
    *        import {assert, fail, assertEquals} from "https://deno.land/std/testing/asserts.ts";
    *
@@ -99,6 +120,8 @@ declare namespace Deno {
 
   /** Exit the Deno process with optional exit code. If no exit code is supplied
    * then Deno will exit with return code of 0.
+   * 
+   * @i18n 退出 Deno 进程， 可以指定退出码，若无则为 0
    *
    *       Deno.exit(5);
    */
@@ -107,22 +130,36 @@ declare namespace Deno {
   export const env: {
     /** Retrieve the value of an environment variable. Returns undefined if that
      * key doesn't exist.
+     * 
+     * @i18n 取回环境变量的值，如果没有， 返回 undefined
      *
      *       console.log(Deno.env.get("HOME"));  // e.g. outputs "/home/alice"
      *       console.log(Deno.env.get("MADE_UP_VAR"));  // outputs "Undefined"
      *
-     * Requires `allow-env` permission. */
+     * Requires `allow-env` permission.
+     * 
+     * @i81n 需要 `allow-env` 权限
+     * 
+     * */
     get(key: string): string | undefined;
 
     /** Set the value of an environment variable.
+     * 
+     * @i18n 设置环境变量的值
      *
      *       Deno.env.set("SOME_VAR", "Value"));
      *       Deno.env.get("SOME_VAR");  // outputs "Value"
      *
-     * Requires `allow-env` permission. */
+     * Requires `allow-env` permission.
+     * 
+     * @i81n 需要 `allow-env` 权限
+     * 
+     *  */
     set(key: string, value: string): void;
 
     /** Returns a snapshot of the environment variables at invocation.
+     * 
+     * @i18n 返回调用时环境变量的快照
      *
      *       Deno.env.set("TEST_VAR", "A");
      *       const myEnv = Deno.env.toObject();
@@ -130,29 +167,44 @@ declare namespace Deno {
      *       Deno.env.set("TEST_VAR", "B");
      *       console.log(myEnv.TEST_VAR);  // outputs "A"
      *
-     * Requires `allow-env` permission. */
+     * Requires `allow-env` permission.
+     * 
+     * @i81n 需要 `allow-env` 权限
+     * 
+     *  */
     toObject(): { [index: string]: string };
   };
 
   /**
    * Returns the path to the current deno executable.
    *
+   * @i18n 返回当前 deno 可执行文件路径
+   *
    *       console.log(Deno.execPath());  // e.g. "/home/alice/.local/bin/deno"
    *
    * Requires `allow-read` permission.
+   * 
+   * @i18n 需要 `allow-read` 权限
+   * 
    */
   export function execPath(): string;
 
   /**
    * Change the current working directory to the specified path.
+   * 
+   * @i18n 更改当前工作目录为指定路径 (类似 bash cd 命令)
    *
    *       Deno.chdir("/home/userA");
    *       Deno.chdir("../userB");
    *       Deno.chdir("C:\\Program Files (x86)\\Java");
    *
    * Throws `Deno.errors.NotFound` if directory not found.
+   * 
+   * @i18n 抛出 `Deno.errors.NotFound` 错误, 如果目录不存在
    * Throws `Deno.errors.PermissionDenied` if the user does not have access
    * rights
+   * 
+   * @i18n 抛出 `Deno.errors.PermissionDen` 错误，如果无访问权限
    *
    * Requires --allow-read.
    */

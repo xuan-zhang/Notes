@@ -12,3 +12,8 @@ HTTPS_PROXY          Same but for HTTPS
 
 + 将 DENO_DIR 配置到环境变量
   + `echo 'export DENO_DIR=$HOME/.deno' >> ~/.bash_profile`
+
+## API
+
++ `Deno.pid` 当前正在运行的进程 ID
++ `Deno.noColor`: 显示环境变量 `NO_COLOR` 的值
