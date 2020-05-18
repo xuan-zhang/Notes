@@ -213,13 +213,19 @@ declare namespace Deno {
   /**
    * Return a string representing the current working directory.
    *
+   * @i18n 返回当前工作目录的字符串。
+   * 
    * If the current directory can be reached via multiple paths (due to symbolic
    * links), `cwd()` may return any one of them.
+   * 
+   * @i18n 如果当前目录可以通过多个路径访问（由于符号链接导致），可能会返回其中任意一个。
    *
    *       const currentWorkingDirectory = Deno.cwd();
    *
    * Throws `Deno.errors.NotFound` if directory not available.
-   *
+   * 
+   * @i18n 如果目录不存在，则抛出 `Deno.errors.NotFound`。
+   * 
    * Requires --allow-read
    */
   export function cwd(): string;
@@ -237,20 +243,34 @@ declare namespace Deno {
      * use all of `p` as scratch space during the call. If some data is
      * available but not `p.byteLength` bytes, `read()` conventionally resolves
      * to what is available instead of waiting for more.
+     * 
+     * @i18n 最多读取 `p.byteLength` 个字节到p中，然后返回读取的字节数（`0 < n <= p.byteLength`），并在遇到任何错误时返回拒绝状态的回调函数。
+     * 即使 `read()` 返回值为 `n < p.byteLength`，p也可能在调用期间被用作临时空间。
+     * 如果有数据可用，而不是 `p.byteLength` 个字节，`read()` 通常会返回可用值，而不是等待更多。
      *
      * When `read()` encounters end-of-file condition, it resolves to EOF
      * (`null`).
+     * 
+     * @i18n 当 `read()` 遇到文件结束条件时，将返回 `EOF` (`null`)。
      *
      * When `read()` encounters an error, it rejects with an error.
+     * 
+     * @i18n 当 `read()` 遇到错误时，它会返回拒绝状态的回调函数，参数值为错误信息。
      *
      * Callers should always process the `n` > `0` bytes returned before
      * considering the EOF (`null`). Doing so correctly handles I/O errors that
      * happen after reading some bytes and also both of the allowed EOF
      * behaviors.
      *
+     * @i18n 调用者应始终处理返回值为 `n > 0` 的情况，然后再考虑 `EOF`。
+     * 应正确处理在读取一些字节以及两种被允许的EOF行为之后可能发生的 I/O 错误。
+     *
      * Implementations should not retain a reference to `p`.
+     * 
+     * @i18n 实现不应保留对 `p` 的引用
      *
      * Use Deno.iter() to turn a Reader into an AsyncIterator.
+     * @i18n 使用Deno.iter()将 Reader 变成异步迭代器。 
      */
     read(p: Uint8Array): Promise<number | null>;
   }
@@ -286,7 +306,12 @@ declare namespace Deno {
      * write to stop early. `write()` must reject with a non-null error if
      * would resolve to `n` < `p.byteLength`. `write()` must not modify the
      * slice data, even temporarily.
-     *
+     * 
+     * @i18n 将 `p` 中的 `p.byteLength` 字节写入底层数据流。 它 resolve 时返回值为从 `p` 写入的
+     * 字节数(`0` <= `n` <= `p.byteLength`），reject 时返回值为导致写入提前停止的错误。
+     * 如果将要 resolve 一个 `n` < `p.byteLength` 的值时， `write()` 必须 reject，并且返回
+     * 一个非空错误。`write()` 禁止修改分片数据，即使是临时修改。
+     * 
      * Implementations should not retain a reference to `p`.
      */
     write(p: Uint8Array): Promise<number>;
