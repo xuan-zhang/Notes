@@ -375,14 +375,18 @@ declare namespace Deno {
    * an error occurs. It resolves to the number of bytes copied or rejects with
    * the first error encountered while copying.
    *
+   * @i18n 从 `src` 拷贝文件至 `dst`，拷贝至 `src` 的 `EOF` 或有异常出现时结束。
+   * `copy()` 函数返回一个 `Promise`, 成功时 resolve 并返回拷贝的字节数，失败时 reject 并返回拷贝过程中的首个异常。
+   *
    *       const source = await Deno.open("my_file.txt");
    *       const buffer = new Deno.Buffer()
    *       const bytesCopied1 = await Deno.copy(source, Deno.stdout);
    *       const bytesCopied2 = await Deno.copy(source, buffer);
    *
-   * @param src The source to copy from
-   * @param dst The destination to copy to
-   * @param options Can be used to tune size of the buffer. Default size is 32kB
+   * @param src The source to copy from 拷贝源文件
+   * @param dst The destination to copy to 拷贝至目标位置
+   * @param options Can be used to tune size of the buffer. Default size is 32kB 
+   *                可用于调整缓冲区的大小。默认大小为32kB
    */
   export function copy(
     src: Reader,
@@ -393,6 +397,8 @@ declare namespace Deno {
   ): Promise<number>;
 
   /** Turns a Reader, `r`, into an async iterator.
+   * 
+   * @i18n 将 Reader 对象 (`r`) 转换为异步迭代器。
    *
    *      let f = await Deno.open("/etc/passwd");
    *      for await (const chunk of Deno.iter(f)) {
@@ -402,6 +408,9 @@ declare namespace Deno {
    *
    * Second argument can be used to tune size of a buffer.
    * Default size of the buffer is 32kB.
+   * 
+   * @i18n 第二个参数用于修改 buffer 的大小
+   * 默认 buffer 的大小为 32kB
    *
    *      let f = await Deno.open("/etc/passwd");
    *      const iter = Deno.iter(f, {
@@ -416,6 +425,11 @@ declare namespace Deno {
    * a view on that buffer on each iteration. It is therefore caller's
    * responsibility to copy contents of the buffer if needed; otherwise the
    * next iteration will overwrite contents of previously returned chunk.
+   * 
+   * @i18n 为了提高效率，迭代器使用一个固定大小的内部缓冲区；
+   * 它在每次迭代时返回一个关于该缓冲区的视图。因此，如果需要的话，
+   * 调用者有责任复制缓冲区的内容，否则下一次迭代将覆盖之前返回的块的内容。
+   * 
    */
   export function iter(
     r: Reader,
@@ -460,12 +474,18 @@ declare namespace Deno {
    * file does not need to previously exist if using the `create` or `createNew`
    * open options.  It is the callers responsibility to close the file when finished
    * with it.
+   * 
+   * @i18n 用同步方式打开一个文件并返回一个 `Deno.File` 实例。如果使用了 `create` 或 `createNew`配置项
+   * 文件可以不需要预先存在。调用者应该在完成后关闭文件。
+   *
    *
    *       const file = Deno.openSync("/foo/bar.txt", { read: true, write: true });
    *       // Do work with file
    *       Deno.close(file.rid);
    *
    * Requires `allow-read` and/or `allow-write` permissions depending on options.
+   * 
+   * @i18n 根据不同的配置需要相应的 `allow-read` 及 `allow-write` 权限。
    */
   export function openSync(path: string, options?: OpenOptions): File;
 
@@ -473,30 +493,40 @@ declare namespace Deno {
    * file does not need to previously exist if using the `create` or `createNew`
    * open options.  It is the callers responsibility to close the file when finished
    * with it.
+   * 
+   * @i18n 打开一个文件并异步返回一个 `Deno.File` 实例。如果使用了 `create` 或 `createNew`配置项
+   * 文件可以不需要预先存在。调用者应该在完成后关闭文件。
    *
    *       const file = await Deno.open("/foo/bar.txt", { read: true, write: true });
    *       // Do work with file
    *       Deno.close(file.rid);
    *
    * Requires `allow-read` and/or `allow-write` permissions depending on options.
+   * @i18n 根据不同的配置需要相应的 `allow-read` 及 `allow-write` 权限。
    */
   export function open(path: string, options?: OpenOptions): Promise<File>;
 
   /** Creates a file if none exists or truncates an existing file and returns
    *  an instance of `Deno.File`.
+   * 
+   * @i18n 创建文件并返回一个 `Deno.File` 实例，如果文件已存在则进行覆盖。
    *
    *       const file = Deno.createSync("/foo/bar.txt");
    *
    * Requires `allow-read` and `allow-write` permissions.
+   * @i18n 需要 `allow-read` 和 `allow-write` 权限。
    */
   export function createSync(path: string): File;
 
   /** Creates a file if none exists or truncates an existing file and resolves to
    *  an instance of `Deno.File`.
+   * 
+   * @i18n 创建文件并异步返回一个 `Deno.File` 实例，如果文件已存在则进行覆盖。
    *
    *       const file = await Deno.create("/foo/bar.txt");
    *
    * Requires `allow-read` and `allow-write` permissions.
+   * @i18n 需要 `allow-read` 和 `allow-write` 权限。
    */
   export function create(path: string): Promise<File>;
 
