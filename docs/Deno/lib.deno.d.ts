@@ -606,7 +606,7 @@ declare namespace Deno {
    * given by `whence`.  The new position within the resource (bytes from the
    * start) is returned.
    * 
-   * @i18n 在给定查询模式 `whence` 和偏移量 `offset` 的情况下，同步地查找指定资源
+   * @i18n 在给定查询模式 `whence` 和偏移量 `offset` 的情况下，同步地查找指定资源ID（`rid`）。返回资源中新的位置（从头开始的字节数）
    *
    *        const file = Deno.openSync('hello.txt', {read: true, write: true, truncate: true, create: true});
    *        Deno.writeSync(file.rid, new TextEncoder().encode("Hello world"));
@@ -618,6 +618,8 @@ declare namespace Deno {
    *        console.log(new TextDecoder().decode(buf)); // "world"
    *
    * The seek modes work as follows:
+   * 
+   * @i18n seek modes 的工作方式如下
    *
    *        // Given file.rid pointing to file with "Hello world", which is 11 bytes long:
    *        // Seek 6 bytes from the start of the file
@@ -664,6 +666,9 @@ declare namespace Deno {
   /** Close the given resource ID (rid) which has been previously opened, such
    * as via opening or creating a file.  Closing a file when you are finished
    * with it is important to avoid leaking resources.
+   * 
+   * @i18n 使用给定的资源 ID (rid) 来关闭先前创建或打开的文件。
+   * 为避免资源泄露，事关重大，文件应当用完即关。
    *
    *      const file = await Deno.open("my_file.txt");
    *      // do work with "file" object
