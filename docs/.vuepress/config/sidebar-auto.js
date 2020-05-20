@@ -1,4 +1,12 @@
 module.exports = {
+  "/Deno/": [
+    {
+      "title": "Deno",
+      "children": [
+        ""
+      ]
+    }
+  ],
   "/HTML-CSS/": [
     {
       "title": "HTML-CSS",
