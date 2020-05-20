@@ -798,14 +798,18 @@ declare namespace Deno {
    * as necessary.
    * 
    * @i18n Deno.Buffer 几乎总是用于一些 I/O 操作，比如 文件 与 sockets.
-   *  它允许从socket下载到缓冲区，缓冲区会根据需要增长和缩小
+   *  它允许从socket下载到一个缓冲区，缓冲区会根据需要增长和缩小
    *
    * Deno.Buffer is NOT the same thing as Node's Buffer. Node's Buffer was
    * created in 2009 before JavaScript had the concept of ArrayBuffers. It's
    * simply a non-standard ArrayBuffer.
+   * 
+   * @i18n Deno.Buffer 不同于 Node 的 Buffer. Node 的 Buffer 在2009年创建，这时 JavaScript 还没有 ArrayBuffers 的概念， 它是只是一个非标准的 ArrayBuffer
    *
    * ArrayBuffer is a fixed memory allocation. Deno.Buffer is implemented on top
    * of ArrayBuffer.
+   * 
+   * @i18n ArrayBuffer是固定的内存分配。 Deno.Buffer在ArrayBuffer的顶层实现。
    *
    * Based on [Go Buffer](https://golang.org/pkg/bytes/#Buffer). */
   export class Buffer implements Reader, ReaderSync, Writer, WriterSync {
