@@ -79,6 +79,7 @@
 + Atom One Dark Theme
 + Atom One Light Theme
 + Material Theme
++ One Dark Pro
 
 + Beautify
 + Bracket Pair Colorizer
@@ -92,6 +93,7 @@
 + TODO Tree
 + VIM
 + Visual Studio IntelliCode
++ koroFileHeader
 
 + GitLens
 + ~~Git History~~
