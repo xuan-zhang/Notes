@@ -40,7 +40,7 @@ module.exports = [
                 link: '/Node/index'
             },
             {
-                test: 'Deno',
+                text: 'Deno',
                 link: '/Deno/index'
             },
             {
