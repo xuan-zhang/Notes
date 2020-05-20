@@ -1,3 +1,6 @@
+/**
+ * @Date: 2020-05-20
+ */
 // Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
 
 /// <reference no-default-lib="true" />
@@ -531,12 +534,18 @@ declare namespace Deno {
   export function create(path: string): Promise<File>;
 
   /** Synchronously read from a resource ID (`rid`) into an array buffer (`buffer`).
+   * 
+   * @i18n 同步的从资源ID (`rid`) 读取内容并写入到数组缓冲区(`buffer`)
    *
    * Returns either the number of bytes read during the operation or EOF
    * (`null`) if there was nothing more to read.
+   * 
+   * @i18n 返回操作期间读取的字节数，如果当没有内容读取时返回 EOF(null) 
    *
    * It is possible for a read to successfully return with `0` bytes. This does
    * not indicate EOF.
+   * 
+   * @i18n 读取成功返回 0 字节是可能的， 这并不表明 EOF
    *
    *      // if "/foo/bar.txt" contains the text "hello world":
    *      const file = Deno.openSync("/foo/bar.txt");
@@ -566,9 +575,13 @@ declare namespace Deno {
 
   /** Synchronously write to the resource ID (`rid`) the contents of the array
    * buffer (`data`).
+   * 
+   * @i18n 同步地将数组缓冲区（`data`）的内容写入资源ID（`rid`）
    *
    * Returns the number of bytes written.
    *
+   * @i18n 返回写入的字节数
+   * 
    *       const encoder = new TextEncoder();
    *       const data = encoder.encode("Hello world");
    *       const file = Deno.openSync("/foo/bar.txt");
@@ -592,6 +605,8 @@ declare namespace Deno {
   /** Synchronously seek a resource ID (`rid`) to the given `offset` under mode
    * given by `whence`.  The new position within the resource (bytes from the
    * start) is returned.
+   * 
+   * @i18n 在给定查询模式 `whence` 和偏移量 `offset` 的情况下，同步地查找指定资源
    *
    *        const file = Deno.openSync('hello.txt', {read: true, write: true, truncate: true, create: true});
    *        Deno.writeSync(file.rid, new TextEncoder().encode("Hello world"));
