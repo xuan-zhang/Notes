@@ -25,6 +25,8 @@ module.exports = {
         "",
         "JS",
         "Workers",
+        "axios",
+        "blob base64 与 file转换",
         "jQuery",
         "websock",
         "xss",
