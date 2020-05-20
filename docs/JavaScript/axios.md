@@ -211,3 +211,48 @@ export const FDP = new CreateRequest({
 })
 
 ```
+
+## 请求图片
+
++ 方式一
+
+```js
+FDP.request({
+    type: 'get',
+    url: img,
+    responseType: 'blob',
+}).then(res => {
+    const blob = res;
+    // blob 转 base64方式 -- FileReader
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(blob)
+    fileReader.onload = function () {
+    const img = document.createElement("img");
+    img.src = fileReader.result
+    document.body.appendChild(img)
+    }
+}).catch(err => {
+
+})
+
+```
+
++ 方式二
+
+```js
+FDP.request({
+    type: 'get',
+    url: img,
+    responseType: 'blob',
+}).then(res => {
+    const blob = res;
+    const img = document.createElement("img");
+    img.src = window.URL.createObjectURL(blob);
+    img.onload = function(e) {
+        window.URL.revokeObjectURL(img.src);
+    };
+    document.body.appendChild(img)
+}).catch(err => {
+})
+
+```
