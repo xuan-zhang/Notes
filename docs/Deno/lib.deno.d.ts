@@ -1033,7 +1033,7 @@ declare namespace Deno {
 
   /** Synchronously creates a new directory with the specified path.
    * 
-   * @i18n 同步的创建指定路径的新文件夹
+   * @i18n 同步的创建指定路径的新目录
    *
    *       Deno.mkdirSync("new_dir");
    *       Deno.mkdirSync("nested/directories", { recursive: true });
@@ -1050,25 +1050,38 @@ declare namespace Deno {
   export function mkdirSync(path: string, options?: MkdirOptions): void;
 
   /** Creates a new directory with the specified path.
+   * 
+   * @i18n 用指定的路径创建一个新目录。
    *
    *       await Deno.mkdir("new_dir");
    *       await Deno.mkdir("nested/directories", { recursive: true });
    *       await Deno.mkdir("restricted_access_dir", { mode: 0o700 });
    *
    * Defaults to throwing error if the directory already exists.
-   *
+   * 
    * Requires `allow-write` permission. */
   export function mkdir(path: string, options?: MkdirOptions): Promise<void>;
 
   export interface MakeTempOptions {
     /** Directory where the temporary directory should be created (defaults to
-     * the env variable TMPDIR, or the system's default, usually /tmp). */
+     * the env variable TMPDIR, or the system's default, usually /tmp).
+     * 
+     * @i18n 应该在其中创建临时目录的目录(默认使用环境变量 TMPDIR, 或者系统默认目录，通常是 /tmp)
+     * 
+     *  */
     dir?: string;
     /** String that should precede the random portion of the temporary
-     * directory's name. */
+     * directory's name.
+     * 
+     * @i18n 在临时目录名称的随机部分之前的字符串。
+     * 
+     *  */
     prefix?: string;
     /** String that should follow the random portion of the temporary
-     * directory's name. */
+     * directory's name. 
+     * 
+     * @i18n 在临时目录随机名称之后的字符
+     * */
     suffix?: string;
   }
 
@@ -1076,12 +1089,20 @@ declare namespace Deno {
    * for temporary files (see also `Deno.dir("temp")`), unless `dir` is specified.
    * Other optional options include prefixing and suffixing the directory name
    * with `prefix` and `suffix` respectively.
+   * 
+   * @i18n 在默认文件夹（另见 `Deno.dir("temp")`）中创建一个临时文件夹,
+   * 如果指定了 `dir` ， 则在指定的 `dir` 中创建。
+   * 其他可选的参数包括分别给文件夹名添加前缀的 `prefix` 和给文件夹名添加后缀的 `sufix`。
    *
    * The full path to the newly created directory is returned.
+   * 
+   * @i18n 返回新创建目录的完整路径。
    *
    * Multiple programs calling this function simultaneously will create different
    * directories. It is the caller's responsibility to remove the directory when
    * no longer needed.
+   * 
+   * @i18n 多个同时调用此函数的程序将创建不同的目录。 不再需要该目录时，调用方有责任删除它。
    *
    *       const tempDirName0 = Deno.makeTempDirSync();  // e.g. /tmp/2894ea76
    *       const tempDirName1 = Deno.makeTempDirSync({ prefix: 'my_temp' });  // e.g. /tmp/my_temp339c944d
@@ -1144,12 +1165,17 @@ declare namespace Deno {
 
   /** Synchronously changes the permission of a specific file/directory of
    * specified path.  Ignores the process's umask.
+   * 
+   * @i18n 同步地更改指定路径下特定的文件/目录的权限。忽略进程的 umask。
    *
    *       Deno.chmodSync("/path/to/file", 0o666);
    *
    * For a full description, see [chmod](#chmod)
+   * 
+   * @i18n 相关完整说明，参考 [chmod](#chmod)
    *
    * NOTE: This API currently throws on Windows
+   * @i18n 注意：该 API 当前在 Windows 上使用会抛出异常。
    *
    * Requires `allow-write` permission. */
   export function chmodSync(path: string, mode: number): void;
@@ -1199,7 +1225,7 @@ declare namespace Deno {
 
   /** Change owner of a regular file or directory. This functionality
    * is not available on Windows.
-   *
+   * @i18n 更改常规文件或目录的所有者。该功能在 Windows 上不可用。
    *      await Deno.chown("myFile.txt", 1000, 1002);
    *
    * Requires `allow-write` permission.
@@ -1214,17 +1240,24 @@ declare namespace Deno {
 
   export interface RemoveOptions {
     /** Defaults to `false`. If set to `true`, path will be removed even if
-     * it's a non-empty directory. */
+     * it's a non-empty directory.
+     * 
+     * @i18n — 默认为 false。如果设置为 true，则即使路径为非空目录也会被删除。
+     *  */
     recursive?: boolean;
   }
 
   /** Synchronously removes the named file or directory.
+   * 
+   * @i18n 同步删除指定的文件或目录。
    *
    *       Deno.removeSync("/path/to/empty_dir/or/file");
    *       Deno.removeSync("/path/to/populated_dir/or/file", { recursive: true });
    *
    * Throws error if permission denied, path not found, or path is a non-empty
    * directory and the `recursive` option isn't set to `true`.
+   * 
+   * @i18n 当权限被拒绝、路径找不到或者为非空目录且 `recursive` 未设置为 `true`，则抛出异常。
    *
    * Requires `allow-write` permission. */
   export function removeSync(path: string, options?: RemoveOptions): void;
@@ -1244,13 +1277,20 @@ declare namespace Deno {
    * directories.  If `newpath` already exists and is not a directory,
    * `renameSync()` replaces it. OS-specific restrictions may apply when
    * `oldpath` and `newpath` are in different directories.
+   * 
+   * @i18n 同步方式将 `oldpath` 重命名（或移动）为 `newpath`。路径可以是文件或目录。
+   * 如果 `newpath` 已经存在且不是目录，那么 `rename()` 将替换它。
+   * 当 `oldpath` 和 `newpath` 位于不同的目录中时，可能会受到操作系统的限制。
    *
    *       Deno.renameSync("old/path", "new/path");
    *
    * On Unix, this operation does not follow symlinks at either path.
+   * @i18n 在 Unix 系统上，此操作不会修改符号链接所指向的内容。
    *
    * It varies between platforms when the operation throws errors, and if so what
    * they are. It's always an error to rename anything to a non-empty directory.
+   * @i18n 当操作引发错误时，平台之间会有所不同。
+   * 如果 `newpath` 是非空目录则始终会报错。
    *
    * Requires `allow-read` and `allow-write` permissions. */
   export function renameSync(oldpath: string, newpath: string): void;
@@ -1272,6 +1312,9 @@ declare namespace Deno {
 
   /** Synchronously reads and returns the entire contents of a file as utf8 encoded string
    *  encoded string. Reading a directory returns an empty string.
+   * 
+   * @i18n 同步地读取并将文件的全部内容解析为 utf8 编码字符。
+   * 读取目录返回一个空的数据数组。
    *
    *       const data = Deno.readTextFileSync("hello.txt");
    *       console.log(data);
