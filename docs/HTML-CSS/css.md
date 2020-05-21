@@ -1,23 +1,9 @@
 # css
 
-## 目录
+## 滚动条样式更改
 
-- [滚动条样式更改](#滚动条样式更改)
-- [多选文本溢出省略](#多选文本溢出省略)
-- [双击取消选种](#双击取消选种)
-- [拨打电话](#拨打电话)
-- [SASS](#sass)
-- [textarea](#textarea)
-- [去除移动端选种背景](#去除移动端选种背景)
-- [去除select默认样式](#去除select默认样式)
-- [placeholder样式重置](#placeholder样式重置)
-- [伪类的使用](#伪类的使用)
-- [flex中的多行文本上下居中](#flex中的多行文本上下居中)
-- [规范](#规范)
 
-### 滚动条样式更改
-
-#### IE下的滚动条样式
+### IE下的滚动条样式
 
 - scrollbar-arrow-color: color; /三角箭头的颜色/  
 - scrollbar-face-color: color; /立体滚动条的颜色（包括箭头部分的背景色）/  
@@ -28,7 +14,7 @@
 - scrollbar-track-color: color; /立体滚动条背景颜色/
 - scrollbar-base-color:color; /滚动条的基色/
 
-#### webkit的自定义滚动条样式
+### webkit的自定义滚动条样式
 
 - ::-webkit-scrollbar 滚动条整体部分  
 - ::-webkit-scrollbar-button 滚动条两端的按钮
@@ -366,6 +352,18 @@ ul{
         justify-content: center;
       }
     </style>
+```
+
+## 滚动条平滑滚动
+
+```css
+
+body,html {
+   scroll-behavior: smooth;
+}
+.container {
+   scroll-behavior: smooth;
+}
 ```
 
 ## 规范
