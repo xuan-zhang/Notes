@@ -815,30 +815,62 @@ declare namespace Deno {
   export class Buffer implements Reader, ReaderSync, Writer, WriterSync {
     constructor(ab?: ArrayBuffer);
     /** Returns a slice holding the unread portion of the buffer.
+     * 
+     * @i18n 返回一个缓冲区未读部分的片段。
      *
      * The slice is valid for use only until the next buffer modification (that
      * is, only until the next call to a method like `read()`, `write()`,
      * `reset()`, or `truncate()`). The slice aliases the buffer content at
      * least until the next buffer modification, so immediate changes to the
-     * slice will affect the result of future reads. */
+     * slice will affect the result of future reads.
+     * 
+     *  @i18n 该片段只在下一次缓冲区修改之前有效 (即, 只有在下一次调用像 `read()`, `write()`,
+     * `reset()`, 或者 `truncate()` 这样的方法)。
+     * 该片段会在下一次修改缓冲区内容之前将缓冲区内容进行别名处理 ,  所以立刻改变片段会影响未来读取的结果。
+     *  */
     bytes(): Uint8Array;
-    /** Returns whether the unread portion of the buffer is empty. */
+    /** Returns whether the unread portion of the buffer is empty.
+     * 
+     * @i18n 返回缓冲区的未读部分是否为空。
+     * 
+     */
     empty(): boolean;
-    /** A read only number of bytes of the unread portion of the buffer. */
+    /** A read only number of bytes of the unread portion of the buffer.
+     * 
+     * @i18n 只读, 缓冲区未读部分的字节数。
+     * 
+     */
     readonly length: number;
     /** The read only capacity of the buffer's underlying byte slice, that is,
-     * the total space allocated for the buffer's data. */
+     * the total space allocated for the buffer's data.
+     * 
+     * @i18n 缓冲区底层字节片段的容量，即为缓冲区数据分配的总空间。
+     * 
+     *  */
     readonly capacity: number;
     /** Discards all but the first `n` unread bytes from the buffer but
      * continues to use the same allocated storage. It throws if `n` is
-     * negative or greater than the length of the buffer. */
+     * negative or greater than the length of the buffer. 
+     * 
+     * @i18n 除了缓冲器中开头 `n` 个未读字节之外，其他的所有字节都丢弃，但是继续使用相同分配的存储空间。
+     * 当 `n` 为负数或者大于缓冲区的长度, 则会抛出异常。
+     * 
+     * */
     truncate(n: number): void;
     /** Resets the buffer to be empty, but it retains the underlying storage for
-     * use by future writes. `.reset()` is the same as `.truncate(0)`. */
+     * use by future writes. `.reset()` is the same as `.truncate(0)`.
+     * 
+     * @i18n 将缓冲区重置为空，但它保留了底层存储供未来写入时使用，`.reset()` 与 `.truncate(0)` 相同。
+     *  */
     reset(): void;
     /** Reads the next `p.length` bytes from the buffer or until the buffer is
      * drained. Returns the number of bytes read. If the buffer has no data to
-     * return, the return is EOF (`null`). */
+     * return, the return is EOF (`null`).
+     * 
+     * @i18n 在缓冲区中读取下一个 `p.length` 字节，或直到缓冲区用完为止。
+     * 返回读取的字节数。当缓冲区没有数据返回，则返回值为 `EOF(null)`。
+     * 
+     *  */
     readSync(p: Uint8Array): number | null;
     /** Reads the next `p.length` bytes from the buffer or until the buffer is
      * drained. Resolves to the number of bytes read. If the buffer has no
@@ -846,16 +878,27 @@ declare namespace Deno {
      *
      * NOTE: This methods reads bytes sychronously; it's provided for
      * compatibility with `Reader` interfaces.
+     * 
+     * @i18n 注意：这个读字节方法是同步的；它是为与“Reader”接口兼容而提供的。
      */
     read(p: Uint8Array): Promise<number | null>;
     writeSync(p: Uint8Array): number;
     /** NOTE: This methods writes bytes sychronously; it's provided for
-     * compatibility with `Writer` interface. */
+     * compatibility with `Writer` interface. 
+     * 
+     * @i18n 注意：这是一个同步的写入字节方法；它是为与 `Writer` 接口兼容而提供的
+     * 
+     * */
     write(p: Uint8Array): Promise<number>;
     /** Grows the buffer's capacity, if necessary, to guarantee space for
      * another `n` bytes. After `.grow(n)`, at least `n` bytes can be written to
      * the buffer without another allocation. If `n` is negative, `.grow()` will
      * throw. If the buffer can't grow it will throw an error.
+     * 
+     * @i18n 增加缓冲区的容量，必要时保证另一个 `n` 字节的空间。
+     * 在 `.grow(n)` 之后，至少可以将 `n` 个字节写到缓冲区中而不需要另外分配。
+     * 若 `n` 为负数，`.grow()` 将抛出异常。
+     * 当缓冲区不能增加的时候会抛出错误。
      *
      * Based on Go Lang's
      * [Buffer.Grow](https://golang.org/pkg/bytes/#Buffer.Grow). */
@@ -863,6 +906,9 @@ declare namespace Deno {
     /** Reads data from `r` until EOF (`null`) and appends it to the buffer,
      * growing the buffer as needed. It resolves to the number of bytes read.
      * If the buffer becomes too large, `.readFrom()` will reject with an error.
+     * 
+     * @i18n 从 `r` 读取数据直到 `EOF`，并将其附加到缓冲区，根据需要扩展缓冲区。
+     * 解析读取的字节数。 如果缓冲区过大，`.readFrom()` 将会 reject 一个错误。
      *
      * Based on Go Lang's
      * [Buffer.ReadFrom](https://golang.org/pkg/bytes/#Buffer.ReadFrom). */
@@ -870,6 +916,9 @@ declare namespace Deno {
     /** Reads data from `r` until EOF (`null`) and appends it to the buffer,
      * growing the buffer as needed. It returns the number of bytes read. If the
      * buffer becomes too large, `.readFromSync()` will throw an error.
+     * 
+     * @i18n 从 `r` 读取数据直到 `EOF`，并将其附加到缓冲区，根据需要扩展缓冲区。
+     * 解析读取的字节数。 如果缓冲区过大，`.readFromSync()` 将会 reject 一个错误。
      *
      * Based on Go Lang's
      * [Buffer.ReadFrom](https://golang.org/pkg/bytes/#Buffer.ReadFrom). */
@@ -878,6 +927,8 @@ declare namespace Deno {
 
   /** Read Reader `r` until EOF (`null`) and resolve to the content as
    * Uint8Array`.
+   * 
+   * @i18n 读取 Reader `r` 直到文件的末尾 (`EOF`)，返回`Uint8Array` 格式的文件内容。
    *
    *       // Example from stdin
    *       const stdinContent = await Deno.readAll(Deno.stdin);
@@ -915,6 +966,8 @@ declare namespace Deno {
   export function readAllSync(r: ReaderSync): Uint8Array;
 
   /** Write all the content of the array buffer (`arr`) to the writer (`w`).
+   * 
+   * @i18n 将所有 Array Buffer （`arr`）中的的内容写入到对象 （`w`） 中。
    *
    *       // Example writing to stdout
    *       const contentBytes = new TextEncoder().encode("Hello World");
@@ -961,23 +1014,39 @@ declare namespace Deno {
      * Intermediate directories are created with the same permissions.
      * When recursive is set to `true`, succeeds silently (without changing any
      * permissions) if a directory already exists at the path, or if the path
-     * is a symlink to an existing directory. */
+     * is a symlink to an existing directory.
+     * 
+     * @i18n 默认为 false。 如果设置为 true，则意味着还将创建所有中间目录（如 shell 命令 mkdir -p 那样）。
+     * 使用相同的权限创建中间目录。
+     * 当设置为 true 时，如果路径中已经存在目录，或者该路径是到现有目录的符号链接，则会静默地操作成功（不更改任何权限）。
+     *  */
     recursive?: boolean;
     /** Permissions to use when creating the directory (defaults to `0o777`,
      * before the process's umask).
-     * Ignored on Windows. */
+     * Ignored on Windows. 
+     * 
+     * @i18n 创建目录时使用的权限(在进程的unmask前，默认 `0o777`, )
+     * 
+     * */
     mode?: number;
   }
 
   /** Synchronously creates a new directory with the specified path.
+   * 
+   * @i18n 同步的创建指定路径的新文件夹
    *
    *       Deno.mkdirSync("new_dir");
    *       Deno.mkdirSync("nested/directories", { recursive: true });
    *       Deno.mkdirSync("restricted_access_dir", { mode: 0o700 });
    *
    * Defaults to throwing error if the directory already exists.
+   * 
+   * @i18n 当文件夹已经存在，默认抛出错误
    *
-   * Requires `allow-write` permission. */
+   * Requires `allow-write` permission.
+   * 
+   * @i18n 需要 `allow-write` 权限
+   *  */
   export function mkdirSync(path: string, options?: MkdirOptions): void;
 
   /** Creates a new directory with the specified path.
