@@ -1334,6 +1334,10 @@ declare namespace Deno {
   /** Synchronously reads and returns the entire contents of a file as an array
    * of bytes. `TextDecoder` can be used to transform the bytes to string if
    * required.  Reading a directory returns an empty data array.
+   * 
+   * @i18n 同步地读取并将文件的全部内容解析为字节数组。
+   * `TextDecoder` 可以在需要的情况下可以将字节转换成字符串。
+   * 读取目录返回一个空的数据数组。
    *
    *       const decoder = new TextDecoder("utf-8");
    *       const data = Deno.readFileSync("hello.txt");
@@ -1354,33 +1358,65 @@ declare namespace Deno {
   export function readFile(path: string): Promise<Uint8Array>;
 
   /** A FileInfo describes a file and is returned by `stat`, `lstat`,
-   * `statSync`, `lstatSync`. */
+   * `statSync`, `lstatSync`.
+   * 
+   * @i18n FileInfo 用于描述 `stat`, `lstat`,
+   * `statSync`, `lstatSync` 函数返回的文件信息。而 `readdir`,
+   * `readdirSync` 返回的信息则用 FileInfo 列表来描述。
+   *  */
   export interface FileInfo {
     /** True if this is info for a regular file. Mutually exclusive to
-     * `FileInfo.isDirectory` and `FileInfo.isSymlink`. */
+     * `FileInfo.isDirectory` and `FileInfo.isSymlink`.
+     * 
+     * @i18n 判断文件是否为一个常规文件。该结果与 `FileInfo.isDirectory` 和 `FileInfo.isSymlink` 互斥。
+     *  */
     isFile: boolean;
     /** True if this is info for a regular directory. Mutually exclusive to
-     * `FileInfo.isFile` and `FileInfo.isSymlink`. */
+     * `FileInfo.isFile` and `FileInfo.isSymlink`.
+     * 
+     * @i18n 判断文件是否为一个常规目录。该结果与 `FileInfo.isFile` 和 `FileInfo.isSymlink` 互斥。
+     *  */
     isDirectory: boolean;
     /** True if this is info for a symlink. Mutually exclusive to
-     * `FileInfo.isFile` and `FileInfo.isDirectory`. */
+     * `FileInfo.isFile` and `FileInfo.isDirectory`.
+     * 
+     * @i18n 判断文件是否为一个符号链接。该结果与 `FileInfo.isDirectory` 和 `FileInfo.isDirectory` 互斥。
+     *  */
     isSymlink: boolean;
-    /** The size of the file, in bytes. */
+    /** The size of the file, in bytes.
+     * 
+     * @i18n 文件的大小，单位 byte。
+     */
     size: number;
     /** The last modification time of the file. This corresponds to the `mtime`
      * field from `stat` on Linux/Mac OS and `ftLastWriteTime` on Windows. This
-     * may not be available on all platforms. */
+     * may not be available on all platforms.
+     * 
+     * @i18n 最后一次修改时间，这对应于Linux / Mac OS上的stat中的mtime字段，以及Windows上的ftLastWriteTime。 并非在所有平台上都可用。
+     * 
+     *  */
     mtime: Date | null;
     /** The last access time of the file. This corresponds to the `atime`
      * field from `stat` on Unix and `ftLastAccessTime` on Windows. This may not
-     * be available on all platforms. */
+     * be available on all platforms.
+     * 
+     * @i18n 文件最后访问时间。
+     * 在 Linux/Mac 系统这个值是 `atime`，在 Windows 系统这个值是 `ftLastAccessTime`。
+     * 在某些系统中这个属性可能不存在。
+     *  */
     atime: Date | null;
     /** The creation time of the file. This corresponds to the `birthtime`
      * field from `stat` on Mac/BSD and `ftCreationTime` on Windows. This may
-     * not be available on all platforms. */
+     * not be available on all platforms.
+     * 
+     * @i18n 文件的创建时间。
+     * 在 Mac/BSD 系统这个值是 `birthtime`，在 Windows 系统这个值是 `ftCreationTime`。
+     * 在某些系统中这个属性可能不存在。
+     * 
+     *  */
     birthtime: Date | null;
     /** ID of the device containing the file.
-     *
+     * @i18n 包含此文件的设备的 ID。
      * _Linux/Mac OS only._ */
     dev: number | null;
     /** Inode number.
@@ -1388,32 +1424,38 @@ declare namespace Deno {
      * _Linux/Mac OS only._ */
     ino: number | null;
     /** **UNSTABLE**: Match behavior with Go on Windows for `mode`.
-     *
+     * 
+     * @i18n **不稳定**: 将此属性的行为与 Windows 上的 Go 相匹配。
+     * 
      * The underlying raw `st_mode` bits that contain the standard Unix
-     * permissions for this file/directory. */
+     * permissions for this file/directory.
+     * 
+     * @i18n 该文件或目录的权限位，返回标准的 Unix 底层 `st_mode` 位。
+     *  */
     mode: number | null;
     /** Number of hard links pointing to this file.
-     *
+     * @i18n 文件的硬链接数。
      * _Linux/Mac OS only._ */
     nlink: number | null;
     /** User ID of the owner of this file.
-     *
+     *@i18n 拥有该文件的用户的 uid。
      * _Linux/Mac OS only._ */
     uid: number | null;
     /** Group ID of the owner of this file.
-     *
+     * @i18n 拥有该文件的用户组的 gid。
      * _Linux/Mac OS only._ */
     gid: number | null;
     /** Device ID of this file.
-     *
+     * @i18n 文件设备标识符 ID。
      * _Linux/Mac OS only._ */
     rdev: number | null;
     /** Blocksize for filesystem I/O.
-     *
+     * @i18n 用于 I/O 操作的文件系统块的大小
      * _Linux/Mac OS only._ */
     blksize: number | null;
     /** Number of blocks allocated to the file, in 512-byte units.
      *
+     * @i18n 为此文件分配的块数，此值是一个 512 字节单位。
      * _Linux/Mac OS only._ */
     blocks: number | null;
   }
