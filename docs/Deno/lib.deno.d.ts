@@ -1896,7 +1896,8 @@ declare namespace Deno {
   /** Receive metrics from the privileged side of Deno.  This is primarily used
    * in the development of Deno. 'Ops', also called 'bindings', are the go-between
    * between Deno Javascript and Deno Rust.
-   *
+   @i18n 从 Deno 的特权方接收指标。这主要用于 Deno 的开发中。
+   * 'Ops'（也称为 'bindings'）是 Deno Javascript 和 Deno Rust 之间的沟通桥梁。
    *      > console.table(Deno.metrics())
    *      ┌─────────────────────────┬────────┐
    *      │         (index)         │ Values │
@@ -1924,6 +1925,8 @@ declare namespace Deno {
   /** Returns a map of open resource ids (rid) along with their string
    * representations. This is an internal API and as such resource
    * representation has `any` type; that means it can change any time.
+   * @i18n 返回一个开放的资源id(rid)和它们的字符串表示方法。
+   * 这是一个内部的API，因此资源表示具有`any`类型；这意味着它可以随时改变。
    *
    *       console.log(Deno.resources());
    *       // { 0: "stdin", 1: "stdout", 2: "stderr" }
