@@ -80,6 +80,10 @@ export default function arrayToTree(data, options) {
     console.error('list to tree: Expected an array but got an invalid argument')
     return []
   }
+  
+  if (!data.length) {
+    return []
+  }
 
   const grouped = groupByParents(options.deepClone ? deepClone(data) : data, options)
   return createTree(
