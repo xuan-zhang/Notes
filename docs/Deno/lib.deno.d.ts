@@ -1461,6 +1461,8 @@ declare namespace Deno {
   }
 
   /** Returns absolute normalized path, with symbolic links resolved.
+   * 
+   * @i18n 返回被解析后的符号链接绝对路径。
    *
    *       // e.g. given /home/alice/file.txt and current directory /home/alice
    *       Deno.symlinkSync("file.txt", "symlink_file.txt");
@@ -1493,6 +1495,8 @@ declare namespace Deno {
 
   /** Synchronously reads the directory given by `path` and returns an iterable
    * of `Deno.DirEntry`.
+   * 
+   * @i18n 同步读取 `path` 文件目录，并返回 `Deno.DirEntry` 迭代器。
    *
    *       for (const dirEntry of Deno.readDirSync("/")) {
    *         console.log(dirEntry.name);
@@ -1518,6 +1522,9 @@ declare namespace Deno {
   /** Synchronously copies the contents and permissions of one file to another
    * specified path, by default creating a new file if needed, else overwriting.
    * Fails if target path is a directory or is unwritable.
+   * 
+   * @i18n 采用同步方式将一个文件的内容和权限复制到另一个指定的路径，默认情况下根据需要
+   * 创建新文件或者覆盖原文件。 如果目标路径是目录或不可写，则失败。
    *
    *       Deno.copyFileSync("from.txt", "to.txt");
    *
@@ -1536,11 +1543,14 @@ declare namespace Deno {
   export function copyFile(fromPath: string, toPath: string): Promise<void>;
 
   /** Returns the full path destination of the named symbolic link.
+   * 
+   * @i18n 同步方式解析并返回符号链接对目标文件的绝对路径。
    *
    *       Deno.symlinkSync("./test.txt", "./test_link.txt");
    *       const target = Deno.readLinkSync("./test_link.txt"); // full path of ./test.txt
    *
    * Throws TypeError if called with a hard link
+   * @i18n 如果使用硬链接调用，则会抛出 `TypeError`。
    *
    * Requires `allow-read` permission. */
   export function readLinkSync(path: string): string;
@@ -1558,6 +1568,9 @@ declare namespace Deno {
   /** Resolves to a `Deno.FileInfo` for the specified `path`. If `path` is a
    * symlink, information for the symlink will be returned instead of what it
    * points to.
+   * 
+   * @i18n 解析给定的 `path`，并返回 `Deno.FileInfo`。如果 `path` 是一个
+   * 符号链接，则将返回符号链接的信息，而不是该符号链接引用的文件信息。
    *
    *       const fileInfo = await Deno.lstat("hello.txt");
    *       assert(fileInfo.isFile);
@@ -1577,6 +1590,8 @@ declare namespace Deno {
 
   /** Resolves to a `Deno.FileInfo` for the specified `path`. Will always
    * follow symlinks.
+   * 
+   * @i18n 解析给定 `path`，返回 `Deno.FileInfo`。如果 `path` 为符号链接，则返回符号链接指向的文件。
    *
    *       const fileInfo = await Deno.stat("hello.txt");
    *       assert(fileInfo.isFile);
@@ -1596,18 +1611,27 @@ declare namespace Deno {
   /** Options for writing to a file. */
   export interface WriteFileOptions {
     /** Defaults to `false`. If set to `true`, will append to a file instead of
-     * overwriting previous contents. */
+     * overwriting previous contents.
+     * 
+     * @i18n 默认为 `false`。如果设置为 `true`，则将追加到文件中，而不是覆盖之前的内容。
+     * 
+     *  */
     append?: boolean;
     /** Sets the option to allow creating a new file, if one doesn't already
-     * exist at the specified path (defaults to `true`). */
+     * exist at the specified path (defaults to `true`).
+     * @i18n 默认为 `true`。如果指定路径不存在文件，是否允许创建新文件的选项。*/
     create?: boolean;
-    /** Permissions always applied to file. */
+    /** Permissions always applied to file.
+     * @i18n 文件的权限
+     */
     mode?: number;
   }
 
   /** Synchronously write `data` to the given `path`, by default creating a new
    * file if needed, else overwriting.
-   *
+   * 
+   * @i18n 同步方式将 `data` 写入给定的 `path`，并且根据需要创建新文件或者覆盖原文件。
+   * 
    *       const encoder = new TextEncoder();
    *       const data = encoder.encode("Hello world\n");
    *       Deno.writeFileSync("hello1.txt", data);  // overwrite "hello1.txt" or create it
