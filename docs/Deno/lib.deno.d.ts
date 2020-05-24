@@ -1668,6 +1668,8 @@ declare namespace Deno {
 
   /** Synchronously write string `data` to the given `path`, by default creating a new file if needed,
    * else overwriting.
+   * 
+   * @i18n 同步的将字符串类型 `data` 写入指定 `path` 路径，如果需要默认创建新文件或覆盖原文件
    *
    *       await Deno.writeTextFileSync("hello1.txt", "Hello world\n");  // overwrite "hello1.txt" or create it
    *
@@ -1704,6 +1706,8 @@ declare namespace Deno {
   /** Truncates or extends the specified file, to reach the specified `len`. If
    * `len` is not specified then the entire file contents are truncated.
    *
+   * @i18n 通过指定的 `len` ，截取或者扩展指定的文件内容。如果未指定 `len` ，则整个文件内容将被截取。
+   * 
    *       // truncate the entire file
    *       await Deno.truncate("my_file.txt");
    *
@@ -1730,28 +1734,42 @@ declare namespace Deno {
 
   export type Addr = NetAddr | UnixAddr;
 
-  /** A generic network listener for stream-oriented protocols. */
+  /** A generic network listener for stream-oriented protocols.
+   * 
+   * @i18n — 面向流协议的通用网络监听器。 
+   */
   export interface Listener extends AsyncIterable<Conn> {
-    /** Waits for and resolves to the next connection to the `Listener`. */
+    /** Waits for and resolves to the next connection to the `Listener`.
+     * @i18n 等待并解析 (resolve) 到与 `Listener` 的下一个连接。*/
     accept(): Promise<Conn>;
     /** Close closes the listener. Any pending accept promises will be rejected
-     * with errors. */
+     * with errors.
+     * @i18n 关闭监听器。任何待处理的接收应答都将被拒绝 (rejected)，并返回错误。*/
     close(): void;
-    /** Return the address of the `Listener`. */
+    /** Return the address of the `Listener`. 
+     *  @i18n 返回 `Listener` 的地址
+    */
     readonly addr: Addr;
 
     [Symbol.asyncIterator](): AsyncIterableIterator<Conn>;
   }
 
   export interface Conn extends Reader, Writer, Closer {
-    /** The local address of the connection. */
+    /** The local address of the connection.
+     *  @i18n 连接的本地地址。
+     */
     readonly localAddr: Addr;
-    /** The remote address of the connection. */
+    /** The remote address of the connection. 
+     * @i18n 连接的远程地址。
+    */
     readonly remoteAddr: Addr;
-    /** The resource ID of the connection. */
+    /** The resource ID of the connection. 
+     * @i18n 连接的资源 ID
+    */
     readonly rid: number;
     /** Shuts down (`shutdown(2)`) the writing side of the TCP connection. Most
      * callers should just use `close()`.
+     * @i18n 关闭 (`shutdown(2)`) TCP 连接的写入端。大多数调用者应该只使用 `close()`。
      *
      * **Unstable** because of lack of testing and because Deno.shutdown is also
      * unstable.
@@ -1760,15 +1778,20 @@ declare namespace Deno {
   }
 
   export interface ListenOptions {
-    /** The port to listen on. */
+    /** The port to listen on.
+     *  @i18n 要监听的端口号
+     */
     port: number;
     /** A literal IP address or host name that can be resolved to an IP address.
-     * If not specified, defaults to `0.0.0.0`. */
+     * If not specified, defaults to `0.0.0.0`.
+     *  @i18n 一个 IP 地址或者可以被解析为 IP 地址的主机名。
+     * 如果没有指定，默认值为 `0.0.0.0`
+     *  */
     hostname?: string;
   }
 
   /** Listen announces on the local transport address.
-   *
+   * @i18n 在本地监听网络连接
    *      const listener1 = Deno.listen({ port: 80 })
    *      const listener2 = Deno.listen({ hostname: "192.0.2.1", port: 80 })
    *      const listener3 = Deno.listen({ hostname: "[2001:db8::1]", port: 80 });
@@ -1780,9 +1803,13 @@ declare namespace Deno {
   ): Listener;
 
   export interface ListenTlsOptions extends ListenOptions {
-    /** Server certificate file. */
+    /** Server certificate file.
+     * @i18n 服务器证书文件
+     */
     certFile: string;
-    /** Server public key file. */
+    /** Server public key file.
+     * @i18n 服务器公钥文件
+     */
     keyFile: string;
 
     transport?: "tcp";
@@ -1790,6 +1817,7 @@ declare namespace Deno {
 
   /** Listen announces on the local transport address over TLS (transport layer
    * security).
+   * @i18n 通过TLS(传输层安全)在本地传输地址上监听公告
    *
    *      const lstnr = Deno.listenTls({ port: 443, certFile: "./server.crt", keyFile: "./server.key" });
    *
@@ -1797,10 +1825,14 @@ declare namespace Deno {
   export function listenTls(options: ListenTlsOptions): Listener;
 
   export interface ConnectOptions {
-    /** The port to connect to. */
+    /** The port to connect to.
+     * @i18n — 要连接的端口号
+     */
     port: number;
     /** A literal IP address or host name that can be resolved to an IP address.
-     * If not specified, defaults to `127.0.0.1`. */
+     * If not specified, defaults to `127.0.0.1`.
+     * 一个 IP 地址或者可以被解析为 IP 地址的主机名。 如果没有指定，默认值为 127.0.0.1。
+     *  */
     hostname?: string;
     transport?: "tcp";
   }
@@ -1808,6 +1840,8 @@ declare namespace Deno {
   /**
    * Connects to the hostname (default is "127.0.0.1") and port on the named
    * transport (default is "tcp"), and resolves to the connection (`Conn`).
+   * 
+   * @i18n 连接到主机名(默认为 "127.0.0.1")和指定的传输工具上的端口(默认为 "tcp")，并解析到连接(`Conn`)。
    *
    *     const conn1 = await Deno.connect({ port: 80 });
    *     const conn2 = await Deno.connect({ hostname: "192.0.2.1", port: 80 });
@@ -1832,6 +1866,9 @@ declare namespace Deno {
    * an optional cert file, hostname (default is "127.0.0.1") and port.  The
    * cert file is optional and if not included Mozilla's root certificates will
    * be used (see also https://github.com/ctz/webpki-roots for specifics)
+   * 
+   * @i18n 通过使用可选的证书文件，主机名（默认为 "127.0.0.1"）和端口 在TLS（传输层安全）上建立安全连接。
+   * 该证书文件是可选的，如果不包括，则会使用Mozilla的根证书 (详情请参见https://github.com/ctz/webpki-roots)
    *
    *     const conn1 = await Deno.connectTls({ port: 80 });
    *     const conn2 = await Deno.connectTls({ certFile: "./certs/my_custom_root_CA.pem", hostname: "192.0.2.1", port: 80 });
