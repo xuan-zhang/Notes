@@ -1948,6 +1948,11 @@ declare namespace Deno {
    * old_name.txt new_name.txt`).  Recursive option is `true` by default and,
    * for directories, will watch the specified directory and all sub directories.
    * Note that the exact ordering of the events can vary between operating systems.
+   * 
+   * @i18n 监视针对一个或多个“路径”的文件系统事件，该路径可以是文件或目录
+   * 这些路径必须已经存在. 一个用户动作（例如`touch test.file`）可以生成多个文件系统事件。
+   *  同样，一项用户操作会在一个事件中导致多个文件路径（例如`mv old_name.txt new_name.txt`）。
+   *  递归选项默认为“ true”，对于目录，它将监视指定的目录和所有子目录。 请注意，事件的确切顺序在操作系统之间可能会有所不同。
    *
    *       const watcher = Deno.watchFs("/");
    *       for await (const event of watcher) {
@@ -1968,19 +1973,25 @@ declare namespace Deno {
     readonly stdin?: Writer & Closer;
     readonly stdout?: Reader & Closer;
     readonly stderr?: Reader & Closer;
-    /** Resolves to the current status of the process. */
+    /** Resolves to the current status of the process.
+     * @i18n 解析进程当前的状态。*/
     status(): Promise<ProcessStatus>;
     /** Buffer the stdout until EOF and return it as `Uint8Array`.
      *
+     *  @i18n 缓冲区中的 stdout，会在 `EOF` 之后以 `Uint8Array` 的形式返回。
      * You must set stdout to `"piped"` when creating the process.
-     *
-     * This calls `close()` on stdout after its done. */
+     * @i18n 在创建进程时，你必须将 stdout 设置为 `"piped"`。
+     * This calls `close()` on stdout after its done. 
+     * @i18n 会在 stdout 完成后调用 `close()`。
+     * */
     output(): Promise<Uint8Array>;
     /** Buffer the stderr until EOF and return it as `Uint8Array`.
-     *
+     *  @i18n 缓冲区中的 stderr， 会在 `EOF` 之后以 `Uint8Array` 的形式返回。
      * You must set stderr to `"piped"` when creating the process.
-     *
-     * This calls `close()` on stderr after its done. */
+     *  @i18n 在创建进程时，你必须将 stderr 设置为 `"piped"`。
+     * This calls `close()` on stderr after its done.
+     * @i18n 会在 stderr 完成后调用 `close()`。
+     *  */
     stderrOutput(): Promise<Uint8Array>;
     close(): void;
 
@@ -2007,7 +2018,9 @@ declare namespace Deno {
 
   export interface RunOptions {
     /** Arguments to pass. Note, the first element needs to be a path to the
-     * binary */
+     * binary 
+     * @i18n 需要传递的参数。注意，第一个元素必须是二进制文件的路径
+     * */
     cmd: string[];
     cwd?: string;
     env?: {
