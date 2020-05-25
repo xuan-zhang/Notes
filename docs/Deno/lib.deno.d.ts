@@ -2034,31 +2034,47 @@ declare namespace Deno {
   /** Spawns new subprocess.  RunOptions must contain at a minimum the `opt.cmd`,
    * an array of program arguments, the first of which is the binary.
    *
+   *  @i18n 派生新的子进程。 RunOptions 必须包含 `opt.cmd`，即程序参数数组，其中第一个参数是二进制文件路径。
    *       const p = Deno.run({
    *         cmd: ["echo", "hello"],
    *       });
    *
    * Subprocess uses same working directory as parent process unless `opt.cwd`
    * is specified.
+   * 
+   *  @i18n 子进程使用与父进程相同的工作目录，除非指定了 `opt.cwd`。
    *
    * Environmental variables for subprocess can be specified using `opt.env`
    * mapping.
+   * 
+   * @i18n 子进程的环境变量可以使用 `opt.env` 来设置。
    *
    * By default subprocess inherits stdio of parent process. To change that
    * `opt.stdout`, `opt.stderr` and `opt.stdin` can be specified independently -
    * they can be set to either an rid of open file or set to "inherit" "piped"
    * or "null":
+   * 
+   * @i18n 默认情况下，子进程继承父进程的 stdio。要更改这些值，可以分别指定`opt.stdout`、`opt.stderr`、`opt.stdin`
+   * - 可以将其设置为打开文件的 `rid` 或者 `inherit` `piped` `null`
    *
    * `"inherit"` The default if unspecified. The child inherits from the
    * corresponding parent descriptor.
    *
+   * @i18n `"inherit"` 未指定时的默认值，子级从相应的父级描述符继承
+   * 
    * `"piped"` A new pipe should be arranged to connect the parent and child
    * sub-processes.
+   * 
+   * @i18n `"piped"` 应该安排一个新管道来连接父子流程
    *
    * `"null"` This stream will be ignored. This is the equivalent of attaching
    * the stream to `/dev/null`.
+   * 
+   * @i18n `"null"` 此流将被忽略。 这相当于将流附加到 `/dev/null`。
    *
    * Details of the spawned process are returned.
+   * 
+   * @i18n 返回生成过程的详细信息
    *
    * Requires `allow-run` permission. */
   export function run(opt: RunOptions): Process;
