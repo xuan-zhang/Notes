@@ -2085,6 +2085,8 @@ declare namespace Deno {
 
   /** Converts the input into a string that has the same format as printed by
    * `console.log()`.
+   * 
+   * @i18n 将输入转换为与 `console.log()` 打印格式相同的字符串。
    *
    *      const obj = {};
    *      obj.propA = 10;
@@ -2094,6 +2096,9 @@ declare namespace Deno {
    *
    * You can also register custom inspect functions, via the `customInspect` Deno
    * symbol on objects, to control and customize the output.
+   * 
+   * @i18n 你还可以通过对象上的 `Deno.symbols.customInspect` 函数
+   * 注册自定义的 inspect function，以控制和自定义输出。
    *
    *      class A {
    *        x = 10;
@@ -2107,23 +2112,40 @@ declare namespace Deno {
    *      console.log(inStringFormat);  // prints "x=10, y=hello"
    *
    * Finally, a number of output options are also available.
+   * 
+   * @i18n 同时还提供了一些输出选项。
    *
    *      const out = Deno.inspect(obj, {showHidden: true, depth: 4, colors: true, indentLevel: 2});
    *
    */
   export function inspect(value: unknown, options?: InspectOptions): string;
 
-  /** Build related information. */
+  /** Build related information.
+   * 
+   * @i18n 构建的相关信息。
+   */
   export const build: {
-    /** The LLVM target triple */
+    /** The LLVM target triple
+     * @i18n LLVM 三合一目标
+     */
     target: string;
-    /** Instruction set architecture */
+    /** Instruction set architecture
+     * 
+     * @i18n 指令集架构
+     */
     arch: "x86_64";
-    /** Operating system */
+    /** Operating system 
+     * 
+     * @i18n 操作系统
+    */
     os: "darwin" | "linux" | "windows";
-    /** Computer vendor */
+    /** Computer vendor
+     * @i18n 电脑厂商
+     */
     vendor: string;
-    /** Optional environment */
+    /** Optional environment 
+     * @i18n 可选环境
+    */
     env?: string;
   };
 
