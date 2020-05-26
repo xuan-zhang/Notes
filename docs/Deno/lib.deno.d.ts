@@ -2161,10 +2161,13 @@ declare namespace Deno {
 
   /** Returns the script arguments to the program. If for example we run a
    * program:
+   * 
+   * @i18n 将脚本参数返回给程序。例如我们运行下方的程序
    *
    *      deno run --allow-read https://deno.land/std/examples/cat.ts /etc/passwd
    *
    * Then `Deno.args` will contain:
+   * @i18n 此时 `Deno.args` 将包含:
    *
    *      [ "/etc/passwd" ]
    */
@@ -2172,7 +2175,10 @@ declare namespace Deno {
 
   /** A symbol which can be used as a key for a custom method which will be
    * called when `Deno.inspect()` is called, or when the object is logged to
-   * the console. */
+   * the console. 
+   * @i18n 这个 Symbol 可以作为 key 来定义一个方法，当 `Deno.inspect()` 被调用或者调用了
+     * console 的日志方法时，这个自定义函数被调用。
+   * */
   export const customInspect: unique symbol;
 }
 
