@@ -75,6 +75,28 @@
 
 + 创建一个新的空白的文档片段 [`DocumentFragment`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment)
 
+### `queueMicrotask(callback)`
+  
++ 创建一个微任务
++ 类似如下方法
+
+  ```js
+  Promise.resolve().then(() => {
+    console.log('queueMicrotask');
+  })
+
+  queueMicrotask(() => {
+    console.log(`queueMicrotask`)
+  })
+
+  ```
+
+### `requestAnimationFrame(callback)`
+
++ [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/window/requestAnimationFrame)
++ 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
++ `window.cancelAnimationFrame()`
+
 ## Array
 
 + `flatMap`: 执行 `map` 再执行 `flat`(效果类似，not sure);
@@ -106,3 +128,4 @@
 ## 编码
 
 + [escape()、encodeURI()、encodeURIComponent()](https://www.cnblogs.com/qiantuwuliang/archive/2009/07/19/1526687.html)
+
