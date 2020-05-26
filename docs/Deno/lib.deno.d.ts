@@ -2154,7 +2154,9 @@ declare namespace Deno {
     v8: string;
     typescript: string;
   }
-  /** Version related information. */
+  /** Version related information.
+   * @i18n deno 版本信息
+   */
   export const version: Version;
 
   /** Returns the script arguments to the program. If for example we run a
