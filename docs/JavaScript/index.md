@@ -97,6 +97,11 @@
 + 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
 + `window.cancelAnimationFrame()`
 
+### `Crypto`
+
++ [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Crypto)
++ Crypto 接口提供了基本的加密功能，可用于当前的上下文中。它允许访问一个密码强度的随机数生成器和 cryptographic primitives。
+
 ## Array
 
 + `flatMap`: 执行 `map` 再执行 `flat`(效果类似，not sure);
