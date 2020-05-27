@@ -8,8 +8,11 @@
 ## TODO
 
 + vue3.x 原码
++ typeScript
 + react
 + node
++ mysql
++ mongodb
 + SSR
 + webpack
 + 页面优化
@@ -20,13 +23,10 @@
 + 小程序
 + 消息推送
 + webworker
-+ typeScript
-+ mysql
 + 数据结构
 + 算法
 + 设计模式
 + http
 + python
-+ mongodb
 + java
 + deno
