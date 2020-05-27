@@ -75,7 +75,7 @@
 
 ## 配置
 
-- `Settings > Editor > File Types` : 配置文件语法高亮，设置不校验目录如 `node_modules`
+- `Settings > Editor > File Types` : 配置文件语法高亮，设置不校验目录如 `node_modules` `.vscode`
 
 - 配置局域网服务器环境：
   - 如果这样做，会很卡，一般不用；
