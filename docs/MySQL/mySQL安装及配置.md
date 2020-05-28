@@ -46,6 +46,49 @@ default-character-set=UTF8MB4
 
 + 下载 dmg 格式文件直接安装
 
+### ubuntu2004 安装
+
++ 查看版本：`sudo apt show mysql-server`
++ 安装：`sudo apt install mysql-server`
++ 配置文件地址： `/etc/mysql`
+  + `/etc/mysql.conf.d/mysql.cnf`
+  + `/etc/mysql.conf.d/mysqld.cnf`
++ 自动生成账号密码地址：`/etc/mysql/debian.cnf`
+
+  ```text
+    # Automatically generated for Debian scripts. DO NOT TOUCH!
+    [client]
+    host     = localhost
+    user     = debian-sys-maint
+    password = O*******
+    socket   = /var/run/mysqld/mysqld.sock
+    [mysql_upgrade]
+    host     = localhost
+    user     = debian-sys-maint
+    password = O*******
+    socket   = /var/run/mysqld/mysqld.sock
+  ```
+
++ 查看mysql进程： `ps -aux | grep mysql`
+
+  ```text
+  mysql       2583  0.6 17.5 1279788 352348 ?      Ssl  17:08   0:05 /usr/sbin/mysqld
+  ```
+
++ 停止 mysql: `sudo service mysql stop`
++ 启动 mysql: `sudo service mysql start`
++ 重启 mysql: `sudo service mysql restart`
++ 进入 mysql: `mysql -u debian-sys-maint -p`
+
+  ```text
+    $ mysql -u debian-sys-maint -p 
+    Enter password: 
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 9
+    Server version: 8.0.20-0ubuntu0.20.04.1 (Ubuntu)
+  ```
+
+  
 ## 配置环境变量
 
 + 此电脑->右键属性->高级系统设置->环境变量->Path->编辑->bin目录的路径(`D:\Program Files\MySQL\mysql-8.0.16-winx64\bin`)->确定。
