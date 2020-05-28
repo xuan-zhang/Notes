@@ -81,13 +81,19 @@ default-character-set=UTF8MB4
 + 进入 mysql: `mysql -u debian-sys-maint -p`
 
   ```text
-    $ mysql -u debian-sys-maint -p 
-    Enter password: 
+    $ mysql -u debian-sys-maint -p
+    Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 9
     Server version: 8.0.20-0ubuntu0.20.04.1 (Ubuntu)
   ```
 
++ 创建一个 root 权限用户
+  + 使用 mysql 数据库 `use mysql`
+  + 查看当前用户 `SELECT User, authentication_string, Host FROM user;`
+  + 创建用户 `CREATE USER '用户名'@'%' IDENTIFIED BY '密码';`
+  + 设置权限 `GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' WITH GRANT OPTION;`
+  + 刷新权限列表 `FLUSH PRIVILEGES;`
   
 ## 配置环境变量
 
