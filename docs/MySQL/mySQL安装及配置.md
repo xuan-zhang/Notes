@@ -46,7 +46,7 @@ default-character-set=UTF8MB4
 
 + 下载 dmg 格式文件直接安装
 
-### ubuntu2004 安装
+### ubuntu2004 安装 mysql8
 
 + 查看版本：`sudo apt show mysql-server`
 + 安装：`sudo apt install mysql-server`
@@ -88,12 +88,23 @@ default-character-set=UTF8MB4
     Server version: 8.0.20-0ubuntu0.20.04.1 (Ubuntu)
   ```
 
++ 修改root密码: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';`
+
 + 创建一个 root 权限用户
   + 使用 mysql 数据库 `use mysql`
   + 查看当前用户 `SELECT User, authentication_string, Host FROM user;`
-  + 创建用户 `CREATE USER '用户名'@'%' IDENTIFIED BY '密码';`
+  + 创建用户 `CREATE USER '用户名zxx'@'%' IDENTIFIED BY '密码zxx';`
   + 设置权限 `GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' WITH GRANT OPTION;`
   + 刷新权限列表 `FLUSH PRIVILEGES;`
+
++ 设置远程连接
+  + 账号的 `Host` 要设置成对应 ip 或 '%'
+  + 修改配置 ` sudo vim mysql.conf.d/mysqld.cnf`
+
+    ```text
+      # 注释掉此行，用于远程连接
+      # bind-address		= 127.0.0.1
+    ```
   
 ## 配置环境变量
 
