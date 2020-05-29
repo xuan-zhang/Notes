@@ -99,11 +99,11 @@ default-character-set=UTF8MB4
 
 + 设置远程连接
   + 账号的 `Host` 要设置成对应 ip 或 '%'
-  + 修改配置 ` sudo vim mysql.conf.d/mysqld.cnf`
+  + 修改配置 `sudo vim mysql.conf.d/mysqld.cnf`
 
     ```text
       # 注释掉此行，用于远程连接
-      # bind-address		= 127.0.0.1
+      # bind-address = 127.0.0.1
     ```
   
 ## 配置环境变量
