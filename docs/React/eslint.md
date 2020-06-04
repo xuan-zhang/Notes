@@ -41,7 +41,7 @@ module.exports = {
 
     //添加 prettier 配置
     "prettier/@typescript-eslint", // 使用 eslint-config-prettier 来禁用 @typescript-eslint/eslint-plugin 中的 规则，这此规则会与 prettier 冲突的规则
-    "plugin:prettier/recommended" // 启用 eslint-plugin-prettier 和 eslint-config-prettier。这将以ESLint错误的形式显示pretertier错误。确保这始终是extends数组中的最后一个配置。
+    "plugin:prettier/recommended" // 启用 eslint-plugin-prettier 和 eslint-config-prettier。这将以ESLint错误的形式显示pretertier错误。确保这始终是extends数组中的最后一个配置。打开这个功能可能会造成 eslint 与 prettier 规则冲突，始终报错
   ],
   rules: {
     // 自定义规则
@@ -125,7 +125,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier/react",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended", // 这必须是最后一个配置项
+    // "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -149,6 +149,7 @@ module.exports = {
     "SharedArrayBuffer": "readonly"
   },
   rules: {
+    // 'prettier/prettier': 0, 用于关闭 prettier 提示错误，在 prettier 与 eslint 冲突时
     'max-len': 0,
     'camelcase': 1,
     'eqeqeq': 0, //强制全等
@@ -240,6 +241,12 @@ module.exports = {
 }
 
 ```
+
+## 错误
+
++ '@typescript-eslint/dot-notation' '@typescript-eslint/lines-between-class-members' 规则不存在
+  + yarn 安装包时出现错误，`rm -rf node_modules` `yarn install`
+  + 或 改用 npm 安装
 
 ## 参考文档
 
