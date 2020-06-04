@@ -109,6 +109,138 @@ module.exports = {
 
 ```
 
+## 配置参考
+
+```js
+// https://cn.eslint.org/docs/rules/
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es6: true
+  },
+  extends: [
+    "plugin:react/recommended",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended", // 这必须是最后一个配置项
+  ],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json",
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    sourceType: "module", // Allows for the use of imports
+    ecmaFeatures: {
+      jsx: true, // Allows for the parsing of JSX
+      tsx: true
+    }
+  },
+  settings: {
+    react: {
+      version: "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
+  },
+  plugins: ["react", "@typescript-eslint", "prettier"],
+  // 自定义全局变量
+  globals: {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  rules: {
+    'max-len': 0,
+    'camelcase': 1,
+    'eqeqeq': 0, //强制全等
+    'array-callback-return': 1,
+    "arrow-parens": ["error", "as-needed"], // 箭头函数的参数可以不使用圆括号
+    "no-unused-expressions": 0, // 允许使用未使用过的表达式，以此来支持a && a()的代码形式
+    'no-use-before-define': 0,
+    'no-restricted-syntax': 1,
+    'no-shadow': [1, {  "allow": ["resolve", "reject", "done", "cb"] }], //
+    'no-plusplus': 1,
+    'no-underscore-dangle': 0, // 允许在标识符中使用下划线
+    'import/extensions': 0, // 取消对文件扩展名的验证
+    'import/prefer-default-export': 0,
+    'prefer-rest-params': 1,
+    'import/no-extraneous-dependencies': 1,
+    "global-require": 0, // 取消对require的验证，使得可以使用require来加载图片的相对路径
+    "import/no-unresolved": 0, // 取消自动解析路径，以此开启alias的别名路径设置
+    "linebreak-style": 0, // 取消换行符\n或\r\n的验证
+    'no-unused-vars': 1,
+    'template-curly-spacing': 'off',
+    'indent': 'off',
+    'no-param-reassign': 0, // 禁止对 function 的参数进行重新赋值
+    'no-nested-ternary': 0, // 禁止嵌套三元表达式
+    'consistent-return': 0,
+    'prefer-arrow-callback': 0,
+    'prefer-const': 1,
+    'func-names': 0,
+    'no-else-return': 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  },
+};
+
+```
+
+```js
+
+module.exports = {
+  plugins: [
+    "@typescript-eslint",
+    "eslint-comments",
+    "jest",
+    "promise",
+    "unicorn",
+  ],
+  extends: [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:jest/recommended",
+    "plugin:promise/recommended",
+    "plugin:unicorn/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+  ],
+  env: {
+    node: true,
+    browser: true,
+    jest: true,
+  },
+  rules: {
+    // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
+    "no-prototype-builtins": "off",
+    // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+    // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+    "react/destructuring-assignment": "off",
+    // No jsx extension: https://github.com/facebook/create-react-app/issues/87#issuecomment-234627904
+    "react/jsx-filename-extension": "off",
+    // Use function hoisting to improve code readability
+    "no-use-before-define": [
+      "error",
+      { functions: false, classes: true, variables: true },
+    ],
+    // Makes no sense to allow type inferrence for expression parameters, but require typing the response
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { allowExpressions: true, allowTypedFunctionExpressions: true },
+    ],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { functions: false, classes: true, variables: true, typedefs: true },
+    ],
+    // Common abbreviations are known and readable
+    "unicorn/prevent-abbreviations": "off",
+  },
+}
+
+```
+
 ## 参考文档
 
 + [Instantly share code, notes, and snippets.](https://gist.github.com/kuhelbeher/e65b3d6d6d84ebe3cda38ceef6fd9b40)
