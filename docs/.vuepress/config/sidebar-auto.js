@@ -23,11 +23,12 @@ module.exports = {
       "title": "JavaScript",
       "children": [
         "",
-        "JS",
         "Workers",
         "axios",
         "blob base64 与 file转换",
         "jQuery",
+        "listToTree",
+        "stoarge",
         "websock",
         "xss",
         "原型与原型链",
@@ -87,7 +88,9 @@ module.exports = {
     {
       "title": "React",
       "children": [
-        ""
+        "",
+        "eslint",
+        "工具库"
       ]
     }
   ],
