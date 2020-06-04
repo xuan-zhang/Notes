@@ -125,7 +125,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier/react",
     "prettier/@typescript-eslint",
-    // "plugin:prettier/recommended",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -149,7 +149,7 @@ module.exports = {
     "SharedArrayBuffer": "readonly"
   },
   rules: {
-    // 'prettier/prettier': 0, 用于关闭 prettier 提示错误，在 prettier 与 eslint 冲突时
+    'prettier/prettier': 0, // 用于关闭 prettier 提示错误，在 prettier 与 eslint 冲突时
     'max-len': 0,
     'camelcase': 1,
     'eqeqeq': 0, //强制全等
