@@ -78,7 +78,9 @@ module.exports = {
 
 {
   "scripts": {
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint:eslint": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "lint:eslint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
   }
 }
 
@@ -149,9 +151,17 @@ module.exports = {
     "SharedArrayBuffer": "readonly"
   },
   rules: {
-    'prettier/prettier': 0, // 用于关闭 prettier 提示错误，在 prettier 与 eslint 冲突时
+    'prettier/prettier': 0, // 不再提示 prettier 错误
+    '@typescript-eslint/dot-notation': 0,
+    '@typescript-eslint/lines-between-class-members': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    'react/destructuring-assignment': 0,
     'max-len': 0,
     'camelcase': 1,
+    'quotes': [1, "single"],
     'eqeqeq': 0, //强制全等
     'array-callback-return': 1,
     "arrow-parens": ["error", "as-needed"], // 箭头函数的参数可以不使用圆括号
@@ -159,7 +169,7 @@ module.exports = {
     'no-use-before-define': 0,
     'no-restricted-syntax': 1,
     'no-shadow': [1, {  "allow": ["resolve", "reject", "done", "cb"] }], //
-    'no-plusplus': 1,
+    'no-plusplus': 0,
     'no-underscore-dangle': 0, // 允许在标识符中使用下划线
     'import/extensions': 0, // 取消对文件扩展名的验证
     'import/prefer-default-export': 0,
@@ -182,6 +192,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
 };
+
 
 ```
 
