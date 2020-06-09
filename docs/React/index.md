@@ -125,11 +125,21 @@
 
 ### React.PureComponent
 
++ [文档](https://zh-hans.reactjs.org/docs/react-api.html#reactpurecomponent)
++ `React.PureComponent` 与 `React.Component` 很相似。两者的区别在于 `React.Component` 并未实现 `shouldComponentUpdate()`，而 `React.PureComponent` 中以浅层对比 `prop` 和 `state` 的方式来实现了该函数。
+
 ### ReactDOM.createPortal
 
 ### React.Profiler
 
 ### React.createElement
+
+### PropTypes
+
++ [文档](https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper)
++ 类型检测，类似 vue 中 props 类型检查
++ 使用 `TS` 可以省略此步骤
++ 自 React v15.5 起，`React.PropTypes` 已移入另一个包中。请使用 `prop-types` 库代替
 
 ## 生命周期
 
