@@ -165,3 +165,6 @@
   ```
 
 + 变量提升也有优先级, 函数声明 > arguments > 变量声明
++ 运算符优先级
+  + `new Persion().getName()` === `(new Persion()).getName()`
+  + `new Persion.getName()` === `new Persion.getName` === `new (Persion.getName)` !== `new (Persion.getName())`
