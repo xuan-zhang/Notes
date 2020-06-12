@@ -122,6 +122,22 @@
   arr.flatMap(item=>item.split('')); //["今", "天", "天", "气", "不", "错", "早", "上", "好"]
   ```
 
++ 创建数组
+
+```js
+const a = Array(3) // [empty × 3]
+a[0] === undefined // true
+Array(2,3) // [2,3]
+
+var a = [3];
+var b = [1];
+console.log(a - b); // 2
+
+var a = [1,3]; // a.toString() === '1,3'
+var b = [1]; // b.toString() === '1'
+console.log(a - b); //NaN '1,3' - '1' === NaN
+```
+
 ## DOM
 
 + [DOMParser 与 XMLSerializer](https://www.zhangxinxu.com/wordpress/2019/06/domparser-xmlserializer-api/)
@@ -227,3 +243,8 @@ if(function f(){}){ // 此处 function f 不存在变量提升，也不向外暴
 
 console.log(x); // "1undefined"
 ```
+
++ `arguments`为类数组, 类型为 `object`
+  + `typeof arguments === 'object'`
+
++ `0.1 + 0.2 === 0.30000000000000004`
