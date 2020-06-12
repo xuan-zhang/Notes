@@ -136,7 +136,7 @@
 
 ## 知识点
 
-+ 在 严格模式 下，对未声明变量赋值，使用都报错，非严格模式 下，赋值不报错，直接使用报错
++ 在 **严格模式** 下，对未声明变量赋值，使用都报错，**非严格模式** 下，赋值不报错，直接使用报错
 
   ```js
     'use strict'
@@ -152,3 +152,16 @@
   ```js
     console.log(b) // Uncaught ReferenceError: b is not defined
   ```
+
++ 优选级问题
+
+  ```js
+  var a = {n: 1}
+  var b = a
+  a.x = a = {n: 2} //. 优先级比 = 高， a.x 优先级高，先执行 a.x 之后再赋值
+
+  console.log(a.n, b.n); // 2 1
+  console.log(a.x, b.x); // undefined {n: 2}
+  ```
+
++ 变量提升也有优先级, 函数声明 > arguments > 变量声明
