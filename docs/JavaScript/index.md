@@ -134,3 +134,21 @@
 
 + [escape()、encodeURI()、encodeURIComponent()](https://www.cnblogs.com/qiantuwuliang/archive/2009/07/19/1526687.html)
 
+## 知识点
+
++ 在 严格模式 下，对未声明变量赋值，使用都报错，非严格模式 下，赋值不报错，直接使用报错
+
+  ```js
+    'use strict'
+    b = 6 // Uncaught ReferenceError: b is not defined
+    console.log(b)
+  ```
+
+  ```js
+    b = 6
+    console.log(b) // 6
+  ```
+
+  ```js
+    console.log(b) // Uncaught ReferenceError: b is not defined
+  ```
