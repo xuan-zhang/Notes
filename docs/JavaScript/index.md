@@ -134,6 +134,44 @@
 
 + [escape()、encodeURI()、encodeURIComponent()](https://www.cnblogs.com/qiantuwuliang/archive/2009/07/19/1526687.html)
 
+## 遍历
+
++ `for in`
+  + 遍历对象上**除了Symbol以外的** **可枚举**属性
+  + **包含原型链**上的属性。
++ `Object.keys()`
+  + 返回对象**自身的**所有**可枚举**的属性的键名
+  + 不包含原型链上的属性
+  + 不包含 Symbol 属性
++ `JSON.stringify()`
+  + 只串行化对象**自身的** **可枚举**的属性
+  + 过滤掉 undefind
+  + 不包含原型上属性
++ `Object.assign()`
+  + 忽略enumerable为false的属性，只拷贝对象**自身的** **可枚举**的属性。
+  + 不包含原型链上属性
++ `Object.getOwnPropertyNames(obj)`
+  + 包含对象**自身的**所有属性
+  + **不含 Symbol 属性**
+  + **包括不可枚举属性**
+  + 不包含原型链上的属性
++ `Object.getOwnPropertySymbols(obj)`
+  + 包含对象**自身的**所有 Symbol 属性的键名
+  + 不包含原型链上的属性
++ `Reflect.ownKeys(obj)`
+  + 包含对象**自身的**所有键名
+  + 包含Symbol
+  + 包含不可枚举
+  + **不含继承的（原型链上的方法）**
++ `...`
+  + 用于取出参数对象的所有可遍历属性
+  + 不包含原型链上属性
+  + 不包含不可枚举属性
++ `for of`
+  + 可以使用的范围包括: 数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、Generator 对象，以及字符串
+  + 部署了 Iterator 接口的对象
++ ES6 规定，所有 Class 的原型的方法都是不可枚举的
+
 ## 知识点
 
 + 在 **严格模式** 下，对未声明变量赋值，使用都报错，**非严格模式** 下，赋值不报错，直接使用报错
@@ -168,3 +206,24 @@
 + 运算符优先级
   + `new Persion().getName()` === `(new Persion()).getName()`
   + `new Persion.getName()` === `new Persion.getName` === `new (Persion.getName)` !== `new (Persion.getName())`
++ 数字
+
+```js
+1.toString() // Uncaught SyntaxError: Invalid or unexpected token 因为 1. 会被认为一个数字 (1.)toString()
+1..toString() // '1' (1.).toString()
+1 .toSting() // '1'
+(1).toString() // '1'
+```
+
++ 作用域
+
+> JavaScript采用的是 **词法作用域**, 它规定了函数内访问变量时,查找变量是从函数声明的位置向外层作用域中查找,而不是从调用函数的位置开始向上查找。
+
+```js
+var x = 1;
+if(function f(){}){ // 此处 function f 不存在变量提升，也不向外暴露 f函数在外部是不存在的
+    x += typeof f; // typeof f === undefined
+}
+
+console.log(x); // "1undefined"
+```
