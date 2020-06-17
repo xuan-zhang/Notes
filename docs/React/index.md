@@ -120,6 +120,8 @@
 ### Ref
 
 + React.createRef
+  + v16 版本之后新增，取值在 `current`
+  + v16 版本之前，使用函数 `ref={ele => this.textInput = ele}`
 + React.useRef
 + React.forwardRef
 
