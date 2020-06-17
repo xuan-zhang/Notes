@@ -120,10 +120,15 @@
 ### Ref
 
 + React.createRef
-  + v16 版本之后新增，取值在 `current`
+  + v16 版本之后新增，取值在 `this.textInput.current`
   + v16 版本之前，使用函数 `ref={ele => this.textInput = ele}`
+  + 不能在函数组件上使用 ref 属性，因为函数组件没有实例
 + React.useRef
+  + 仅限于在函数组件内使用
+  + useRef 返回的 ref 对象在组件的整个生命周期内保持不变
 + React.forwardRef
+  + v16 新增，转发 ref
+
 
 ### React.PureComponent
 
