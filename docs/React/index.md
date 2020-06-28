@@ -153,6 +153,7 @@
 > `componentWillMount` `componentWillReceiveProps` `componentWillUpdate`周期会在 v17 版本之后保留删除，`UNSAFE_*` 函数会保留  
 > 因 `React Fiber`, 周期改变
 
++ [生命周期图谱](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 + 旧版生命周期(v16.0前)
   + ![react生命周期旧](../assets/images/reactLifecycleOld.jpg)
   + ![react生命周期旧](../assets/images/reactLifecycleRunOld.png)
