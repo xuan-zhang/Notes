@@ -106,3 +106,9 @@
 + ~~JavaScript(ES6) code snippets~~
 + ~~ESLint~~
 + ~~TSLint~~
+
+## 代码字体
+
++ [cascadia-code](https://github.com/microsoft/cascadia-code/releases)
++ [FiraCode](https://github.com/tonsky/FiraCode)
++ [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)

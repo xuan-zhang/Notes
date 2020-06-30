@@ -4,6 +4,7 @@
 
 + 打开 `home` 下的 `.bash_profile` 文件
 + 添加变量路径
+
     ```bash
     # 语法说  # 号是注释内容
     # export 导出路径
@@ -32,6 +33,7 @@
 + 下载安装包，双击安装即可
 + [官网](https://git-scm.com/)
 + `Homebrew` 安装
+
     ```bash
     # 安装
     $ brew install git
@@ -44,6 +46,7 @@
     ```
 
 + 升级
+
     ```bash
     # 查看版本
     git version
@@ -81,6 +84,7 @@
 + [官网](https://github.com/creationix/nvm)
 + 安装命令 `$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash`
 + 配置环境变量
+
     ```bash
     # 进入家目录
     $ cd ~
@@ -145,6 +149,7 @@
 + [官网](https://www.sass.hk/install/)
 + 安装 `ruby`
 + `gem` 源控制
+
     ```bash
     #1.删除原gem源
     gem sources --remove https://rubygems.org/
@@ -159,18 +164,24 @@
     *** CURRENT SOURCES ***
     https://ruby.taobao.org/
     ```
+
 + `sass compass` 安装
+
     ```bash
     #安装如下(如mac安装遇到权限问题需加 sudo gem install sass)
     gem install sass
     gem install compass
     ```
+
 + 安装完成后版本查看
+
     ```text
     sass -v
     compass -v
     ```
+
 + `sass` 版本更新
+
     ```bash
     #更新sass
     gem update sass
@@ -198,6 +209,7 @@
   + `sh -c ./install.sh`
 
 + 配置环境变量(有问题)
+
     ```bash
     $ cd ~
     $ vi .zshrc
@@ -207,7 +219,9 @@
 
     #　在ubuntu中，此处操作无效，将自行配置文件手动添加到 .zshrc　中
     ```
+
 + 添加插件
+
     ```bash
     #克隆代码至本地 `oh-my-zsh` 插件目录
      git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -218,7 +232,9 @@
     source ~/.zshrc
     #打开新的终端界面即可生效
     ```
+
 + zsh-syntax-highlighting
+
     ```bash
     #克隆代码至本地
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -229,7 +245,9 @@
     source ~/.zshrc
     # 打开新的终端界面即可生效
     ```
+
 + 默认使用 `zsh`
+
     ```bash
     #显示所有shell
     $ cat /etc/shells
@@ -262,6 +280,7 @@
 + [网站](https://www.ibm.com/developerworks/cn/linux/l-cn-dtef/index.html)
 + 放置目录： `/usr/share/applications/` `/opt/gnome/share/applications/`
 + 配置文件
+
     ```bash
     [Desktop Entry]
     Encoding=UTF-8 #编码 要将此注释去掉
@@ -278,12 +297,14 @@
     ```
 
 + `Exec` 参数
+
     ```text
     %f：单个文件名，即使选择了多个文件。如果已选择的文件不在本地文件系统中（比如说在HTTP或者FTP上），这个文件将被作为一个临时文件复制到本地，％f将指向本地临时文件；
     %F：文件列表。用于程序可以同时打开多个本地文件。每个文件以分割段的方式传递给执行程序。
     %u：单个URL。本地文件以文件URL或文件路径的方式传递。
     %U：URL列表。每个URL以分割段的方式传递给执行程序。本地文件以文件URL或文件路径的方式传递。
     ```
+
 ＋ 创建桌面快捷方式
   ＋将 `.desktop` 文件复制到桌面，并设置成可启动
 
@@ -292,10 +313,12 @@
 + [官网](http://cmder.net)
 + 环境变量
   + 添加系统变量
+
     ```text
     变量名：`CMDER_HOME`
     变量值安装绝对路径)：`C:\Program Files\cmder`
     ```
+
   + 编辑 `PATH`，在最后一行添加 `%CMDER_HOME%`
 + 设置语言支持:  
   在 `setting > startup > Environment`中添加`set LANG=zh_CN.UTF-8` `set LC_ALL=zh_CN.utf8`
@@ -309,6 +332,7 @@
 + 添加`ficx`输入法源，安装百度五笔输入法
 + 更改时间不一致问题：`sudo hwclock --localtime --systohc`
 + 安装微软字体
+
     ```bash
      #字体存放位置
      cd /usr/share/fonts/truetype/
@@ -325,7 +349,9 @@
      #建立字体缓存信息，也就是让系统认识该字体
      sudo fc-cache -fv
     ```
+
 + 从商店中安装软件错误处理：
+
     ```bash
     #列出操作记录
     snap changes
