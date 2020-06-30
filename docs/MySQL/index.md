@@ -309,3 +309,120 @@
 + primary
 + auto_increment
 + foreign key
+
+## 数据操作
+
+### 插入数据记录
+
++ `insert into tablename(field1, field2, ...., fieldn) values(value1, value2, ..., valuen);`
++ `insert into tablename(field1, field2, field3, ..., fieldn ) values(value1, value2, value3, ..., valuen), (value11, value22, value33, ..., valuenn), ..., (value1n, value2n, value3n, ..., valuemn);`
++ `insert into tablename(jsonfield) values(jsonObjectValue);`
+
+### 更新数据记录
+
++ 更新特定数据记录
+  + `update tablename set field1=value1, field2=value2, field3=value3 where condition;`
++ 更新所有数据记录
+  + `update tablename set field1=value1, field2=value2, field3=value3 [where condition]`
++ 更新JSON结构数据记录
+  + `update tablename set colname=JSON_REPLACE(colname, path, val) where condition;`
+
+### 删除数据记录
+
++ 删除特定数据记录
+  + `delete from tablename where condition;`
++ 删除所有数据记录
+  + `delete from tablename [where condition];`
+
+## 数据查询
+
+### 简单查询
+
++ `select field1 field2 .... fieldn from tablename [where condition1] [group by fieldm [having condition2]] [order by fieldn [asc|desc]];`
++ `select field1, field2, ..., fieldn from tablename;`
++ `select * from tablename;`
++ `select distinct field1, field2, field3, ... , fieldn from tablename;`
+  + distinct 去重
++ `select field1, field2, ..., fieldn from tablename where fieldm [not] in (value1, value2, value3, ..., valuen);`
+  + in
+  + not in
++ `select field1, field2, ..., fieldn from tablename where fieldm [not] between minvalue and maxvalue;`
+  + between and
+  + not between and
++ `select field1, field2, ..., fieldn from tablename where [not] fieldm [not] like value;`
+  + like
+  + not like
+  + _
+    + 匹配单个字符
+  + %
+    + 匹配任意长度的字符串，即可以是0个字符、1个字符，也可以是很多字符
+    + %% 任意字符
++ `select field1, field2, field3, ..., fieldn from tablenam order by fieldm [asc|desc] [, fieldmm [asc|desc]];`
+  + order by
+  + asc | desc
++ `select function() from tablename where condition group by field;`
+  + group by
+    + 关键字GROUP BY单独使用时，默认查询出每个分组中随机的一条记录，具有很大的不确定性，一般建议将分组关键字与统计函数一起使用
+  + 1005
+    + 数据库设置问题，group by 后的字段与 select 后的字段要一致
++ `select group_concat(field) from tablename where condition group by field;`
+  + 显示每个分组中的字段
+  + `SELECT sex, GROUP_CONCAT(name) name, COUNT(name) number FROM student_list GROUP BY sex;`
+  + 执行统计函数COUNT()
+  + GROUP_CONCAT()，显示每个分组
+
+### 联合查询
+
+#### 内连接查询
+
++ `select field1, field2, ..., fieldn from tablename1 inner join tablename2 [inner join tablenamen] on condition`
+  + inner join on
+    + on 后要有关联条件 否则所有数据都会展示，显示重复内容
+    + 推荐使用此写法
++ `select field1, field2, ..., fieldn [as] otherfieldn from tablename1 [as] othertablename1, ..., tablenamen [as] othertablenamen;`
+  + `select ts1.id, ts2.name from tablename1 as ts1,  tablename2 as ts2 where ts1.id=ts2.id and ts2.name='nana';`
+    + 自连接
+  + `select  ts1.id, ts2.name from tablename1 ts1, tablename2 ts2 where ts1.no=ts2.no;`
+    + 等值连接 `=`
+    + `select ts1.id, ts2.name from tablename1 ts1 inner join tablename2 ts2 on ts1.no=ts2.no;`
+      + `ts1.no = ts2.no` 关联条件 不能省略
+
++ `select t1.id, t2.name, t1.no+t2.no totalNo from tablename1 t1 inner join tablename2 t2 on t1.no!= t2.no and t1.age > t2.age and t1.ss<t2.ss inner join tablename3 t3 on t1.no=t3.no inner join tablename4 on t4.no=t1.no;`
+  + 不等连接
+    + `> < >= <= !=`
+    + `<>` 与 `!=` 等价
+
+#### 外连接查询
+
++ `select field1, field2, ..., fieldn from tablename1 left|right|full [outer] join tablename2 on condition;`
+  + left | right | full
+  + outer join ... on
++ `select t1.name, t2.name from tablename1 t1 left outer join tablename2 t2 on t1.no=t2.no;`
+  + 左外连接
+    + 新关系中执行匹配条件时，以关键字LEFT JOIN左边的表为参考表
+    + 左连接的结果包括LEFT OUTER字句中指定的左表的所有行，而不仅仅是连接列所匹配的行，如果左表的某行在右表中没有匹配行，则在相关联的结果行中，右表的所有选择列表均为空值
++ `select t1.name, t2.name from tablename1 t1 right outer join tablename2 t2 on t1.no=t2.no;`
+  + 右外连接
+    + 关键字RIGHTJOIN右边的表为参考表，如果右表的某行在左表中没有匹配行，左表将返回空值
++ 全外连接
+  + 左外连接与右外连接去重后的合集
+
+#### 合并查询数据
+
+```mysql
+select field1, field2, ..., fieldn
+from tablename1
+union | union all
+select field1, field2,..., fieldn
+from tablename2
+union | union all
+select field1, field2, ..., fieldn
+from tablename3
+...
+```
+
++ union 会去重
++ union all 相同数据不会去除
++ 将多个SELECT语句的查询结果合并在一起，组成新的关系
+
+#### 子查询
