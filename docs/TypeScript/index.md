@@ -73,6 +73,23 @@ function isNumber(x: any): x is number {
 
 ```
 
+### asert
+
+```ts
+function assert(condition: any, msg?: string): asserts condition {
+    if (!condition) {
+        throw new AssertionError(msg)
+    }
+}
+
+function assertIsString(val: any): asserts val is string {
+    if (typeof val !== "string") {
+        throw new AssertionError("Not a string!");
+    }
+}
+
+```
+
 ### 联合类型 `|`
 
 + 多选一
@@ -94,7 +111,25 @@ function isNumber(x: any): x is number {
 
 ### `type`
 
+```ts
+import type { SomeThing } from "./some-module.js";
+
+export type { SomeThing };
+
+```
+
 ### 继承 `extends`
+
+### 约束
+
+```ts
+// 约束
+exists type Foo extends { hello: string };
+// 类型参数
+exists type Foo<T>;
+// 同时支持
+exists type Foo<T, U> extends { toString(): string };
+```
 
 ### 类
 
@@ -102,7 +137,7 @@ function isNumber(x: any): x is number {
 + `private`
 + `readonly`
 + `?`
-+ `#`
++ `#`： 私有字段
 
 ### 泛型
 
