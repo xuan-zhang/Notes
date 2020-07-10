@@ -71,6 +71,37 @@ git pull --all # 拉取所有分支
 git pull --allow-unrelated-histories # 获取提交历史
 ```
 
+#### pull 配置
+
+```bash
+# 新增
+git config pull.rebase false  # 合并（缺省策略）
+git config pull.rebase true   # 变基
+git config pull.ff only       # 仅快进
+
+# 配置
+
+git config --global  pull.rebase false
+
+```
+
++ 结果： `cat ~/.gitconfig`
+
+```diff
+[credential]
+ helper = store
+[core]
+ autocrlf = input
+[filter "lfs"]
+ clean = git-lfs clean -- %f
+ smudge = git-lfs smudge -- %f
+ process = git-lfs filter-process
+ required = true
++ [pull]
++	 rebase = false
+
+```
+
 ### 提交
 
 ```bash
