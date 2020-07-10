@@ -134,10 +134,17 @@
 ### 变量
 
 + `${workspaceRoot}`：VSCode中打开文件夹的路径
-+ `${workspaceRootFolderName}`：VSCode中打开文件夹的路径, 但不包含"/"
++ `${workspaceRootFolderName}`：VSCode中打开文件夹的路径(文件夹名), 但不包含"/"
++ `${workspaceFolder}`: VS Code 中打开的文件夹目录 （通常是项目的位置）
++ `${workspaceFolderBasename}`: 没有任何斜杠 (/)的 VS Code 中打开的文件夹目录
++ `${relativeFile}`：当前打开的文件位置,相对于workspaceRoot
 + `${file}`：当前打开的文件
-+ `${relativeFile}`：当前打开的文件,相对于workspaceRoot
-+ `${fileBasename}`：当前打开文件的文件名, 不含扩展名
++ `${fileBasename}`：当前打开文件的文件名
++ `${fileBasenameNoExtension}`: 目前打开文件的除去拓展名的文件名（无拓展名， 如： main.cpp)
 + `${fileDirname}`：当前打开文件的目录名
 + `${fileExtname}`：当前打开文件的扩展名
 + `${cwd}`：当前启动时的工作目录
++ `${selectedText}`: 文件中目前被选择的内容
++ `${lineNumber}`: 文件中目前被选择的行数
++ `${env:PATH}`: 系统中的环境变量
+
