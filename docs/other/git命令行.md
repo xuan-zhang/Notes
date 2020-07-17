@@ -130,7 +130,7 @@ checkout：取消工作区更改
 #显示提交历史
 git log
 git log --pretty=oneline
-git commit --amend #修改最后一次提交
+git commit --amend #修改最后一次提交写的注释
 git checkout -- readme.txt # 撤消工作区的更改
 git reset HEAD readme.txt # 撤消 git add 操作
 git reflog # 命令历史
