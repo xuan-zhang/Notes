@@ -134,11 +134,12 @@ git commit --amend #修改最后一次提交写的注释
 git checkout -- readme.txt # 撤消工作区的更改
 git reset HEAD readme.txt # 撤消 git add 操作
 git reflog # 命令历史
-git reset --hard HEAD^ # 撤销commit, 并会删除代码
+git reset --hard HEAD^ # 删除工作空间改动代码，撤销commit，撤销git add . 
 git reset --hard HEAD^^
 git reset --hard HEAD~100
 git reset --hard 053a
-git reset --soft HEAD^ # 只撤销提交 commit 并不撤销代码
+git reset --soft HEAD^ # 不删除工作空间改动代码，撤销commit，不撤销git add . 
+git reset --mixed HEAD^ #不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
 
 git revert <commit> #撤消指定的提交
 git reset HEAD^ # 恢复到上一个版本， 只是恢复到了暂存区
