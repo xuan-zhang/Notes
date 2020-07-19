@@ -100,8 +100,11 @@
 
 + HTML CSS Support
 + HTML Snippets
++ Auto Close Tag
++ Auto Rename Tag
 + Vetur
 + Denugger for Chrome
++ Deno
 + ~~Autoprefixer~~
 + ~~JavaScript(ES6) code snippets~~
 + ~~ESLint~~
