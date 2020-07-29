@@ -99,3 +99,12 @@
 - `/Users/xuan/Library/Preferences/jetbrains.jetprofile.asset.plist`
 - `/Users/xuan/Library/Preferences/jetbrains.webstorm.d9f3b04.plist`
 - `/Users/xuan/Library/Logs/JetBrains`
+
+## 插件
+
+- `chinese`
+- `ideaVim`
+- `translation`
+- `deno`
+- `Material Theme UI`
+- `Atom Material Icons`
