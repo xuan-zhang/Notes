@@ -91,3 +91,11 @@
 - 设置代码补全模板：`Postfix Completion`
 
 - 设置注释模板： `Live Templates`
+
+## mac 卸载删除文件
+
+- `/Users/xuan/Library/Application Support/JetBrains`
+- `/Users/xuan/Library/Caches/JetBrains`
+- `/Users/xuan/Library/Preferences/jetbrains.jetprofile.asset.plist`
+- `/Users/xuan/Library/Preferences/jetbrains.webstorm.d9f3b04.plist`
+- `/Users/xuan/Library/Logs/JetBrains`
