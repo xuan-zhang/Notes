@@ -2,7 +2,6 @@
 
 ## 滚动条样式更改
 
-
 ### IE下的滚动条样式
 
 - scrollbar-arrow-color: color; /三角箭头的颜色/  
@@ -119,6 +118,7 @@
 [目录](#目录)
 
 ```html
+
 拨打电话/发送短息/邮箱
  <a href="tel:13764567708">移动WEB页面JS一键拨打号码咨询功能</a>
  <a href="sms:13764567708">移动WEB页面JS一键发送短信咨询功能</a>
@@ -149,7 +149,8 @@ QQ:
 移动web页面自动探测电话号码
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="x-rim-auto-match" content="none">
-````
+
+```
 
 ## sass
 
@@ -291,6 +292,19 @@ padding-right: 14px;
 }
 /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
 select::-ms-expand { display: none; }
+```
+
+## 清除 input 样式
+
+```css
+/* 去除搜索后的 X */
+input[type="search"]::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      display: none;
+}
+input {
+  appearance: none;
+}
 ```
 
 ## placeholder样式重置
