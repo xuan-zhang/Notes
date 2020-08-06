@@ -3,72 +3,73 @@
 ## 软件配置项
 
 ```json5
-
 {
-  "files.autoSave": "afterDelay", // 自动保存
-  "editor.wordWrap": "on",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Atom One Dark",
-  "liveSassCompile.settings.autoprefix": [
-    "last 3 versions",
-    "> 10%",
-    "ie >= 9",
-    "ie_mob >= 10",
-    "ff >= 30",
-    "chrome >= 34",
-    "safari >= 6",
-    "ios >= 6",
-    "android >= 4.4"
-  ],
-  "scss.lint.zeroUnits": "warning",
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "compressed",
-      "extensionName": ".css",
-      "savePath": null
-    }
-  ],
-  "liveServer.settings.host": "127.0.0.1",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-c>": false,
-    "<C-v>": false,
-    "<C-x>": false,
-    "<C-f>": false
-  },
-  "material-icon-theme.showUpdateMessage": false,
-  "liveServer.settings.donotShowInfoMsg": true,
-  "git.autofetch": true,
-  "gitlens.advanced.messages": {
-    "suppressFileNotUnderSourceControlWarning": true,
-    "suppressShowKeyBindingsNotice": true
-  },
-  "git.enableSmartCommit": true,
-
-  "files.exclude": {
-    "**/.idea": true
-  },
-  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "files.associations": {
-    "*.cjson": "jsonc",
-    "*.wxss": "css",
-    "*.wxs": "javascript"
-  },
-  "emmet.includeLanguages": {
-    "wxml": "html"
-  },
-  "minapp-vscode.disableAutoConfig": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "liveServer.settings.donotVerifyTags": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-  "editor.fontLigatures": true
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "welcomePage",
+    "files.autoSave": "onFocusChange",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.exclude": {
+        "**/.idea": true
+    },
+    "editor.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', 'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "todo-tree.highlights.enabled": true,
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "background": "yellow",
+            "foreground": "#333",
+            "rulerColour": "yellow",
+            "iconColour": "yellow",
+        },
+        "FIXME": {
+            "background": "#ffa500",
+            "foreground": "#fff",
+            "iconColour": "orange",
+        },
+        "BUG": {
+            "background": "red",
+            "foreground": "white",
+            "type": "line",
+            "iconColour": "red"
+        }
+    },
+    "git.autofetch": true,
+    "editor.suggestSelection": "first",
+    "todo-tree.tree.showScanModeButton": false,
+    "git.enableSmartCommit": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "python.jediEnabled": false,
+    "python.dataScience.askForKernelRestart": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "liveServer.settings.host": "127.0.0.1",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "deno.enable": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "editor.minimap.enabled": false,
+    "python.languageServer": "Microsoft",
+    "editor.renameOnType": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "tag-create:command"
+    ],
 }
 ```
 
@@ -89,7 +90,7 @@
 + Path Intellisense
 + Live Server
 + SVG Viewer
-+ TODO Highlight
++ ~~TODO Highlight~~
 + TODO Tree
 + VIM
 + Visual Studio IntelliCode
