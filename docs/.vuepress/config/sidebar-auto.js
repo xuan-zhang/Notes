@@ -124,10 +124,12 @@ module.exports = {
         "Vim",
         "git命令行",
         "linux系统配置",
+        "shell",
         "url",
         "vscode",
         "webpack",
-        "webstorm"
+        "webstorm",
+        "控制台输出"
       ]
     }
   ]
