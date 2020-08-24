@@ -278,3 +278,30 @@ function getBroswer(){
     return { broswer : "", version : "0" };
 }
 ```
+
+### 浏览器页面可见判定
+
++ [Document.hidden](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/hidden)
++ [Document.visibilityState](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/visibilityState)
+
+```js
+
+// 判断当前页面是否是激活状态
+// 处理兼容
+const hidden = 'hidden' in document ? 'hidden' : 'webkithidden' in document ? 'webkithidden' : 'mozhidden' in document ? 'mozhidden' : null;
+const event = 'visibilitychange' || 'webkitvisibilitychange' || 'mozvisibilitychange';
+document.addEventListener(event, function () {
+  /* ie10+  moz  webkit  默认 */
+  if (!document[hidden]) { // false
+    console.log('激活');
+  } else {
+    /* true */
+    console.log('隐藏');
+  }
+});
+
+```
+
+### 浏览器页面是否获取焦点
+
++ [document.hasFocus](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/hasFocus)
