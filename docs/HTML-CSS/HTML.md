@@ -155,3 +155,107 @@
   - 配置跨域
 
 ![图片](../assets/images/domClient.gif)
+
+## 响应式网站字体大小设置 rem 方式
+
+```js
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+```
+
+## HTML 自定义属性
+
+- 以 `data-*` 开始, 可以在 DOM `dataset[*]` 对象中获取
+- 不以 `data-` 开头，不会在 `dataset` 对象中
+
+  ```html
+    <p data-dimg="111" data-my-img="222" data-55-img="444" data-v-12="555" img="333" id="dp"></p>
+    <script>
+        dp.dataset.dimg // 111
+        dp.dataset.myImg // 222
+        dp.dataset['55Img'] // 444
+        dp.dataset['v-12'] // 555
+        dp.dataset.img // undeinfed
+        dp.getAttribute('img') // 333
+
+    </script>
+  ```
+
+- img 标签 src 属性
+  - 以 `img.getAttribute('src')` 获取原始值 `/a.png`
+  - 以 `img.src` 获取，获取绝对路径，`https://www.**.com/a.png`
+
+## 规范
+
+  1. html 属性顺序
+     - `id`
+     - `class`
+     - `name`
+     - `data-xxx`
+     - `src for type href`
+     - `title alt`
+     - `aria-xxx role`
+  2. html 嵌套规则
+     - `h1~h6` 中不能嵌套 `div p ul ol`
+     - `a` 中不能嵌套 `div`, 如果`a`的父级是`div`, 则可以嵌套 `div`
+     - `p` 中不能嵌套 `<div>、<h1>~<h6>、<p>、<ul>/<ol>/<li>、<dl>/<dt>/<dd>、<form>等`
+     - `a` 中不能嵌套交互元素, 如: `a， audio（如果设置了controls属性）， button， details， embed， iframe， img（如果设置了usemap属性）， input（如果type属性不为hidden状态）， keygen， label， menu（如果type属性为toolbar状态），object（如果设置了usemap属性）， select， textarea， video（如果设置了controls属性）`
+     - 列表元素中不能嵌套非列表元素
+     - `inline-Level` 元素，仅可以包含文本或其它 `inline-Level` 元素;
+  3. head  
+
+      ```html
+      <!-- 中文 -->
+      <html lang="zh-Hans">
+
+      <!-- 简体中文 -->
+      <html lang="zh-cmn-Hans">
+
+      <!-- 繁体中文 -->
+      <html lang="zh-cmn-Hant">
+
+      <!-- English -->
+      <html lang="en">
+
+       <meta charset="utf-8">
+
+       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <!-- SEO -->
+           <title>Style Guide</title>
+           <meta name="keywords" content="your keywords">
+           <meta name="description" content="不超过150个字符">
+           <meta name="author" content="author,email address">
+        <!-- ios图标 -->
+          <link rel="apple-touch-icon" sizes="57x57" href="touch-icon-iphone.png" />
+          <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+          <link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+          <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-ipad3-144.png" />
+
+          <!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
+          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png">
+
+          <!-- iPad，72x72 像素，可以没有，但推荐有 -->
+          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-72x72-precomposed.png" sizes="72x72">
+
+          <!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->
+          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
+
+          <!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
+          <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144-precomposed.png"   sizes="144x144">
+      ```

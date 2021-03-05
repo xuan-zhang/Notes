@@ -91,6 +91,8 @@
 
   ```
 
++ vue 中 `nextTick`: `Promise.resolve.then` > [MutationObserver](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver) > `setImmediate` > `setTimeout`
+
 ### `requestAnimationFrame(callback)`
 
 + [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/window/requestAnimationFrame)
@@ -104,6 +106,7 @@
 
 ### `URLSearchParams`
 
++ 接口定义了一些实用的方法来处理 URL 的查询字符串
 + [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)
 
 ## Array
