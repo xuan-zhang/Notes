@@ -8,11 +8,11 @@ module.exports = [
         items: [
             {
                 text: 'HTML CSS',
-                link: '/HTML-CSS/index',
+                link: '/HTML-CSS/HTML',
             },
             {
                 text: 'JavaScript',
-                link: '/JavaScript/index'
+                link: '/JavaScript/API'
             },
             {
                 text: 'TypeScript',

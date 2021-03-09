@@ -12,9 +12,8 @@ module.exports = {
     {
       "title": "HTML-CSS",
       "children": [
-        "",
+        "CSS",
         "HTML",
-        "css",
         "性能优化"
       ]
     }
@@ -23,22 +22,31 @@ module.exports = {
     {
       "title": "JavaScript",
       "children": [
-        "",
+        "API",
+        "HTTP",
+        "Promise",
         "Workers",
         "axios",
         "blob base64 与 file转换",
+        "call apply bind",
         "jQuery",
         "listToTree",
+        "script标签中的defer与async",
         "stoarge",
         "websock",
-        "xss",
+        "事件",
         "原型与原型链",
+        "垃圾回收机制",
+        "安全",
+        "数据结构",
         "数组扁平化方法",
         "正则",
-        "深拷贝",
+        "比较",
+        "类",
         "编写高质量JS的68个有效方案",
         "获取selected选中项",
-        "跨域"
+        "跨域",
+        "防抖与节流"
       ]
     }
   ],
@@ -129,7 +137,8 @@ module.exports = {
         "vscode",
         "webpack",
         "webstorm",
-        "控制台输出"
+        "控制台输出",
+        "网络是怎样连接的"
       ]
     }
   ]
