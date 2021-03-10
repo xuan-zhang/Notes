@@ -1,1 +1,1 @@
-module.exports = '/Notes/';
+module.exports = '/';
