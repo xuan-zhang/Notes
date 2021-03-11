@@ -694,3 +694,24 @@ body,html {
 #### 用户界面
 
 + `cursor`
+
+## 多列等高
+
++ 使用负 `margin-bottom` 和正 `padding-bottom` 对冲实现
+  
+  ```css
+  ul {
+    overflow: hidden;
+  }
+
+  ul>li {
+    float: left;
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+  }
+  ```
+
++ 模仿table布局
++ flex布局
++ grid布局
++ js计算
