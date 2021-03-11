@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB | 炫</title>
+    <meta name="description" content="学习笔记">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="shortcut icon" href="/Notes/favicon.ico">
+    
+    <link rel="preload" href="/Notes/assets/css/0.styles.61e72553.css" as="style"><link rel="preload" href="/Notes/assets/js/app.9b11e18a.js" as="script"><link rel="preload" href="/Notes/assets/js/2.d3acbfec.js" as="script"><link rel="preload" href="/Notes/assets/js/39.64967fb2.js" as="script"><link rel="prefetch" href="/Notes/assets/js/10.3fa09fcb.js"><link rel="prefetch" href="/Notes/assets/js/11.78755894.js"><link rel="prefetch" href="/Notes/assets/js/12.fadffce3.js"><link rel="prefetch" href="/Notes/assets/js/13.65df0d37.js"><link rel="prefetch" href="/Notes/assets/js/14.c3d891a0.js"><link rel="prefetch" href="/Notes/assets/js/15.5f642a19.js"><link rel="prefetch" href="/Notes/assets/js/16.e8964d1c.js"><link rel="prefetch" href="/Notes/assets/js/17.08aa11b3.js"><link rel="prefetch" href="/Notes/assets/js/18.d5668b6f.js"><link rel="prefetch" href="/Notes/assets/js/19.fbf55c76.js"><link rel="prefetch" href="/Notes/assets/js/20.5106c934.js"><link rel="prefetch" href="/Notes/assets/js/21.5c75975b.js"><link rel="prefetch" href="/Notes/assets/js/22.865c651b.js"><link rel="prefetch" href="/Notes/assets/js/23.66ddf115.js"><link rel="prefetch" href="/Notes/assets/js/24.ada43dee.js"><link rel="prefetch" href="/Notes/assets/js/25.2bbf999e.js"><link rel="prefetch" href="/Notes/assets/js/26.69aa3471.js"><link rel="prefetch" href="/Notes/assets/js/27.33426c21.js"><link rel="prefetch" href="/Notes/assets/js/28.c0a7f861.js"><link rel="prefetch" href="/Notes/assets/js/29.2f0d470b.js"><link rel="prefetch" href="/Notes/assets/js/3.da7973d2.js"><link rel="prefetch" href="/Notes/assets/js/30.e441db12.js"><link rel="prefetch" href="/Notes/assets/js/31.446e69d9.js"><link rel="prefetch" href="/Notes/assets/js/32.e068a747.js"><link rel="prefetch" href="/Notes/assets/js/33.f951d9c4.js"><link rel="prefetch" href="/Notes/assets/js/34.ddc7d933.js"><link rel="prefetch" href="/Notes/assets/js/35.73a437ff.js"><link rel="prefetch" href="/Notes/assets/js/36.3380a48c.js"><link rel="prefetch" href="/Notes/assets/js/37.14c14439.js"><link rel="prefetch" href="/Notes/assets/js/38.4ad1064e.js"><link rel="prefetch" href="/Notes/assets/js/4.8bce9b6c.js"><link rel="prefetch" href="/Notes/assets/js/40.34ee5f6d.js"><link rel="prefetch" href="/Notes/assets/js/41.4ab19c27.js"><link rel="prefetch" href="/Notes/assets/js/42.0d45a314.js"><link rel="prefetch" href="/Notes/assets/js/43.d3f1aaba.js"><link rel="prefetch" href="/Notes/assets/js/44.e9d32dc0.js"><link rel="prefetch" href="/Notes/assets/js/45.e183fffe.js"><link rel="prefetch" href="/Notes/assets/js/46.9c82ea27.js"><link rel="prefetch" href="/Notes/assets/js/47.95d49612.js"><link rel="prefetch" href="/Notes/assets/js/48.a01c87c5.js"><link rel="prefetch" href="/Notes/assets/js/49.6a2b6df1.js"><link rel="prefetch" href="/Notes/assets/js/5.8d152de2.js"><link rel="prefetch" href="/Notes/assets/js/50.150a5ca5.js"><link rel="prefetch" href="/Notes/assets/js/51.14417e60.js"><link rel="prefetch" href="/Notes/assets/js/52.0b7e4854.js"><link rel="prefetch" href="/Notes/assets/js/53.d5863220.js"><link rel="prefetch" href="/Notes/assets/js/54.0eac7290.js"><link rel="prefetch" href="/Notes/assets/js/55.552f7914.js"><link rel="prefetch" href="/Notes/assets/js/56.1f40a26f.js"><link rel="prefetch" href="/Notes/assets/js/57.3c2461f2.js"><link rel="prefetch" href="/Notes/assets/js/58.01cf3ce3.js"><link rel="prefetch" href="/Notes/assets/js/59.aec16259.js"><link rel="prefetch" href="/Notes/assets/js/6.797679a6.js"><link rel="prefetch" href="/Notes/assets/js/60.9f852b17.js"><link rel="prefetch" href="/Notes/assets/js/61.3b8d7774.js"><link rel="prefetch" href="/Notes/assets/js/62.b0e0da49.js"><link rel="prefetch" href="/Notes/assets/js/63.4e76b646.js"><link rel="prefetch" href="/Notes/assets/js/64.4c1e8874.js"><link rel="prefetch" href="/Notes/assets/js/65.e369018b.js"><link rel="prefetch" href="/Notes/assets/js/7.5d07563b.js"><link rel="prefetch" href="/Notes/assets/js/8.5d1d21fe.js"><link rel="prefetch" href="/Notes/assets/js/9.bee60699.js">
+    <link rel="stylesheet" href="/Notes/assets/css/0.styles.61e72553.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Notes/" class="home-link router-link-active"><img src="/Notes/logo.png" alt="炫" class="logo"> <span class="site-name can-hide">炫</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Notes/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/HTML-CSS/HTML.html" class="nav-link">
+  HTML CSS
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/JavaScript/API.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/TypeScript/index.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Vue/index.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/React/index.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MiniProgram/index.html" class="nav-link">
+  小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/Node/index.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Deno/index.html" class="nav-link">
+  Deno
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Python/index.html" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/MySQL/index.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MongoDB/index.html" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><a href="/Notes/other/index.html" class="nav-link">
+  文档
+</a></div> <a href="https://github.com/xuan-zhang/Notes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Notes/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/HTML-CSS/HTML.html" class="nav-link">
+  HTML CSS
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/JavaScript/API.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/TypeScript/index.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Vue/index.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/React/index.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MiniProgram/index.html" class="nav-link">
+  小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/Node/index.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Deno/index.html" class="nav-link">
+  Deno
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Python/index.html" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/MySQL/index.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MongoDB/index.html" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><a href="/Notes/other/index.html" class="nav-link">
+  文档
+</a></div> <a href="https://github.com/xuan-zhang/Notes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>MongoDB</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Notes/MongoDB/" class="active sidebar-link">MongoDB</a></li><li><a href="/Notes/MongoDB/nodeJS与mongoDB安装及配置.html" class="sidebar-link">nodeJS 与 mongoDB 笔记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mongodb"><a href="#mongodb" class="header-anchor">#</a> MongoDB</h1></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xuan-zhang/Notes/edit/master/docs/MongoDB/index.md" target="_blank" rel="noopener noreferrer">在GitHub中编辑此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2020/4/7下午4:43:41</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/Notes/MongoDB/nodeJS与mongoDB安装及配置.html">
+        nodeJS 与 mongoDB 笔记
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/Notes/assets/js/app.9b11e18a.js" defer></script><script src="/Notes/assets/js/2.d3acbfec.js" defer></script><script src="/Notes/assets/js/39.64967fb2.js" defer></script>
+  </body>
+</html>
