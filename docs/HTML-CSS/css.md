@@ -608,3 +608,89 @@ body,html {
     /* Other */
       cursor: pointer;
     ```
+
+## 样式继承
+
+> CSS `all` 简写属性 将除却 `unicode-bidi` 与 `direction` 之外的所有属性重设至其初始值，或继承值。
+> all: initial | inherit | unset | revert;
+
++ CSS 为控制继承提供了四个特殊的通用属性值。每个css属性都接收这些值
+  + `inherit` 设置该属性会使子元素属性和**父元素**相同。实际上，就是 "开启继承".
+    + 对于继承属性，`inherit` 关键字只是增强了属性的默认行为，只有在重载(overload)其它规则的时候被使用。
+    + 对于非继承属性，`inherit` 这指定的行为通常没有多大意义，一般使用 `initial` 或 `unset` 作为替代。
+    + 继承始终来自文档树中的父元素，即使父元素不是包含块
+  + `initial` 设置属性值和**浏览器默认**样式相同。如果浏览器默认样式中未设置且该属性是自然继承的，那么会设置为 inherit 。
+  + `unset` 将属性重置为**自然值**，也就是如果属性是自然继承那么就是 `inherit`，否则和 `initial` 一样
+    + 如果CSS关键字 `unset` 从其父级继承，则将该属性重新设置为继承的值 同 `inherit`
+    + 如果没有继承父级样式，则将该属性重新设置为初始值。同 `initial`
+  + `revert` 只有很少的浏览器支持, 指定依赖于声明所属的样式表原点的行为
+
+### 可继承的样式
+
+> `border` 如果没有设置颜色，采用父元素的 color 颜色值
+
+#### 字体
+
++ `font`
++ `font-family`
++ `font-weight：normal | bold | bolder | lighter | <integer>`
++ `font-size：<absolute-size> | <relative-size> | <length> | <percentage>`
++ `font-style：normal | italic | oblique`
++ `font-variant：normal | small-caps`
++ `font-stretch：normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded`
++ `font-size-adjust：none | <number>`
+
+#### 文本
+
+> 注意 `vertical-align` 无继承
+
++ `text-transform：none | capitalize | uppercase | lowercase | full-width`
++ `white-space：normal | pre | nowrap | pre-wrap | pre-line`
++ `tab-size：<number> | <length>`
++ `word-break：normal | keep-all | break-all | break-word`
++ `word-wrap, overflow-wrap：normal | break-word | break-spaces`
++ `text-align：start | end | left | right | center | justify | match-parent | justify-all`
++ `text-align-last：auto | start | end | left | right | center | justify`
++ `text-justify：auto | none | inter-word | inter-ideograph | inter-cluster | distribute | kashida`
++ `word-spacing：normal | <length> | <percentage>`
++ `letter-spacing：normal | <length>`
++ `text-indent：[ <length> | <percentage> ] && hanging? && each-line?`
++ `line-height：normal | <length> | <percentage> | <number>`
++ `text-size-adjust：auto | none | <percentage>`
++ `text-shadow`
+
+#### 书写模式
+
+> `unicode-bidi` 无继承
+
++ `direction：ltr | rtl`
++ `writing-mode：horizontal-tb | vertical-rl | vertical-lr | lr-tb | tb-rl`
+
+#### 颜色
+
+> `opacity` 无继承 但是显示效果会作用于子元素
+
++ `color：<color>`
+
+#### 布局
+
++ `visibility：visible | hidden | collapse`
+
+#### 列表
+
++ `list-style：<' list-style-type '> || <' list-style-position '> || <' list-style-image '>`
++ `list-style-image：none | <url>`
++ `list-style-position：outside | inside`
++ `list-style-type：disc | circle | square | decimal | lower-roman | upper-roman | lower-alpha | upper-alpha | none | armenian | cjk-ideographic | georgian | lower-greek | hebrew | hiragana | hiragana-iroha | katakana | katakana-iroha | lower-latin | upper-latin`
+
+#### table
+
+> `table-layout` 无继承
+
+#### 内容
+
++ `quotes：none | [<string> <string>]+`
+
+#### 用户界面
+
++ `cursor`
