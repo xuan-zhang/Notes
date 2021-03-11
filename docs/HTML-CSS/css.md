@@ -270,6 +270,66 @@ QQ:
 
 ```
 
+## 最小字体
+
+浏览器最小字体大小为 12px (用户可能过浏览器调整，edge 最小可以设置成6px;移动端 safari 最小可以显示1px)  
+使用 `transform: scale()` 缩放让字体小于 12px
+
+## `line-height` `1.5` `1.5em` `150%` 之间的区别
+
+> `font-size` `line-height` 是可以继承下去的  
+> 这是一个关于继承的区别  
+> `line-height: 1.5rem` 相对于 html 字体大小，想当于设置了 `1.5 * html字体大小`  
+
++ 如果元素自身设置了 `line-height`（如此元素 `font-size: 20px`）
+  + `line-height: 1.5/150%/1.5em` 是一样的，没有区别，结果都是 `line-height: 30px`
++ 如果 元素A 自身没有设置 `line-height`, 但它的父元素（字体大小为`20px`）设置如下
+  + `line-height: 150%`：继承父元素的行高，`20px * 150% = 30px` 无论 A 是字体多大, 行高始终是 `30px`
+  + `line-height: 1.5em`: 同上
+  + `line-height: 1.5`: 受自己字体大小影响，行高为 `1.5 * 元素自身字体大小`
+
+## rem 与 em
+
+`rem` 相对于 `html` 元素设置字体大小计算，不是 `body`, 如果 html 未明确声明字体大小，采用默认值 `16px`(新edge字体大小, 可在浏览器中自己设置)  
+如果当前元素设置了 `font-size: 16px` 则当前元素中的 `em` 取自身 `font-size` 大小， 如果未设置，取父元素 `font-size` 大小
+
+## css 实现一个正方形
+
+> 1、`padding` 百分比相对**父元素宽度**计算  `margin` 也是  
+> 2、给固定宽高 `vw` `vmin` `vmax` `px` `rem` `em`  
+> 3、JS 计算
+
+```html
+<div class="outer">
+  <div class="inner"></div>
+</div>
+<style>
+  /*方法一*/
+  .outer {
+    width: 500px;
+    height: 500px;
+    background: #333;
+  }
+  .inner {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 25%; /* padding百分比相对父元素宽度计算 */
+    background-color: #999;
+  }
+
+  /*方法二*/
+  .outer {
+    width: 500px;
+    height: 500px;
+  }
+  .inner {
+    width: 50%;
+    padding-bottom: 50%;
+    height: 0; /*避免被内容撑开多余高度*/
+  }
+</style>
+```
+
 ## sass
 
 ```css
