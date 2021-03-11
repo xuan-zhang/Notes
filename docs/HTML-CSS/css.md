@@ -695,7 +695,246 @@ body,html {
 
 + `cursor`
 
-## 多列等高
+## flex
+
+`flex：none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>`
+`flex: none;` --> `flex: 0 0 auto;`  
+`flex: 1;` --> `flex: 1 1 0%;`  
+`flex: auto;` --> `flex: 1 1 auto;`  
+`flex: 0 auto;` --> `flex: 0 1 auto;`
+
++ `flex-grow：<number>` 设置或检索弹性盒的扩展比率
+  + `<number>`： 用数值来定义扩展比率。不允许负值
+  + `flex-grow` 的默认值为 `0`，如果没有显示定义该属性，是不会拥有分配剩余空间权利的
+
++ `flex-shrink：<number>` 设置或检索弹性盒的收缩比率
+  + `<number>`： 用数值来定义收缩比率。不允许负值
+  + `flex-shrink` 的默认值为 `1`，如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。
++ `flex-basis：<length> | <percentage> | auto | content` 用来指定伸缩基准值
+  + 当 `flex-basis` 在 `flex` 属性中不为 `0` 时（包括值为 `auto`，此时伸缩基准值等于自身内容宽度），「flex子项」将分配容器的剩余空间（剩余空间即等于容器宽度减去各项的伸缩基准值）
+  + 当 `flex-basis` 在 `flex` 属性中等于0时，「flex子项」将分配容器的所有空间（因为各项的伸缩基准值相加等于0，剩余空间等于容器宽度减去各项的伸缩基准值，即减0，最后剩余空间值等于容器宽度），所以可以借助此特性，给各子项定义「flex: n」来进行按比例均分容器总宽度
+
+## 居中
+
+```html
+<div class="outer">
+  <div class="inner"></div>
+</div>
+```
+
+### 水平居中
+
++ `inline-block` + `text-align`
+  
+  ```css
+  .outer {text-align: center;}
+  .inner {display: inline-block;}
+  ```
+
++ `block` + `margin`
+
+  ```css
+  .inner {display: block; margin: 0 auto}
+  ```
+
++ `absolute` + `transform`
+
+```css
+  .outer {position: relative;}
+  .inner {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+  }
+```
+
++ `flex` + `justify-content`
+
+  ```css
+  .outer {display: flex; justify-content: center;}
+  ```
+
+### 垂直居中
+
++ 固定高，不换行 `line-height`
+
+  ```css
+  .inner {display: inline; line-height: 400px}
+  ```
+
++ 未知高： `padding-top = padding-bottom`
+
+  ```css
+  .outer {padding: 100px 0;}
+  ```
+
++ `table-cell` + `vertical-align`
+
+  ```css
+  .outer {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  ```
+
++ `flex` + `align-item`
+
+  ```css
+  .outer {
+    display: flex;
+    align-items: center;
+  }
+  ```
+
++ `position` + `top` + `负margin`
+
+  ```css
+  .outer {position: relative;}
+  .inner {
+    position: absolute;
+    height: 100px;
+    top: 50%;
+    margin-left: -50px;
+  }
+  ```
+
++ `position` + `top` + `transform`
+
+  ```css
+  .outer {position: relative;}
+  .inner {
+    position: absolute;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  ```
+
++ `position` + `top/bottom` + `margin`
+
+  ```css
+  .outer {position: relative;}
+  .inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto; /*不是 margin: 0 auto*/
+  }
+  ```
+
++ `button` 元素默认行为
+
+### 水平垂直居中
+
++ `position` + `margin`
+
+  ```css
+  .outer {position: relative;}
+  .inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; /*不是 margin: 0 auto*/
+  }
+  ```
+
++ `position` + 负margin
++ `position` + transform
++ flex
++ grid
++ button 自带居中效果
++ table-cell
+
+  ```css
+  .outer {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center; /*inline inline-block*/
+    margin: auto; /*块元素 或 margin: 0 auto;*/
+  }
+  ```
+
+## 多列布局
+
+```html
+<ul class="outer">
+  <li class="inner-left"></li>
+  <li class="inner-right"></li>
+</ul>
+```
+
+### 左侧定宽 右侧自适应
+
+1. float + margin
+
+  ```css
+  .inner-left {float: left; width: 100px;}
+  .inner-right {margin-left: 120px;}
+  ```
+
+2. float + overflow
+
+  ```css
+  .inner-left {float: left; width: 100px; margin-right: 20px}
+  .inner-right {overflow: hidden;}
+  ```
+
+3. table 等高
+
+```css
+.outer {display: table; table-layout: fixed; width: 100%}
+.inner-left {display: table-cell; border-right: 20px; width: 100px;}
+.inner-right {display: table-cell;}
+```
+
+4. flex
+
+  ```css
+  .outer { display: flex; }
+  .inner-left: {
+    width: 100px;
+    flex: none;
+    margin-right: 20px;
+  }
+  .inner-right {
+    flex: 1,
+
+  }
+  ```
+
+5. position + padding
+
+  ```css
+  .outer { position: relative; }
+  .inner-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+  }
+  .inner-right {
+    padding-left: 120px;
+  }
+  ```
+
+6. grid
+
+### 左侧不定宽 右侧自适应
+
+1. float + overflow
+
+  ```css
+  .inner-left {float: left; margin-right: 20px;}
+  .inner-right {overflow: hidden;}
+  ```
+
+2. table
+
+3. flex
+
+### 多列等高
 
 + 使用负 `margin-bottom` 和正 `padding-bottom` 对冲实现
   
@@ -715,3 +954,9 @@ body,html {
 + flex布局
 + grid布局
 + js计算
+
+### 等分
+
++ float
++ flex
++ inline-block
