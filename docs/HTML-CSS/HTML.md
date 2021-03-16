@@ -259,3 +259,107 @@
           <!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
           <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144-precomposed.png"   sizes="144x144">
       ```
+
+## meta 标签
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 声明文档使用的字符编码 -->
+    <meta charset="utf-8">
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 页面描述 -->
+    <meta name="description" content="不超过150个字符" />
+    <!-- 页面关键词 -->
+    <meta name="keywords" content="" />
+    <!-- 网页作者 -->
+    <meta name="author" content="name, email@gmail.com" />
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow" />
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="initia-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <!-- iOS 设备 begin -->
+    <meta name="apple-mobile-web-app-title" content="标题">
+    <!-- 添加到主屏后的标题（iOS 6 新增） 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 不让百度转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- 设置页面不缓存 -->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <!-- 自动刷新页面 -->
+    <!-- 代码会在 5s 之后自动跳转到同域下的 page2.html 页面 -->
+    <meta http-equiv="Refresh" content="5; URL=page2.html">
+    <!-- 60s后自动刷新当前页面 -->
+    <meta http-equiv="Refresh" content="60">
+    <!-- 以上方法刷新和跳转操作是不可取消的 -->
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+```
+
+## 使用 `title` 标签进行消息提醒
+
+```js
+let msgNum = 1 // 消息条数
+let cnt = 0 // 计数器
+const inerval = setInterval(() => {
+  cnt = (cnt + 1) % 2
+  if(msgNum===0) {
+    // 通过DOM修改title
+    document.title += `聊天页面`
+    clearInterval(interval)
+    return
+  }
+  const prefix = cnt % 2 ? `新消息(${msgNum})` : ''
+  document.title = `${prefix}聊天页面`
+}, 1000)
+```
+
+## link 标签：通过预处理提升渲染速度
+
+- `dns-prefetch`。当 link 标签的 rel 属性值为“dns-prefetch”时，浏览器会对某个域名预先进行 DNS 解析并缓存。这样，当浏览器在请求同域名资源的时候，能省去从域名查询 IP 的过程，从而减少时间损耗
+- `preconnect`。让浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 DNS 解析、TLS 协商、TCP 握手，通过消除往返延迟来为用户节省时间。
+- `prefetch/preload`。两个值都是让浏览器预先下载并缓存某个资源，但不同的是，`prefetch` 可能会在浏览器忙时被忽略，而 `preload` 则是一定会被预先下载。
+- `prerender`。浏览器不仅会加载资源，还会解析执行页面，进行预渲染。

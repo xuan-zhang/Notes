@@ -35,3 +35,7 @@
 + readystatechange 是追踪页面加载的一个可选的方法
   + `document.addEventListener('readystatechange', () => console.log(document.readyState));`
   
+
+## HTML5 标准 type 属性
+
+对应值为 `module` 。让浏览器按照 ECMA Script 6 标准将文件当作模块进行解析，默认阻塞效果同 `defer`，也可以配合 `async` 在请求完成后立即执行。
