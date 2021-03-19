@@ -109,6 +109,7 @@ git add .
 git add a.txt # 存入暂存区
 git commit -m "update" # 将暂分区
 git commit -a -m "update" a.txt # 同上两步
+
 # 推送
 git push -u orgin master # 第一次
 git push --set-upstream origin master # 将本地分支推送至远程 origin
@@ -317,6 +318,9 @@ git remote rm origin
 
 # 重命名
 git remote rename <原主机名> <新主机名>
+
+# 修改远程库地址
+git remote set-url origin <新地址>
 
 ```
 
