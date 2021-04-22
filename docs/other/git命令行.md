@@ -79,7 +79,7 @@ git config pull.rebase false  # 合并（缺省策略）
 git config pull.rebase true   # 变基
 git config pull.ff only       # 仅快进
 
-# 配置
+# 使用变基拉取代码
 
 git config --global  pull.rebase false
 
