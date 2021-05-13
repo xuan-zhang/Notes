@@ -319,6 +319,9 @@ git pull origin master --allow-unrelated-histories
 
 ### 合并与变基
 
+> rebase commit 显示位置，不是按 commit 创建时候排列，是按 commit 提交时间排列，远程库History 列表可能出现一天前的提交，在一小时前的提交前端，这是变基造成的  
+> merge 中会创建一个新的 commit 在最前面，所以使用变基要慎重
+
 ```bash
 # merge
 git checkout master # 当前分支变为 master
