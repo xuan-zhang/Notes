@@ -211,7 +211,9 @@ pick 9477817 commit end
 # 4. 将上处 pick 改为 drop
 # 变基 d8bff92..9477817 到 d8bff92（2 个提交）
 
-drop 7efc1e7 要删除的commit # 注意： 如果采用 drop drop掉的commit 改动信息也会删除，破坏性操作
+drop 7efc1e7 要删除的commit 
+# 注意： 如果采用 drop drop掉的commit 改动信息也会删除，破坏性操作 
+# fixup 与 squash 是修改合并到上一个修改，如果 commit 是连续的，将要丢弃的 commit 设置成 f | s 即可，如果 commit 不连续 此方式不可行
 pick 9477817 commit end
 
 # 命令:
@@ -232,6 +234,40 @@ git commit --amend <new commit message>
 
 # 8. 强制推送
 git push --force
+
+```
+
+#### 合并多个 commit
+
++ 连续的多个 commit 合并成一个 squash: 直接使用图形界面操作或如下命令
+
+```bash
+git rebase -i <commitId> # 要合并操作的 *上一个* commitId
+
+# 将要合并 commit 设置成 fixup 或 squash
+# 将合并到的目标 commit 设置成 reword(需要修改说明) 或 pick
+# :wq 保存
+
+git rebase --continue
+
+```
+
++ 不连续的 commit 合并成一个：无法使用 squash 合并，要删除原来 commit 再 cherry-pick
+
+```bash
+git checkout -b temp-branch # 新建一个临时分支，保存内容
+git rebase -i <commit-id> # commit-id 为要删除的前面的 commitId
+
+# 将要合并的分支 commit 设置成 drop
+
+git rebase --continue
+
+git cherry-pick <commitId> # 从 temp-banch 中选择已删除的 ID
+
+# 这时已删除的 commit 位于分支前面 合并这几个 commit 即可
+git rebase -i <commitId> # cherry-pick 之前的commit
+
+... #步骤同合并多个连续 commit
 
 ```
 
