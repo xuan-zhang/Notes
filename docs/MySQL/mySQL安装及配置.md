@@ -115,6 +115,10 @@ default-character-set=UTF8MB4
       # 添加mysql 环境变量
       export MYSQL_HOME=$HOME/Applications/mysql-8.0.17-macos10.14-x86_64
       export PATH="$MYSQL_HOME/bin:$MYSQL_HOME/support-files:$PATH"  
+
+      # macOs 11 MySQL 安装在 /usr/local/mysql 目录下
+      export MYSQL_HOME=/usr/local/mysql
+      export PATH="$MYSQL_HOME/bin:$MYSQL_HOME/support-files:$PATH"
     ```
 
 ## 初始化数据库
