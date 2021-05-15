@@ -54,6 +54,8 @@
 
 ### mac下mongodb的安装与启动
 
+> 可直接使用 brew 安装 参考官方文档
+
 - 下载 `mongodb` 安装包 [官网](https://www.mongodb.com/download-center?jmp=nav#community)  下载`社区版`即可
 - 将下载的压缩包进行解压，将文件移动到 `sudo mv ~/Desktop/mongodb-osx-x86_64-3.6.3  /usr/local/mongodb`;
 - 配置环境变量
@@ -282,6 +284,8 @@
 6. 启动方法同上
 
 ------
+
+db.createUser({user: "zxx", pwd: "12345678", roles: ["readWriteAnyDatabase", "dbAdminAnyDatabase", "clusterAdmin"]})
 
 ### nodeJS安装与启动
 
