@@ -106,5 +106,6 @@
 - `ideaVim`
 - `translation`
 - `deno`
-- `Material Theme UI`
+- ~~`Material Theme UI`~~
+- `Atom One Dark Theme`
 - `Atom Material Icons`
