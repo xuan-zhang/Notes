@@ -95,16 +95,19 @@
 + VIM
 + Visual Studio IntelliCode
 + koroFileHeader
++ file-size
 
 + GitLens
 + ~~Git History~~
 
 + HTML CSS Support
 + HTML Snippets
++ CSS Peek
 + Auto Close Tag
 + Auto Rename Tag
 + Vetur
-+ Denugger for Chrome
++ Debugger for Chrome
++ Debugger for Microsoft Edge
 + Deno
 + ~~Autoprefixer~~
 + ~~JavaScript(ES6) code snippets~~
