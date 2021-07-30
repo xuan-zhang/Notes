@@ -102,10 +102,12 @@
 
 ## 插件
 
-- `chinese`
-- `ideaVim`
-- `translation`
+- `Chinese`
+- `IdeaVim`
+- `Translation`
 - `deno`
 - ~~`Material Theme UI`~~
 - `Atom One Dark Theme`
+- `One Dark theme`
 - `Atom Material Icons`
+- `IDE Eval Reset`
