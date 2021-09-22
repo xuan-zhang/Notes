@@ -22,6 +22,10 @@
     git config --global credential.helper store # 不用每次输入密码 长期
     git config --global credential.helper cache # 十五分钟
     git config credential.helper 'cache --timeout=3600' # 自定义时间 单位 s
+
+    # 查看密码
+    cd ~
+    vim .git-credentials  # 账号密码存在此文件中 可以直接修改，但要删除 钥匙串 中存储的密码
     ```
 
 + `HEAD` : 当前版本； `HEAD^`: 上一个版本; `HEAD^^`： 上上个版本； `HEAD~100`：上100个版本
