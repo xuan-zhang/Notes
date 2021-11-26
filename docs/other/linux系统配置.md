@@ -125,6 +125,15 @@
 + `npm config set registry https://registry.npm.taobao.org` 持久使用
 + `npm config get registry` 查看配置是否成功 也可 `npm info express`
 
++ 淘宝域名变更
+
+```text
+sass_binary_site=https://npmmirror.com/mirrors/node-sass/
+phantomjs_cdnurl=https://npmmirror.com/mirrors/phantomjs/
+electron_mirror=https://npmmirror.com/mirrors/electron
+registry=https://registry.npmmirror.com
+```
+
 ## rvm 安装
 
 + `RVM` 是一个命令行工具，可以提供一个便捷的多版本 `Ruby` 环境的管理和切换。
