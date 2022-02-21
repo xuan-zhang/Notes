@@ -30,6 +30,7 @@ module.exports = {
         "blob base64 与 file转换",
         "call apply bind",
         "jQuery",
+        "let const var",
         "listToTree",
         "script标签中的defer与async",
         "stoarge",
