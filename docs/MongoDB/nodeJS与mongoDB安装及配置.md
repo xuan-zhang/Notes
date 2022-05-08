@@ -69,8 +69,8 @@
         export PATH=$PATH:/usr/local/mongodb/bin
         :wq
         source .bash_profile
-    # 添加 mongodb 启动别名 配置文件放在 /usr/local/etc 下
-        alias openmongodb="mongod -f /usr/local/etc/mongod.conf"
+    # 添加 mongodb 启动别名 配置文件放在 /usr/local/etc 下  --fork 隐藏命令行
+        alias openmongodb="mongod --fork -f /usr/local/etc/mongod.conf"
     ```
 
 - 查看安装情况 `$ mongod --version`
@@ -285,7 +285,9 @@
 
 ------
 
+```mongo
 db.createUser({user: "zxx", pwd: "12345678", roles: ["readWriteAnyDatabase", "dbAdminAnyDatabase", "clusterAdmin"]})
+```
 
 ### nodeJS安装与启动
 
