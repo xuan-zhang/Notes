@@ -174,6 +174,16 @@
 - 卸载：｀sudo apt-get --purge remove mongodb mongodb-clients mongodb-server｀
 - 安装位置配置文件查看： `/etc/mongodb.conf`
 
+### 快捷命令行
+
+```bash
+alias openmongod='sudo mongod --fork -f /etc/mongod.conf'
+alias closemongod='sudo mongod --shutdown  --dbpath /var/lib/mongodb'
+alias openmysql='sudo service mysql start'
+alias closemysql='sudo service mysql stop'
+
+```
+
 ------
 
 ### mongoDB语法
