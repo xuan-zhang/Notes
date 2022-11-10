@@ -104,10 +104,13 @@
 
 - `Chinese`
 - `IdeaVim`
-- `Translation`
+- `Translation
 - `deno`
-- ~~`Material Theme UI`~~
-- `Atom One Dark Theme`
 - `One Dark theme`
 - `Atom Material Icons`
-- `IDE Eval Reset`
+- `.env files support`
+- `.ignore`
+- `GitToolBox`
+- `PostCss`
+- `Rainbow Brackets`
+- `Import Cost`
