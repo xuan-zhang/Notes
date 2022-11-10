@@ -104,7 +104,7 @@
 
 - `Chinese`
 - `IdeaVim`
-- `Translation
+- `Translation`
 - `deno`
 - `One Dark theme`
 - `Atom Material Icons`
