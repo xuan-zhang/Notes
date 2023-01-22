@@ -99,6 +99,12 @@ default-character-set=UTF8MB4
 
 + 设置远程连接
   + 账号的 `Host` 要设置成对应 ip 或 '%'
+
+    ```sql
+    > use mysql
+    > update user set Host = '%' where User = 'root';
+    ```
+
   + 修改配置 `sudo vim mysql.conf.d/mysqld.cnf`
 
     ```text
