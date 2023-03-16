@@ -114,3 +114,7 @@
 - `PostCss`
 - `Rainbow Brackets`
 - `Import Cost`
+- `Foldable ProjectView`
+- `JetBrains Academy`
+- `Rust`
+- `Toml`
