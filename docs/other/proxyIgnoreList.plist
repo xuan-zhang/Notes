@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>192.168.0.0/16</string>
+        <string>10.0.0.0/8</string>
+        <string>172.16.0.0/12</string>
+        <string>127.0.0.1</string>
+        <string>localhost</string>
+        <string>*.local</string>
+        <string>*.insgeek*</string>
+        <string>*.deno.*</string>
+        <string>timestamp.apple.com</string>
+        <string>sequoia.apple.com</string>
+        <string>seed-sequoia.siri.apple.com</string>
+        <string>*.cn</string>
+        <string>*csdn*</string>
+        <string>*.bytescm.com</string>
+        <string>*.yhgfb-cn-static.com</string>
+        <string>*.alicdn.com</string>
+        <string>*segmentfault.com</string>
+        <string>*.163.com</string>
+        <string>*.baidu.com</string>
+    </array>
+</plist>

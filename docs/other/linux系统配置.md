@@ -368,3 +368,9 @@ registry=https://registry.npmmirror.com
     # 中止错误ID
     sudo snap abort ID
     ```
+
+## clashX 配置过滤
+
+```text
+192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.1,localhost,*.local,timestamp.apple.com,sequoia.apple.com,seed-sequoia.siri.apple.com,*insgeek*,*.cn,*csdn*,*.bytescm.com,*.yhgfb-cn-static.com,*.alicdn.com,*segmentfault.com,*.163.com,*.baidu.com
+```
