@@ -372,5 +372,5 @@ registry=https://registry.npmmirror.com
 ## clashX 配置过滤
 
 ```text
-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.1,localhost,*.local,timestamp.apple.com,sequoia.apple.com,seed-sequoia.siri.apple.com,*insgeek*,*.cn,*csdn*,*.bytescm.com,*.yhgfb-cn-static.com,*.alicdn.com,*segmentfault.com,*.163.com,*.baidu.com
+192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.1,localhost,*.local,timestamp.apple.com,sequoia.apple.com,seed-sequoia.siri.apple.com,*insgeek*,*.cn,*csdn*,*.bytescm.com,*.yhgfb-cn-static.com,*.alicdn.com,*segmentfault.com,*.163.com,*.baidu.com,*.bcebos.com,*.aliyundrive.com,*.antgroup.com,*.aliyun.com,*.huawei.com
 ```
