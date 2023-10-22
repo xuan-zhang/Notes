@@ -372,5 +372,5 @@ registry=https://registry.npmmirror.com
 ## clashX 配置过滤
 
 ```text
-192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.1,localhost,*.local,timestamp.apple.com,sequoia.apple.com,seed-sequoia.siri.apple.com,*.cn,*126.net,*.insgeek*,*.deno.*,*csdn*,*.bytescm.com,*.yhgfb-cn-static.com,*.alicdn.com,*segmentfault.com,*.163.com,*.baidu.com,*.bcebos.com,*.aliyundrive.com,*.antgroup.com,*.aliyun.com,*.huawei.com,*.gitee.io,*dingtalk.com,*.taobao.com,*.dingtalkapps.com,*.qq.com,*.126.net
+192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.1,localhost,*.local,timestamp.apple.com,sequoia.apple.com,seed-sequoia.siri.apple.com,*.cn,*126.net,*.insgeek*,*.deno.*,*csdn*,*.bytescm.com,*.yhgfb-cn-static.com,*.alicdn.com,*segmentfault.com,*.163.com,*.baidu.com,*.bcebos.com,*.aliyundrive.com,*.antgroup.com,*.aliyun.com,*.huawei.com,*.gitee.io,*dingtalk.com,*.taobao.com,*.dingtalkapps.com,*.qq.com,*.126.net,*.byteimg.com,*.deepl.com,*.appcenter.ms,*.byteacctimg.com,*bing.com,*.warp.dev,*.netease.com,*.bytedance.com,*.nelreports.net,*.bytetcc.com,*.ibytedapm.com,*.dingtalk.com,*.aliyuncs.com,*.mmstat.com,*.zhihu.com,*.zhimg.com
 ```
