@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TypeScript lib.es5.d.ts 文件内置类型 | 炫</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="shortcut icon" href="/Notes/favicon.ico">
+    <meta name="description" content="学习笔记">
+    
+    <link rel="preload" href="/Notes/assets/css/0.styles.a503b4b5.css" as="style"><link rel="preload" href="/Notes/assets/js/app.e773d1be.js" as="script"><link rel="preload" href="/Notes/assets/js/2.6c1319ac.js" as="script"><link rel="preload" href="/Notes/assets/js/1.5a5e16a8.js" as="script"><link rel="preload" href="/Notes/assets/js/70.62cdfd23.js" as="script"><link rel="prefetch" href="/Notes/assets/js/10.1c9f2fcc.js"><link rel="prefetch" href="/Notes/assets/js/11.404b6dda.js"><link rel="prefetch" href="/Notes/assets/js/12.8da9548f.js"><link rel="prefetch" href="/Notes/assets/js/13.9be5c86a.js"><link rel="prefetch" href="/Notes/assets/js/14.53d3cf59.js"><link rel="prefetch" href="/Notes/assets/js/15.75d75712.js"><link rel="prefetch" href="/Notes/assets/js/16.bd61cf89.js"><link rel="prefetch" href="/Notes/assets/js/17.8b0b4db8.js"><link rel="prefetch" href="/Notes/assets/js/18.af740b3c.js"><link rel="prefetch" href="/Notes/assets/js/19.ff5e04bd.js"><link rel="prefetch" href="/Notes/assets/js/20.95338826.js"><link rel="prefetch" href="/Notes/assets/js/21.5f7e0bd2.js"><link rel="prefetch" href="/Notes/assets/js/22.e3996465.js"><link rel="prefetch" href="/Notes/assets/js/23.dd42961e.js"><link rel="prefetch" href="/Notes/assets/js/24.89e60f09.js"><link rel="prefetch" href="/Notes/assets/js/25.4a1ec1d8.js"><link rel="prefetch" href="/Notes/assets/js/26.045196da.js"><link rel="prefetch" href="/Notes/assets/js/27.1cf9d36e.js"><link rel="prefetch" href="/Notes/assets/js/28.5ddc9df5.js"><link rel="prefetch" href="/Notes/assets/js/29.51c5345f.js"><link rel="prefetch" href="/Notes/assets/js/3.28fa5fee.js"><link rel="prefetch" href="/Notes/assets/js/30.2c775243.js"><link rel="prefetch" href="/Notes/assets/js/31.fa601e01.js"><link rel="prefetch" href="/Notes/assets/js/32.8209b8f7.js"><link rel="prefetch" href="/Notes/assets/js/33.b7788b0b.js"><link rel="prefetch" href="/Notes/assets/js/34.ac12cb38.js"><link rel="prefetch" href="/Notes/assets/js/35.fa00fb0e.js"><link rel="prefetch" href="/Notes/assets/js/36.5a128296.js"><link rel="prefetch" href="/Notes/assets/js/37.ae8a1c66.js"><link rel="prefetch" href="/Notes/assets/js/38.01c876b6.js"><link rel="prefetch" href="/Notes/assets/js/39.a430279f.js"><link rel="prefetch" href="/Notes/assets/js/4.44e53d48.js"><link rel="prefetch" href="/Notes/assets/js/40.58245cee.js"><link rel="prefetch" href="/Notes/assets/js/41.6fa137a6.js"><link rel="prefetch" href="/Notes/assets/js/42.f5986218.js"><link rel="prefetch" href="/Notes/assets/js/43.908dc8b0.js"><link rel="prefetch" href="/Notes/assets/js/44.73cea0c2.js"><link rel="prefetch" href="/Notes/assets/js/45.875c8f46.js"><link rel="prefetch" href="/Notes/assets/js/46.ceb4dbec.js"><link rel="prefetch" href="/Notes/assets/js/47.dcb12197.js"><link rel="prefetch" href="/Notes/assets/js/48.ded3fb9e.js"><link rel="prefetch" href="/Notes/assets/js/49.54e94820.js"><link rel="prefetch" href="/Notes/assets/js/5.ebf595b6.js"><link rel="prefetch" href="/Notes/assets/js/50.63e48f48.js"><link rel="prefetch" href="/Notes/assets/js/51.7e4af462.js"><link rel="prefetch" href="/Notes/assets/js/52.d61ec835.js"><link rel="prefetch" href="/Notes/assets/js/53.836cb30f.js"><link rel="prefetch" href="/Notes/assets/js/54.77747ea5.js"><link rel="prefetch" href="/Notes/assets/js/55.a45498b2.js"><link rel="prefetch" href="/Notes/assets/js/56.31d8650e.js"><link rel="prefetch" href="/Notes/assets/js/57.d54105aa.js"><link rel="prefetch" href="/Notes/assets/js/58.b0780471.js"><link rel="prefetch" href="/Notes/assets/js/59.d38165d1.js"><link rel="prefetch" href="/Notes/assets/js/60.4ce717da.js"><link rel="prefetch" href="/Notes/assets/js/61.90977508.js"><link rel="prefetch" href="/Notes/assets/js/62.8b0b1429.js"><link rel="prefetch" href="/Notes/assets/js/63.6f6c7222.js"><link rel="prefetch" href="/Notes/assets/js/64.db097337.js"><link rel="prefetch" href="/Notes/assets/js/65.65641ee2.js"><link rel="prefetch" href="/Notes/assets/js/66.495b0673.js"><link rel="prefetch" href="/Notes/assets/js/67.897dec6e.js"><link rel="prefetch" href="/Notes/assets/js/68.a81e7e12.js"><link rel="prefetch" href="/Notes/assets/js/69.23e234f4.js"><link rel="prefetch" href="/Notes/assets/js/71.e5d44f88.js"><link rel="prefetch" href="/Notes/assets/js/72.8d2fdbec.js"><link rel="prefetch" href="/Notes/assets/js/73.77e0a646.js"><link rel="prefetch" href="/Notes/assets/js/74.687023c7.js"><link rel="prefetch" href="/Notes/assets/js/75.6ed234fd.js"><link rel="prefetch" href="/Notes/assets/js/76.4f7e47ca.js"><link rel="prefetch" href="/Notes/assets/js/77.9ba5a8c9.js"><link rel="prefetch" href="/Notes/assets/js/78.020b2f81.js"><link rel="prefetch" href="/Notes/assets/js/79.8495e8f1.js"><link rel="prefetch" href="/Notes/assets/js/8.c2996aad.js"><link rel="prefetch" href="/Notes/assets/js/80.3f2bcc6a.js"><link rel="prefetch" href="/Notes/assets/js/81.c2d2ec54.js"><link rel="prefetch" href="/Notes/assets/js/82.2c144b55.js"><link rel="prefetch" href="/Notes/assets/js/83.29890e79.js"><link rel="prefetch" href="/Notes/assets/js/84.00371102.js"><link rel="prefetch" href="/Notes/assets/js/9.c7108ba4.js"><link rel="prefetch" href="/Notes/assets/js/vendors~docsearch.649f9bfd.js">
+    <link rel="stylesheet" href="/Notes/assets/css/0.styles.a503b4b5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Notes/" class="home-link router-link-active"><img src="/Notes/logo.png" alt="炫" class="logo"> <span class="site-name can-hide">炫</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Notes/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/HTML-CSS/HTML.html" class="nav-link">
+  HTML CSS
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/JavaScript/API.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/TypeScript/index.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Vue/index.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/React/index.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MiniProgram/index.html" class="nav-link">
+  小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/Node/index.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Deno/index.html" class="nav-link">
+  Deno
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Python/index.html" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/MySQL/index.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MongoDB/index.html" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><a href="/Notes/other/index.html" class="nav-link">
+  文档
+</a></div> <a href="https://github.com/xuan-zhang/Notes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Notes/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/HTML-CSS/HTML.html" class="nav-link">
+  HTML CSS
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/JavaScript/API.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/TypeScript/index.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Vue/index.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/React/index.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MiniProgram/index.html" class="nav-link">
+  小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/Node/index.html" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Deno/index.html" class="nav-link">
+  Deno
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/Python/index.html" class="nav-link">
+  Python
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Notes/MySQL/index.html" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/Notes/MongoDB/index.html" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><a href="/Notes/other/index.html" class="nav-link">
+  文档
+</a></div> <a href="https://github.com/xuan-zhang/Notes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>TypeScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Notes/TypeScript/" aria-current="page" class="sidebar-link">TypeScript 学习笔记</a></li><li><a href="/Notes/TypeScript/lib.es5.d.ts.html" aria-current="page" class="active sidebar-link">TypeScript lib.es5.d.ts 文件内置类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Notes/TypeScript/lib.es5.d.ts.html#ecmascript-apis" class="sidebar-link">ECMAScript APIs</a></li><li class="sidebar-sub-header"><a href="/Notes/TypeScript/lib.es5.d.ts.html#ecmascript-internationalization-api" class="sidebar-link">ECMAScript Internationalization API</a></li><li class="sidebar-sub-header"><a href="/Notes/TypeScript/lib.es5.d.ts.html#工具类型" class="sidebar-link">工具类型</a></li></ul></li><li><a href="/Notes/TypeScript/类型.html" class="sidebar-link">TypeSript 类型</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="typescript-lib-es5-d-ts-文件内置类型"><a href="#typescript-lib-es5-d-ts-文件内置类型" class="header-anchor">#</a> TypeScript <code>lib.es5.d.ts</code> 文件内置类型</h1> <h2 id="ecmascript-apis"><a href="#ecmascript-apis" class="header-anchor">#</a> ECMAScript APIs</h2> <h3 id="类型"><a href="#类型" class="header-anchor">#</a> 类型</h3> <ul><li>NaN</li> <li>Infinity</li> <li>PropertyKey
+<ul><li>string | number | symbol</li></ul></li> <li>Object
+<ul><li>ObjectConstructor</li></ul></li> <li>Function
+<ul><li>FunctionConstructor</li></ul></li> <li>ThisParameterType
+<ul><li>提取函数类型的 <code>this</code> 参数的类型，如果函数类型没有 <code>this</code> 参数, 返回 <code>unknown</code></li> <li><code>type ThisParameterType&lt;T&gt; = T extends (this: infer U, ...args: any[]) =&gt; any ? U : unknown;</code></li></ul></li> <li>OmitThisParameter
+<ul><li>从函数类型中删除 <code>this</code> 参数</li> <li><code>type OmitThisParameter&lt;T&gt; = unknown extends ThisParameterType&lt;T&gt; ? T : T extends (...args: infer A) =&gt; infer R ? (...args: A) =&gt; R : T;</code></li></ul></li> <li>String
+<ul><li>StringConstructor</li></ul></li> <li>Boolean
+<ul><li>BooleanConstructor</li></ul></li> <li>Number
+<ul><li>NumberConstructor</li></ul></li> <li>Math
+<ul><li>Math</li></ul></li> <li>Date
+<ul><li>DateConstructor</li></ul></li> <li>RegExp
+<ul><li>RegExpConstructor</li></ul></li> <li>Error
+<ul><li>ErrorConstructor</li></ul></li> <li>EvalError
+<ul><li>EvalErrorConstructor</li></ul></li> <li>RangeError
+<ul><li>RangeErrorConstructor</li></ul></li> <li>ReferenceError
+<ul><li>ReferenceErrorConstructor</li></ul></li> <li>SyntaxError
+<ul><li>SyntaxErrorConstructor</li></ul></li> <li>URIError
+<ul><li>URIErrorConstructor</li></ul></li> <li>JSON
+<ul><li>JSON</li></ul></li> <li>ClassDecorator</li> <li>PropertyDecorator</li> <li>MethodDecorator</li> <li>ParameterDecorator</li> <li>PromiseConstructorLike</li> <li>ArrayBufferLike</li> <li>ArrayBuffer
+<ul><li>ArrayBufferConstructor</li></ul></li> <li>DataView
+<ul><li>DataViewConstructor</li></ul></li> <li>Int8Array
+<ul><li>Int8ArrayConstructor</li></ul></li> <li>Uint8Array
+<ul><li>Uint8ArrayConstructor</li></ul></li></ul> <h3 id="接口"><a href="#接口" class="header-anchor">#</a> 接口</h3> <ul><li>Symbol</li> <li>PropertyDescriptor 属性描述符</li> <li>PropertyDescriptorMap</li> <li>Object</li> <li>ObjectConstructor</li> <li>Function</li> <li>FunctionConstructor</li> <li>CallableFunction</li> <li>NewableFunction</li> <li>IArguments</li> <li>String</li> <li>StringConstructor</li> <li>Boolean</li> <li>BooleanConstructor</li> <li>Number</li> <li>NumberConstructor</li> <li>TemplateStringsArray</li> <li>ImportMeta</li> <li>Math</li> <li>Date</li> <li>DateConstructor</li> <li>RegExpMatchArray</li> <li>RegExpExecArray</li> <li>RegExp</li> <li>RegExpConstructor</li> <li>Error</li> <li>ErrorConstructor</li> <li>EvalError</li> <li>EvalErrorConstructor</li> <li>RangeError</li> <li>RangeErrorConstructor</li> <li>ReferenceError</li> <li>ReferenceErrorConstructor</li> <li>SyntaxError</li> <li>SyntaxErrorConstructor</li> <li>TypeError</li> <li>TypeErrorConstructor</li> <li>URIError</li> <li>URIErrorConstructor</li> <li>JSON</li> <li>ReadonlyArray</li> <li>ConcatArray</li> <li>Array</li> <li>ArrayConstructor</li> <li>TypedPropertyDescriptor</li> <li>PromiseLike</li> <li>Promise</li> <li>ArrayLike</li> <li>ArrayBuffer</li> <li>ArrayBufferTypes</li> <li>ArrayBufferConstructor</li> <li>ArrayBufferView</li> <li>DataView</li> <li>DataViewConstructor</li> <li>Int8Array</li> <li>Int8ArrayConstructor</li> <li>Uint8Array</li> <li>Uint8ArrayConstructor</li> <li>Uint8ClampedArray</li> <li>Uint8ClampedArrayConstructor</li> <li>Int16Array</li> <li>Int16ArrayConstructor</li> <li>Uint16Array</li> <li>Uint16ArrayConstructor</li> <li>Int32Array</li> <li>Int32ArrayConstructor</li> <li>Uint32Array</li> <li>Uint32ArrayConstructor</li> <li>Float32Array</li> <li>Float32ArrayConstructor</li> <li>Float64Array</li> <li>Float64ArrayConstructor</li></ul> <h3 id="函数"><a href="#函数" class="header-anchor">#</a> 函数</h3> <ul><li>eval</li> <li>parseInt</li> <li>parseFloat</li> <li>isNaN</li> <li>isFinite</li> <li>decodeURI</li> <li>decodeURIComponent</li> <li>encodeURI</li> <li>encodeURIComponent</li> <li>escape</li> <li>unescape</li></ul> <h2 id="ecmascript-internationalization-api"><a href="#ecmascript-internationalization-api" class="header-anchor">#</a> ECMAScript Internationalization API</h2> <h3 id="命名空间"><a href="#命名空间" class="header-anchor">#</a> 命名空间</h3> <ul><li>Intl
+<ul><li>CollatorOptions</li> <li>ResolvedCollatorOptions</li> <li>Collator</li> <li>NumberFormatOptions</li> <li>ResolvedNumberFormatOptions</li> <li>NumberFormat</li> <li>DateTimeFormatOptions</li> <li>ResolvedDateTimeFormatOptions</li> <li>DateTimeFormat</li></ul></li></ul> <h2 id="工具类型"><a href="#工具类型" class="header-anchor">#</a> 工具类型</h2> <ul><li>Partial</li> <li>Required</li> <li>Readonly</li> <li>Pick</li> <li>Record</li> <li>Exclude</li> <li>Extract</li> <li>Omit</li> <li>NonNullable</li> <li>Parameters</li> <li>ConstructorParameters</li> <li>ReturnType</li> <li>InstanceType</li> <li>ThisType</li> <li>ThisParameterType</li> <li>OmitThisParameter</li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xuan-zhang/Notes/edit/master/docs/TypeScript/lib.es5.d.ts.md" target="_blank" rel="noopener noreferrer">在GitHub中编辑此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2020/4/15 11:39:15</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Notes/TypeScript/" class="prev router-link-active">
+        TypeScript 学习笔记
+      </a></span> <span class="next"><a href="/Notes/TypeScript/类型.html">
+        TypeSript 类型
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/Notes/assets/js/app.e773d1be.js" defer></script><script src="/Notes/assets/js/2.6c1319ac.js" defer></script><script src="/Notes/assets/js/1.5a5e16a8.js" defer></script><script src="/Notes/assets/js/70.62cdfd23.js" defer></script>
+  </body>
+</html>
