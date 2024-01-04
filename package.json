@@ -18,10 +18,5 @@
     "@vuepress/plugin-medium-zoom": "^1.4.1",
     "@vuepress/plugin-search": "^1.4.1",
     "vuepress": "^1.4.0"
-  },
-  "dependencies": {
-    "@loadable/component": "^5.12.0",
-    "add": "^2.0.6",
-    "yarn": "^1.22.4"
   }
 }

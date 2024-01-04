@@ -4,17 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@loadable/component':
-    specifier: ^5.12.0
-    version: 5.16.3(react@18.2.0)
-  add:
-    specifier: ^2.0.6
-    version: 2.0.6
-  yarn:
-    specifier: ^1.22.4
-    version: 1.22.21
-
 devDependencies:
   '@vuepress/plugin-back-to-top':
     specifier: ^1.4.0
@@ -27,7 +16,7 @@ devDependencies:
     version: 1.9.10
   vuepress:
     specifier: ^1.4.0
-    version: 1.9.10(react@18.2.0)
+    version: 1.9.10
 
 packages:
 
@@ -1228,6 +1217,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -1294,18 +1284,6 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
-
-  /@loadable/component@5.16.3(react@18.2.0):
-    resolution: {integrity: sha512-2mVvHs2988oVX2/zM0y6nYhJ4rTVHhkhRnpupBA0Rjl5tS8op9uSR4u5SLVfMLxzpspr2UiIBQD+wEuMsuq4Dg==}
-    engines: {node: '>=8'}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@babel/runtime': 7.23.7
-      hoist-non-react-statics: 3.3.2
-      react: 18.2.0
-      react-is: 16.13.1
-    dev: false
 
   /@mrmlnc/readdir-enhanced@2.2.1:
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
@@ -1680,10 +1658,10 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@vue/component-compiler-utils@3.3.0(react@18.2.0):
+  /@vue/component-compiler-utils@3.3.0:
     resolution: {integrity: sha512-97sfH2mYNU+2PzGrmK2haqffDpVASuib9/w2/noxiFi31Z54hW+q3izKQXXQZSNhtiUpAI36uSuYepeBe4wpHQ==}
     dependencies:
-      consolidate: 0.15.1(react@18.2.0)
+      consolidate: 0.15.1
       hash-sum: 1.0.2
       lru-cache: 4.1.5
       merge-source-map: 1.1.0
@@ -1749,7 +1727,7 @@ packages:
       - whiskers
     dev: true
 
-  /@vuepress/core@1.9.10(react@18.2.0):
+  /@vuepress/core@1.9.10:
     resolution: {integrity: sha512-H9ddo5fSinPb8QYl8OJFbZikMpOW84bm/U3Drzz8CnCXNtpda7CU2wX/XzOhe98G8jp45xhtZRkxOrqzBBAShA==}
     engines: {node: '>=8.6'}
     dependencies:
@@ -1783,7 +1761,7 @@ packages:
       toml: 3.0.0
       url-loader: 1.1.2(webpack@4.47.0)
       vue: 2.7.16
-      vue-loader: 15.11.1(cache-loader@3.0.1)(css-loader@2.1.1)(react@18.2.0)(vue-template-compiler@2.7.16)(webpack@4.47.0)
+      vue-loader: 15.11.1(cache-loader@3.0.1)(css-loader@2.1.1)(vue-template-compiler@2.7.16)(webpack@4.47.0)
       vue-router: 3.6.5(vue@2.7.16)
       vue-server-renderer: 2.7.16
       vue-template-compiler: 2.7.16
@@ -2147,10 +2125,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
-
-  /add@2.0.6:
-    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
-    dev: false
 
   /agentkeepalive@2.2.0:
     resolution: {integrity: sha512-TnB6ziK363p7lR8QpeLC8aMr8EGYBKZTpgzQLfqTs3bR0Oo5VbKdwKf8h0dSzsYrB7lSCgfJnMZKqShvlq5Oyg==}
@@ -3171,7 +3145,7 @@ packages:
     resolution: {integrity: sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA==}
     dev: true
 
-  /consolidate@0.15.1(react@18.2.0):
+  /consolidate@0.15.1:
     resolution: {integrity: sha512-DW46nrsMJgy9kqAbPt5rKaCr7uFtpo4mSUvLHIUbJEjm0vo+aY5QLwBUq3FK4tRnJr/X0Psc0C4jf/h+HtXSMw==}
     engines: {node: '>= 0.10.0'}
     deprecated: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
@@ -3338,7 +3312,6 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
-      react: 18.2.0
     dev: true
 
   /constants-browserify@1.0.0:
@@ -5130,12 +5103,6 @@ packages:
       nopt: 1.0.10
     dev: true
 
-  /hoist-non-react-statics@3.3.2:
-    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
-    dependencies:
-      react-is: 16.13.1
-    dev: false
-
   /hpack.js@2.1.6:
     resolution: {integrity: sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ==}
     dependencies:
@@ -5784,6 +5751,7 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -6007,12 +5975,6 @@ packages:
     resolution: {integrity: sha512-tCRIJM51SHjAayKwC+QAg8hT8vg6z7GSgLJKGvzuPb1Wc+hLzqtuVLxp6/HzSPOozuK+8ErAhy7U/sVzw8Dgfg==}
     engines: {node: '>= 0.6.0'}
     dev: true
-
-  /loose-envify@1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
-    hasBin: true
-    dependencies:
-      js-tokens: 4.0.0
 
   /lower-case@1.1.4:
     resolution: {integrity: sha512-2Fgx1Ycm599x+WGpIYwJOvsjmXFzTSc34IwDWALRA/8AopUKAVPwfJ+h5+f85BCp0PWmmJcWzEpxOpoXycMpdA==}
@@ -7416,16 +7378,6 @@ packages:
       strip-json-comments: 2.0.1
     dev: true
 
-  /react-is@16.13.1:
-    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: false
-
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
-
   /readable-stream@2.3.8:
     resolution: {integrity: sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==}
     dependencies:
@@ -7486,6 +7438,7 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
@@ -8844,7 +8797,7 @@ packages:
     resolution: {integrity: sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==}
     dev: true
 
-  /vue-loader@15.11.1(cache-loader@3.0.1)(css-loader@2.1.1)(react@18.2.0)(vue-template-compiler@2.7.16)(webpack@4.47.0):
+  /vue-loader@15.11.1(cache-loader@3.0.1)(css-loader@2.1.1)(vue-template-compiler@2.7.16)(webpack@4.47.0):
     resolution: {integrity: sha512-0iw4VchYLePqJfJu9s62ACWUXeSqM30SQqlIftbYWM3C+jpPcEHKSPUZBLjSF9au4HTHQ/naF6OGnO3Q/qGR3Q==}
     peerDependencies:
       '@vue/compiler-sfc': ^3.0.8
@@ -8863,7 +8816,7 @@ packages:
       vue-template-compiler:
         optional: true
     dependencies:
-      '@vue/component-compiler-utils': 3.3.0(react@18.2.0)
+      '@vue/component-compiler-utils': 3.3.0
       cache-loader: 3.0.1(webpack@4.47.0)
       css-loader: 2.1.1(webpack@4.47.0)
       hash-sum: 1.0.2
@@ -9006,13 +8959,13 @@ packages:
       smoothscroll-polyfill: 0.4.4
     dev: true
 
-  /vuepress@1.9.10(react@18.2.0):
+  /vuepress@1.9.10:
     resolution: {integrity: sha512-UnGm9vjQvG918SZVNvgiUlNimLqawdYPq0aPRXDpEB1VksvqegVFy/GKdA8ShXJaEpOMPSt7YD4uK21jaMs3kA==}
     engines: {node: '>=8.6'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@vuepress/core': 1.9.10(react@18.2.0)
+      '@vuepress/core': 1.9.10
       '@vuepress/theme-default': 1.9.10
       '@vuepress/types': 1.9.10
       cac: 6.7.14
@@ -9412,13 +9365,6 @@ packages:
       y18n: 4.0.3
       yargs-parser: 13.1.2
     dev: true
-
-  /yarn@1.22.21:
-    resolution: {integrity: sha512-ynXaJsADJ9JiZ84zU25XkPGOvVMmZ5b7tmTSpKURYwgELdjucAOydqIOrOfTxVYcNXe91xvLZwcRh68SR3liCg==}
-    engines: {node: '>=4.0.0'}
-    hasBin: true
-    requiresBuild: true
-    dev: false
 
   /zepto@1.2.0:
     resolution: {integrity: sha512-C1x6lfvBICFTQIMgbt3JqMOno3VOtkWat/xEakLTOurskYIHPmzJrzd1e8BnmtdDVJlGuk5D+FxyCA8MPmkIyA==}
